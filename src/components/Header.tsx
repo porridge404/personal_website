@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +15,9 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Presentations', href: '#presentations' },
-    { name: 'Resume', href: '#resume' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -32,15 +32,14 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-dark-900/95 backdrop-blur-md border-b border-primary-500/20' 
+        ? 'bg-slate-900/95 backdrop-blur-md border-b border-emerald-500/20' 
         : 'bg-transparent'
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold text-white">
-            <span className="text-primary-400">&lt;</span>
-            Your Name
-            <span className="text-primary-400">/&gt;</span>
+          <div className="flex items-center space-x-2">
+            <User className="text-emerald-400" size={24} />
+            <span className="text-xl font-bold text-white">Stuart Cansdale</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -49,17 +48,17 @@ const Header: React.FC = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-primary-400 transition-colors duration-200 font-medium relative group"
+                className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 font-medium relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-gray-300 hover:text-primary-400 transition-colors"
+            className="md:hidden p-2 text-gray-300 hover:text-emerald-400 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -68,12 +67,12 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-dark-800 border border-primary-500/20 backdrop-blur-md">
+          <div className="md:hidden mt-4 py-4 bg-slate-800 border border-emerald-500/20 backdrop-blur-md rounded-lg">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-primary-400 hover:bg-dark-700/50 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-slate-700/50 transition-all duration-200"
               >
                 {item.name}
               </button>

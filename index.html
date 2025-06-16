@@ -2,61 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name - Portfolio</title>
-    <style>
-      /* Fallback styles in case CSS doesn't load */
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #0f172a;
-        color: white;
-        font-family: system-ui, -apple-system, sans-serif;
-      }
-      #root {
-        min-height: 100vh;
-      }
-      .loading {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        font-size: 18px;
-      }
-    </style>
+    <title>Stuart Cansdale - Portfolio</title>
   </head>
   <body>
-    <div id="root">
-      <div class="loading">Loading...</div>
-    </div>
-    <script>
-      // Debug script to check if JavaScript is working
-      console.log('HTML loaded, JavaScript is working');
-      
-      // Check if the main script loads
-      window.addEventListener('load', function() {
-        console.log('Window loaded');
-        setTimeout(function() {
-          const root = document.getElementById('root');
-          if (root && root.innerHTML.includes('Loading...')) {
-            console.error('React app failed to load - still showing loading message');
-            root.innerHTML = `
-              <div style="padding: 20px; text-align: center;">
-                <h1 style="color: #ef4444;">Failed to Load</h1>
-                <p>The React application failed to load. Check the console for errors.</p>
-                <p>Common issues:</p>
-                <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
-                  <li>JavaScript files not found (404 errors)</li>
-                  <li>CORS issues</li>
-                  <li>Build configuration problems</li>
-                </ul>
-              </div>
-            `;
-          }
-        }, 3000);
-      });
-    </script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

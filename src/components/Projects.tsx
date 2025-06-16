@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, Code, Smartphone, Globe, Zap } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, Github, Code } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -9,111 +9,59 @@ interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl: string;
-  category: string;
 }
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-
   const projects: Project[] = [
     {
       id: 1,
       title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, shopping cart, and payment integration.',
-      image: 'https://images.pexels.com/photos/3205568/pexels-photo-3205568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'web'
+      description: 'A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, shopping cart, and payment integration.',
+      image: 'https://images.pexels.com/photos/3205568/pexels-photo-3205568.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+      githubUrl: 'https://github.com/porridge404',
+      liveUrl: 'https://example.com'
     },
     {
       id: 2,
       title: 'Task Management App',
       description: 'A collaborative task management application with real-time updates, built with React and Firebase.',
-      image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      technologies: ['React', 'Firebase', 'Material-UI'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'web'
+      image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'Firebase', 'TypeScript'],
+      githubUrl: 'https://github.com/porridge404',
+      liveUrl: 'https://example.com'
     },
     {
       id: 3,
-      title: 'Weather Mobile App',
-      description: 'A cross-platform mobile weather application built with React Native and OpenWeatherMap API.',
-      image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      technologies: ['React Native', 'API Integration', 'Redux'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'mobile'
-    },
-    {
-      id: 4,
       title: 'Data Visualization Dashboard',
-      description: 'Interactive dashboard for data visualization using D3.js and React, featuring real-time charts and analytics.',
-      image: 'https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      description: 'Interactive dashboard for data visualization using React and D3.js, featuring real-time charts and analytics.',
+      image: 'https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['React', 'D3.js', 'TypeScript', 'Chart.js'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'web'
+      githubUrl: 'https://github.com/porridge404',
+      liveUrl: 'https://example.com'
     }
   ];
 
-  const categories = [
-    { id: 'all', name: 'All Projects', icon: Code },
-    { id: 'web', name: 'Web Apps', icon: Globe },
-    { id: 'mobile', name: 'Mobile Apps', icon: Smartphone },
-  ];
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
   return (
-    <section id="projects" className="py-20 bg-dark-800 relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-5"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="projects" className="py-20 bg-slate-800">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-500/10 border-2 border-primary-500/30 mb-6">
-            <Zap size={32} className="text-primary-400" />
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <Code size={32} className="text-emerald-400" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Featured <span className="text-emerald-400">Projects</span>
+            </h2>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Featured <span className="text-primary-400">Projects</span>
-          </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Cutting-edge applications showcasing modern development practices and innovative solutions
+            A showcase of my recent work and technical achievements
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <button
-                key={category.id}
-                onClick={() => setActiveFilter(category.id)}
-                className={`group flex items-center space-x-3 px-6 py-3 font-medium transition-all duration-300 border-2 ${
-                  activeFilter === category.id
-                    ? 'bg-primary-500 text-dark-900 border-primary-500 shadow-lg shadow-primary-500/25'
-                    : 'bg-dark-700 text-gray-300 border-gray-600 hover:border-primary-500 hover:text-primary-400'
-                }`}
-              >
-                <IconComponent size={20} />
-                <span>{category.name}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-dark-700 border border-gray-600 hover:border-primary-500/50 transition-all duration-300 hover:scale-105 overflow-hidden animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group bg-slate-700 border border-slate-600 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 overflow-hidden rounded-lg"
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
@@ -121,17 +69,14 @@ const Projects: React.FC = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-3 h-3 bg-primary-400 animate-pulse"></div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 line-clamp-3">
+                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -139,7 +84,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-accent-500/10 text-accent-400 text-sm border border-accent-500/30"
+                      className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs border border-emerald-500/30 rounded-full"
                     >
                       {tech}
                     </span>
@@ -151,19 +96,19 @@ const Projects: React.FC = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors group"
+                    className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
                   >
                     <Github size={16} />
-                    <span>Code</span>
+                    <span className="text-sm">Code</span>
                   </a>
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-primary-400 hover:text-primary-300 transition-colors group"
+                    className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
                     <ExternalLink size={16} />
-                    <span>Live Demo</span>
+                    <span className="text-sm">Live Demo</span>
                   </a>
                 </div>
               </div>
