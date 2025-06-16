@@ -4,11 +4,11 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/personal_website/', // Set the correct base path for GitHub Pages
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true, // Enable sourcemaps for debugging
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: undefined,
