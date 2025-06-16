@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Briefcase, Calendar, MapPin, ExternalLink, RefreshCw } from 'lucide-react';
+import React from 'react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 interface Experience {
   title: string;
@@ -8,82 +8,35 @@ interface Experience {
   location: string;
   description: string;
   skills: string[];
-  isLinkedInSynced?: boolean;
 }
 
 const Experience: React.FC = () => {
-  const [experiences, setExperiences] = useState<Experience[]>([
+  const experiences: Experience[] = [
     {
       title: 'Senior Software Engineer',
-      company: 'Tech Company',
+      company: 'Tech Solutions Ltd',
       period: '2022 - Present',
       location: 'London, UK',
-      description: 'Leading development of scalable web applications and mentoring junior developers.',
-      skills: ['React', 'TypeScript', 'Node.js', 'AWS'],
-      isLinkedInSynced: true
+      description: 'Leading development of scalable web applications and mentoring junior developers. Architecting cloud-native solutions and implementing best practices across development teams.',
+      skills: ['React', 'TypeScript', 'Node.js', 'AWS', 'Docker', 'PostgreSQL']
     },
     {
       title: 'Full Stack Developer',
-      company: 'Digital Agency',
+      company: 'Digital Innovations',
       period: '2020 - 2022',
       location: 'Manchester, UK',
-      description: 'Built and maintained full-stack applications for various clients.',
-      skills: ['JavaScript', 'Python', 'PostgreSQL', 'Docker'],
-      isLinkedInSynced: true
+      description: 'Built and maintained full-stack applications for various clients using modern web technologies. Collaborated with design teams to create responsive user interfaces.',
+      skills: ['JavaScript', 'Python', 'React', 'Django', 'PostgreSQL', 'Docker']
     },
     {
       title: 'Frontend Developer',
-      company: 'Startup',
+      company: 'Creative Agency',
       period: '2018 - 2020',
       location: 'Remote',
-      description: 'Developed responsive web applications and improved user experience.',
-      skills: ['React', 'CSS', 'JavaScript', 'Git'],
-      isLinkedInSynced: true
+      description: 'Developed responsive web applications and improved user experience across multiple client projects. Worked closely with designers to implement pixel-perfect interfaces.',
+      skills: ['React', 'CSS', 'JavaScript', 'Sass', 'Git', 'Figma']
     }
-  ]);
-
-  const [lastSyncTime, setLastSyncTime] = useState<Date | null>(null);
-  const [isSyncing, setIsSyncing] = useState(false);
-
-  const syncWithLinkedIn = async () => {
-    setIsSyncing(true);
-    
-    // Simulate LinkedIn API call
-    setTimeout(() => {
-      setLastSyncTime(new Date());
-      setIsSyncing(false);
-      
-      // Check for cached LinkedIn profile
-      const cachedProfile = localStorage.getItem('linkedin_profile');
-      if (cachedProfile) {
-        try {
-          const profile = JSON.parse(cachedProfile);
-          if (profile.experience) {
-            // Update experiences with LinkedIn data
-            const linkedInExperiences = profile.experience.map((exp: any) => ({
-              title: exp.title,
-              company: exp.company,
-              period: `${exp.startDate} - ${exp.endDate}`,
-              location: 'UK', // Default location
-              description: exp.description,
-              skills: ['React', 'TypeScript', 'Node.js'], // Default skills
-              isLinkedInSynced: true
-            }));
-            setExperiences(linkedInExperiences);
-          }
-        } catch (error) {
-          console.error('Failed to parse LinkedIn profile:', error);
-        }
-      }
-      
-      console.log('LinkedIn sync completed');
-    }, 2000);
-  };
-
-  useEffect(() => {
-    // Auto-sync on component mount
-    syncWithLinkedIn();
-  }, []);
+  ];
 
   return (
     <section id="experience" className="py-20 bg-slate-900">
@@ -95,26 +48,9 @@ const Experience: React.FC = () => {
               Professional <span className="text-emerald-400">Experience</span>
             </h2>
           </div>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             My professional journey and key achievements in software development
           </p>
-          
-          {/* LinkedIn Sync Status */}
-          <div className="flex items-center justify-center space-x-4 mb-8">
-            <button
-              onClick={syncWithLinkedIn}
-              disabled={isSyncing}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white rounded-lg transition-colors"
-            >
-              <RefreshCw size={16} className={isSyncing ? 'animate-spin' : ''} />
-              <span>{isSyncing ? 'Syncing...' : 'Sync with LinkedIn'}</span>
-            </button>
-            {lastSyncTime && (
-              <p className="text-sm text-gray-500">
-                Last synced: {lastSyncTime.toLocaleString()}
-              </p>
-            )}
-          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -124,14 +60,6 @@ const Experience: React.FC = () => {
                 key={index}
                 className="relative bg-slate-800 border border-slate-700 rounded-lg p-8 hover:border-emerald-500/50 transition-all duration-300"
               >
-                {/* LinkedIn Sync Indicator */}
-                {exp.isLinkedInSynced && (
-                  <div className="absolute top-4 right-4 flex items-center space-x-2 text-blue-400 text-sm">
-                    <ExternalLink size={14} />
-                    <span>LinkedIn</span>
-                  </div>
-                )}
-
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
