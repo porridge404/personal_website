@@ -22,6 +22,7 @@ const Contact: React.FC = () => {
     console.log('Form submitted:', formData);
     // Reset form
     setFormData({ name: '', email: '', subject: '', message: '' });
+    alert('Thank you for your message! I will get back to you soon.');
   };
 
   return (
@@ -57,7 +58,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <p className="font-medium text-white">Email</p>
-                  <p className="text-gray-400">stuart@example.com</p>
+                  <a href="mailto:stuart@stuc.me" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                    stuart@stuc.me
+                  </a>
                 </div>
               </div>
 

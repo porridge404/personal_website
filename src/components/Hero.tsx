@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
               <Linkedin size={24} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
             </a>
             <a 
-              href="mailto:stuart@example.com" 
+              href="mailto:stuart@stuc.me" 
               className="group p-4 bg-slate-800 border border-gray-700 hover:border-emerald-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
             >
               <Mail size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />

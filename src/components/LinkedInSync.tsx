@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Linkedin, RefreshCw, CheckCircle, AlertCircle } from 'lucide-react';
+import { Linkedin, RefreshCw, CheckCircle, AlertCircle, X } from 'lucide-react';
 
 interface LinkedInProfile {
   name: string;
@@ -21,11 +21,11 @@ const LinkedInSync: React.FC = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncStatus, setSyncStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isVisible, setIsVisible] = useState(true);
 
   // Simulate LinkedIn connection check
   useEffect(() => {
     const checkConnection = () => {
-      // In a real implementation, you would check if the user has authorized LinkedIn access
       const hasLinkedInAuth = localStorage.getItem('linkedin_access_token');
       setIsConnected(!!hasLinkedInAuth);
     };
@@ -34,11 +34,7 @@ const LinkedInSync: React.FC = () => {
   }, []);
 
   const connectToLinkedIn = () => {
-    // In a real implementation, this would redirect to LinkedIn OAuth
-    const linkedInAuthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=${encodeURIComponent(window.location.origin)}&scope=r_liteprofile%20r_emailaddress`;
-    
-    // For demo purposes, we'll simulate the connection
-    console.log('Redirecting to LinkedIn OAuth:', linkedInAuthUrl);
+    console.log('LinkedIn OAuth would redirect here in production');
     
     // Simulate successful connection
     setTimeout(() => {
@@ -58,10 +54,10 @@ const LinkedInSync: React.FC = () => {
     setSyncStatus('idle');
 
     try {
-      // Simulate API call to LinkedIn
+      // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Mock LinkedIn data based on the provided profile
+      // Mock LinkedIn data
       const mockProfile: LinkedInProfile = {
         name: 'Stuart Cansdale',
         headline: 'Software Engineer & Technology Leader',
@@ -88,8 +84,6 @@ const LinkedInSync: React.FC = () => {
 
       setProfile(mockProfile);
       setSyncStatus('success');
-
-      // Store in localStorage for persistence
       localStorage.setItem('linkedin_profile', JSON.stringify(mockProfile));
 
     } catch (error) {
@@ -122,6 +116,8 @@ const LinkedInSync: React.FC = () => {
     }
   }, []);
 
+  if (!isVisible) return null;
+
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 shadow-lg max-w-sm">
@@ -130,12 +126,20 @@ const LinkedInSync: React.FC = () => {
             <Linkedin size={20} className="text-blue-400" />
             <span className="text-white font-medium">LinkedIn Sync</span>
           </div>
-          {syncStatus === 'success' && (
-            <CheckCircle size={16} className="text-green-400" />
-          )}
-          {syncStatus === 'error' && (
-            <AlertCircle size={16} className="text-red-400" />
-          )}
+          <div className="flex items-center space-x-2">
+            {syncStatus === 'success' && (
+              <CheckCircle size={16} className="text-green-400" />
+            )}
+            {syncStatus === 'error' && (
+              <AlertCircle size={16} className="text-red-400" />
+            )}
+            <button
+              onClick={() => setIsVisible(false)}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <X size={16} />
+            </button>
+          </div>
         </div>
 
         {!isConnected ? (
@@ -157,7 +161,7 @@ const LinkedInSync: React.FC = () => {
               <button
                 onClick={syncWithLinkedIn}
                 disabled={isSyncing}
-                className="flex items-center space-x-1 text-blue-400 hover:text-blue-300 text-sm disabled:opacity-50"
+                className="flex items-center space-x-1 text-blue-400 hover:text-blue-300 text-sm disabled:opacity-50 transition-colors"
               >
                 <RefreshCw size={14} className={isSyncing ? 'animate-spin' : ''} />
                 <span>{isSyncing ? 'Syncing...' : 'Sync'}</span>
@@ -172,7 +176,7 @@ const LinkedInSync: React.FC = () => {
 
             <button
               onClick={disconnectLinkedIn}
-              className="text-red-400 hover:text-red-300 text-xs"
+              className="text-red-400 hover:text-red-300 text-xs transition-colors"
             >
               Disconnect
             </button>

@@ -39,9 +39,12 @@ const Footer: React.FC = () => {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-emerald-400">Get in Touch</h4>
-            <p className="text-gray-400 mb-2 hover:text-white transition-colors cursor-pointer">
-              stuart@example.com
-            </p>
+            <a 
+              href="mailto:stuart@stuc.me"
+              className="text-gray-400 mb-2 hover:text-white transition-colors cursor-pointer block"
+            >
+              stuart@stuc.me
+            </a>
             <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
               United Kingdom
             </p>

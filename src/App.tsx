@@ -6,7 +6,6 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import LinkedInSync from './components/LinkedInSync';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <LinkedInSync />
     </div>
   );
 }
