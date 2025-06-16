@@ -4,11 +4,11 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // This ensures relative paths work in production
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
+    sourcemap: true, // Enable sourcemaps for debugging
     rollupOptions: {
       output: {
         manualChunks: undefined,
@@ -18,4 +18,12 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    port: 5173,
+    host: true
+  },
+  preview: {
+    port: 3000,
+    host: true
+  }
 });
