@@ -47,7 +47,7 @@ const About: React.FC = () => {
                   <Code size={48} className="text-emerald-400" />
                 </div>
                 <p className="text-gray-400">Professional Photo</p>
-                <p className="text-sm text-gray-500">Synced from LinkedIn</p>
+                <p className="text-sm text-gray-500">Coming Soon</p>
               </div>
             </div>
           </div>
