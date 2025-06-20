@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Zap, Users, Award } from 'lucide-react';
+import ResumeDownload from './ResumeDownload';
 
 const About: React.FC = () => {
   const highlights = [
@@ -38,7 +39,7 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Profile Image Placeholder */}
           <div className="relative">
             <div className="w-full max-w-md mx-auto aspect-square bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-2xl border border-emerald-500/30 flex items-center justify-center">
@@ -87,6 +88,11 @@ const About: React.FC = () => {
                 );
               })}
             </div>
+          </div>
+
+          {/* Resume Download Section */}
+          <div className="lg:sticky lg:top-8">
+            <ResumeDownload />
           </div>
         </div>
       </div>
