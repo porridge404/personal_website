@@ -23,7 +23,14 @@ const Hero: React.FC = () => {
             <span className="text-white">Hi, I'm</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
-              Stuart Cansdale
+              <span className="relative">
+                <span className="text-emerald-300 font-extrabold">Stu</span>art{' '}
+                <span className="text-emerald-300 font-extrabold">C</span>ansdale
+              </span>
+            </span>
+            <br />
+            <span className="text-gray-400 text-2xl md:text-3xl font-normal">
+              (or <span className="text-emerald-300 font-bold">Stu</span>, for short)
             </span>
           </h1>
           
@@ -36,6 +43,8 @@ const Hero: React.FC = () => {
           <div className="flex items-center justify-center space-x-2 mb-8 text-gray-400">
             <MapPin size={20} className="text-emerald-400" />
             <span>Based in the UK</span>
+            <span className="mx-2">•</span>
+            <span className="text-emerald-300 font-medium">stuc.me</span>
           </div>
           
           {/* Social Links */}
