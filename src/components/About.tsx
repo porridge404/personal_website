@@ -37,6 +37,24 @@ const About: React.FC = () => {
                 healthcare challenges.
               </p>
             </div>
+
+            {/* Experience Summary */}
+            <div className="mt-8 pt-6 border-t border-slate-600">
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-lg">2 years industry experience (immunology R&D)</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-lg">1 year full-time academic research at Stanford University</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-lg">3 years additional research training (academic labs, part-time or during education)</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* What am I looking for? Section */}
