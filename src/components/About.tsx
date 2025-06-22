@@ -20,7 +20,7 @@ const About: React.FC = () => {
             
             <div className="prose prose-lg text-gray-300 space-y-4">
               <p className="text-lg leading-relaxed">
-                I’m a Research Associate with over six years of experience in cell therapy, with training in both academic and industry labs. I specia
+               I’m a Research Associate with over six years of experience in cell therapy, with training in both academic and industry labs. In industry, I specialized in multi-color flow cytometry, where I generated critical process data, presented findings in departmental meetings, and designed a 32-color panel for starting material characterization.
               </p>
               <p className="text-lg leading-relaxed">
                 Additionally, I have experience applying supervised machine learning to biological datasets. During my undergraduate degree at Santa Clara University, I worked on predictive models for EEG states with the intent of building a brain-computer interface. Additionally, I recently trained a superivsed model on sleep data to demonstrate my ability to indetify and communicate key information, keep my skills sharp, and keep up-to-date with modern ML packages and AI coding assistants.
