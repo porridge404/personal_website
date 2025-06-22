@@ -56,8 +56,13 @@ const Hero: React.FC = () => {
             Experienced in immunology, cell therapy, and machine learning.
           </p>
           
+          <div className="flex items-center justify-center space-x-2 mb-6 text-gray-400">
+            <MapPin size={20} className="text-emerald-400" />
+            <span>Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
+          </div>
+          
           {/* Resume Download Links */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button
               onClick={() => handleDownload('pdf')}
               className="group flex items-center justify-center space-x-3 px-6 py-3 bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg"
@@ -67,7 +72,6 @@ const Hero: React.FC = () => {
               </div>
               <div className="text-left">
                 <p className="text-white font-medium text-sm">Resume PDF</p>
-                <p className="text-gray-400 text-xs">Best for viewing</p>
               </div>
               <Download size={16} className="text-gray-400 group-hover:text-red-400 transition-colors" />
             </button>
@@ -81,15 +85,9 @@ const Hero: React.FC = () => {
               </div>
               <div className="text-left">
                 <p className="text-white font-medium text-sm">Resume DOCX</p>
-                <p className="text-gray-400 text-xs">Editable format</p>
               </div>
               <Download size={16} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
             </button>
-          </div>
-          
-          <div className="flex items-center justify-center space-x-2 mb-8 text-gray-400">
-            <MapPin size={20} className="text-emerald-400" />
-            <span>Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
           </div>
           
           {/* Social Links */}
