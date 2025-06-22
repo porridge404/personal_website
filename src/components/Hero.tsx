@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
           
           <div className="flex items-center justify-center space-x-2 mb-6 text-gray-400">
             <MapPin size={20} className="text-emerald-400" />
-            <span>Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
+            <span>Currently in the process of moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
           </div>
           
           {/* Resume Download Links */}
