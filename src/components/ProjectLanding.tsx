@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, FileText, Presentation } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -125,18 +125,9 @@ const ProjectLanding: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Project Header */}
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center">
-                {project.type === 'colab' ? (
-                  <FileText size={32} className="text-orange-400" />
-                ) : (
-                  <Presentation size={32} className="text-blue-400" />
-                )}
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
-                {project.title}
-              </h1>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {project.title}
+            </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               {project.description}
             </p>
