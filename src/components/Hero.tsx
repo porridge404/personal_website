@@ -23,10 +23,8 @@ const Hero: React.FC = () => {
             <span className="text-white">Hi, I'm</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
-              <span className="relative">
-                <span className="text-emerald-300 font-extrabold">Stu</span>art{' '}
-                <span className="text-emerald-300 font-extrabold">C</span>ansdale
-              </span>
+              <span className="text-emerald-300 font-extrabold">Stu</span>art{' '}
+              <span className="text-emerald-300 font-extrabold">C</span>ansdale
             </span>
             <br />
             <span className="text-gray-400 text-2xl md:text-3xl font-normal">
