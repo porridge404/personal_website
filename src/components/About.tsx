@@ -26,7 +26,7 @@ const About: React.FC = () => {
                 Additionally, I have experience applying supervised machine learning to biological datasets. As an undergraduate at Santa Clara University, I developed predictive models for EEG states as part of a brain-computer interface project. More recently, I trained a supervised model on sleep data to demonstrate my ability to identify and communicate key insights, maintain technical fluency, and stay current with modern ML libraries and AI coding tools.
               </p>
               <p className="text-lg leading-relaxed">
-                As for my personal hobbies, I love cooking, making music, playing cards games (ask me about EDH/commander!), and pushing high-level dungeons and raids with my World of Warcraft guild!
+                Outside of work, I enjoy cooking, making music, playing card games (ask me about EDH/Commander!), and tackling high-level dungeons and raids with my World of Warcraft guild.
               </p>
             </div>
 
