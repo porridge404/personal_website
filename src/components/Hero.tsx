@@ -49,14 +49,7 @@ const Hero: React.FC = () => {
           
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-12">
-            <a 
-              href="https://github.com/porridge404" 
-              className="group p-4 bg-slate-800 border border-gray-700 hover:border-emerald-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
-            </a>
+
             <a 
               href="https://www.linkedin.com/in/stuartcansdale/" 
               className="group p-4 bg-slate-800 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
@@ -70,6 +63,14 @@ const Hero: React.FC = () => {
               className="group p-4 bg-slate-800 border border-gray-700 hover:border-emerald-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
             >
               <Mail size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
+            </a>
+            <a 
+              href="https://github.com/porridge404" 
+              className="group p-4 bg-slate-800 border border-gray-700 hover:border-emerald-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
             </a>
           </div>
 
