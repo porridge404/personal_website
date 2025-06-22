@@ -1,5 +1,4 @@
 import React from 'react';
-import { User, Search, Target, Heart } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -7,21 +6,16 @@ const About: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            About <span className="text-emerald-400">Me</span>
+            About Me
           </h2>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Who am I? Section */}
           <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 hover:border-emerald-500/50 transition-all duration-300">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center">
-                <User size={24} className="text-emerald-400" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
-                Who am <span className="text-emerald-400">I?</span>
-              </h3>
-            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+              Who am I?
+            </h3>
             
             <div className="prose prose-lg text-gray-300 space-y-4">
               <p className="text-lg leading-relaxed">
@@ -46,14 +40,9 @@ const About: React.FC = () => {
 
           {/* What am I looking for? Section */}
           <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 hover:border-emerald-500/50 transition-all duration-300">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center">
-                <Search size={24} className="text-emerald-400" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
-                What am I looking <span className="text-emerald-400">for?</span>
-              </h3>
-            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+              What am I looking for?
+            </h3>
             
             <div className="space-y-6">
               <div className="prose prose-lg text-gray-300">
@@ -65,30 +54,20 @@ const About: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-500/10 border border-blue-500/30 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Target size={16} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">Research & Development</h4>
-                    <p className="text-gray-400 text-sm">
-                      Apply machine learning and computational methods to advance biomedical research, 
-                      particularly in immunology and cell therapy applications.
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Research & Development</h4>
+                  <p className="text-gray-400 text-sm">
+                    Apply machine learning and computational methods to advance biomedical research, 
+                    particularly in immunology and cell therapy applications.
+                  </p>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-500/10 border border-purple-500/30 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Heart size={16} className="text-purple-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">Healthcare Innovation</h4>
-                    <p className="text-gray-400 text-sm">
-                      Work on projects that directly impact patient outcomes and contribute to the 
-                      development of next-generation therapeutic approaches.
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Healthcare Innovation</h4>
+                  <p className="text-gray-400 text-sm">
+                    Work on projects that directly impact patient outcomes and contribute to the 
+                    development of next-generation therapeutic approaches.
+                  </p>
                 </div>
               </div>
 
