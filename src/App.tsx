@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import GoogleProjects from './components/GoogleProjects';
-import LinkedInWidget from './components/LinkedInWidget';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -19,7 +18,6 @@ function App() {
         <Experience />
         <Projects />
         <GoogleProjects />
-        <LinkedInWidget />
         <Contact />
       </main>
       <Footer />

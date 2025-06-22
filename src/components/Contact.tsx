@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <p className="font-medium text-white">Location</p>
-                  <p className="text-gray-400">United Kingdom</p>
+                  <p className="text-gray-400">Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</p>
                 </div>
               </div>
             </div>
