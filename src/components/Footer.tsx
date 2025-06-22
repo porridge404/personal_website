@@ -40,10 +40,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-emerald-400">Get in Touch</h4>
             <a 
-              href="mailto:stuart@stuc.me"
+              href="mailto:stuartcansdale@gmail.com"
               className="text-gray-400 mb-2 hover:text-white transition-colors cursor-pointer block"
             >
-              stuart@stuc.me
+              stuartcansdale@gmail.com
             </a>
             <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
               United Kingdom

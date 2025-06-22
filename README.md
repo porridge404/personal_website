@@ -108,6 +108,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact
 
-Stuart Cansdale - [stuart@stuc.me](mailto:stuart@stuc.me)
+Stuart Cansdale - [stuartcansdale@gmail.com](mailto:stuartcansdale@gmail.com)
 
 Project Link: [https://github.com/porridge404/stuart-portfolio](https://github.com/porridge404/stuart-portfolio)
