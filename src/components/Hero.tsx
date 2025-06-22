@@ -30,6 +30,10 @@ const Hero: React.FC = () => {
             <span className="text-gray-400 text-2xl md:text-3xl font-normal">
               (or <span className="text-emerald-300 font-bold">Stu</span>, for short)
             </span>
+            <br />
+            <span className="text-emerald-300 text-xl md:text-2xl font-semibold mt-2 block">
+              stuc.me
+            </span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -40,9 +44,7 @@ const Hero: React.FC = () => {
           
           <div className="flex items-center justify-center space-x-2 mb-8 text-gray-400">
             <MapPin size={20} className="text-emerald-400" />
-            <span>Based in the UK</span>
-            <span className="mx-2">•</span>
-            <span className="text-emerald-300 font-medium">stuc.me</span>
+            <span>Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
           </div>
           
           {/* Social Links */}
