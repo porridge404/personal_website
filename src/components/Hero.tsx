@@ -37,9 +37,8 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Software Engineer & Technology Leader
-            <br />
-            <span className="text-emerald-400 font-semibold">Building innovative solutions</span> with modern technologies
+            Research Associate & Bioengineer
+            Experienced in immunology, cell therapy, and machine learning.
           </p>
           
           <div className="flex items-center justify-center space-x-2 mb-8 text-gray-400">
