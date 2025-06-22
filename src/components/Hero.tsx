@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, MapPin, Download, FileText, File } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToAbout = () => {
@@ -7,6 +7,20 @@ const Hero: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleDownload = (fileType: 'pdf' | 'docx') => {
+    const fileName = fileType === 'pdf' 
+      ? 'Stuart_Cansdale_Resume.pdf' 
+      : 'Stuart_Cansdale_Resume.docx';
+    
+    const link = document.createElement('a');
+    link.href = `/resume/${fileName}`;
+    link.download = fileName;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -42,6 +56,37 @@ const Hero: React.FC = () => {
             Experienced in immunology, cell therapy, and machine learning.
           </p>
           
+          {/* Resume Download Links */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <button
+              onClick={() => handleDownload('pdf')}
+              className="group flex items-center justify-center space-x-3 px-6 py-3 bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg"
+            >
+              <div className="w-8 h-8 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center justify-center">
+                <FileText size={16} className="text-red-400" />
+              </div>
+              <div className="text-left">
+                <p className="text-white font-medium text-sm">Resume PDF</p>
+                <p className="text-gray-400 text-xs">Best for viewing</p>
+              </div>
+              <Download size={16} className="text-gray-400 group-hover:text-red-400 transition-colors" />
+            </button>
+
+            <button
+              onClick={() => handleDownload('docx')}
+              className="group flex items-center justify-center space-x-3 px-6 py-3 bg-slate-800 border border-slate-700 hover:border-blue-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg"
+            >
+              <div className="w-8 h-8 bg-blue-500/10 border border-blue-500/30 rounded-lg flex items-center justify-center">
+                <File size={16} className="text-blue-400" />
+              </div>
+              <div className="text-left">
+                <p className="text-white font-medium text-sm">Resume DOCX</p>
+                <p className="text-gray-400 text-xs">Editable format</p>
+              </div>
+              <Download size={16} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
+            </button>
+          </div>
+          
           <div className="flex items-center justify-center space-x-2 mb-8 text-gray-400">
             <MapPin size={20} className="text-emerald-400" />
             <span>Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
@@ -49,7 +94,6 @@ const Hero: React.FC = () => {
           
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-12">
-
             <a 
               href="https://www.linkedin.com/in/stuartcansdale/" 
               className="group p-4 bg-slate-800 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"

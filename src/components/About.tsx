@@ -1,6 +1,5 @@
 import React from 'react';
 import { Code, Zap, Users, Award } from 'lucide-react';
-import ResumeDownload from './ResumeDownload';
 
 const About: React.FC = () => {
   const highlights = [
@@ -39,22 +38,9 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          {/* Profile Image Placeholder */}
-          <div className="relative">
-            <div className="w-full max-w-md mx-auto aspect-square bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-2xl border border-emerald-500/30 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Code size={48} className="text-emerald-400" />
-                </div>
-                <p className="text-gray-400">Professional Photo</p>
-                <p className="text-sm text-gray-500">Coming Soon</p>
-              </div>
-            </div>
-          </div>
-
+        <div className="max-w-4xl mx-auto">
           {/* About Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 mb-12">
             <div className="prose prose-lg text-gray-300">
               <p className="text-lg leading-relaxed">
                 I'm a dedicated software engineer with extensive experience in building 
@@ -67,32 +53,27 @@ const About: React.FC = () => {
                 to help them grow in their careers.
               </p>
             </div>
-
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-              {highlights.map((highlight, index) => {
-                const IconComponent = highlight.icon;
-                return (
-                  <div
-                    key={index}
-                    className="p-6 bg-slate-700 border border-slate-600 rounded-lg hover:border-emerald-500/50 transition-all duration-300"
-                  >
-                    <IconComponent size={32} className="text-emerald-400 mb-4" />
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm">
-                      {highlight.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
           </div>
 
-          {/* Resume Download Section */}
-          <div className="lg:sticky lg:top-8">
-            <ResumeDownload />
+          {/* Highlights Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {highlights.map((highlight, index) => {
+              const IconComponent = highlight.icon;
+              return (
+                <div
+                  key={index}
+                  className="p-6 bg-slate-700 border border-slate-600 rounded-lg hover:border-emerald-500/50 transition-all duration-300"
+                >
+                  <IconComponent size={32} className="text-emerald-400 mb-4" />
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {highlight.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    {highlight.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
