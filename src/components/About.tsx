@@ -20,16 +20,10 @@ const About: React.FC = () => {
             
             <div className="prose prose-lg text-gray-300 space-y-4">
               <p className="text-lg leading-relaxed">
-                I'm a passionate Research Associate and Bioengineer with a unique blend of scientific expertise 
-                and technical skills. My background spans immunology, cell therapy, and machine learning, 
-                allowing me to bridge the gap between cutting-edge biological research and innovative 
-                technological solutions.
+                I’m a Research Associate with over six years of experience in cell therapy, with training in both academic and industry labs. I specia
               </p>
               <p className="text-lg leading-relaxed">
-                With hands-on experience in laboratory research and computational analysis, I've developed 
-                a deep understanding of how to translate complex biological problems into actionable insights 
-                using modern data science techniques. I'm particularly drawn to projects that combine 
-                scientific rigor with technological innovation.
+                Additionally, I have experience applying supervised machine learning to biological datasets. During my undergraduate degree at Santa Clara University, I worked on predictive models for EEG states with the intent of building a brain-computer interface. Additionally, I recently trained a superivsed model on sleep data to demonstrate my ability to indetify and communicate key information, keep my skills sharp, and keep up-to-date with modern ML packages and AI coding assistants.
               </p>
               <p className="text-lg leading-relaxed">
                 As for my personal hobbies, I love cooking, making music, playing cards games (ask me about EDH/commander!), and pushing high-level dungeons and raids with my World of Warcraft guild!
