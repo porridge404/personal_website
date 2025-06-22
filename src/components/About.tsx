@@ -35,15 +35,18 @@ const About: React.FC = () => {
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-lg">2 years industry experience (immunology R&D)</span>
+                  <span className="text-lg">2 years industry experience in "off-the-shelf" cell therapy
+                  </span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-lg">1 year full-time academic research at Stanford University</span>
+                  <span className="text-lg">1 year as a full-time Life Science Research Professional conducting academic research at Stanford University
+                  </span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-lg">3 years additional research training (academic labs, part-time or during education)</span>
+                  <span className="text-lg">3 years additional wet lab and research training during my undergraduate degree at Santa Clara University
+                  </span>
                 </li>
               </ul>
             </div>
