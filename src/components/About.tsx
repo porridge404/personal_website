@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linkedin, Mail } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -44,41 +45,46 @@ const About: React.FC = () => {
               What am I looking for?
             </h3>
             
-            <div className="space-y-6">
-              <div className="prose prose-lg text-gray-300">
-                <p className="text-lg leading-relaxed">
-                  I'm actively seeking opportunities in the Seattle, Portland, and Bay Area regions where 
-                  I can contribute to meaningful projects at the intersection of biotechnology and data science. 
-                  I'm particularly interested in roles that allow me to:
-                </p>
-              </div>
+            <div className="prose prose-lg text-gray-300 space-y-4">
+              <p className="text-lg leading-relaxed">
+                I'm actively seeking opportunities in the Seattle, Portland, and Bay Area regions where 
+                I can contribute to meaningful projects at the intersection of biotechnology and data science. 
+                I'm particularly interested in roles that allow me to apply machine learning and computational 
+                methods to advance biomedical research, particularly in immunology and cell therapy applications.
+              </p>
+              <p className="text-lg leading-relaxed">
+                I'm also passionate about working on projects that directly impact patient outcomes and 
+                contribute to the development of next-generation therapeutic approaches. Whether it's 
+                developing new algorithms for analyzing biological data or optimizing experimental workflows, 
+                I thrive on challenges that push the boundaries of what's possible in modern medicine.
+              </p>
+              <p className="text-lg leading-relaxed">
+                I'm looking for a collaborative environment where I can grow both as a scientist and 
+                as a technologist, working alongside multidisciplinary teams to tackle complex challenges 
+                in biotechnology and healthcare. Whether it's a biotech startup, pharmaceutical company, 
+                or research institution, I'm excited about opportunities that combine scientific discovery 
+                with technological innovation.
+              </p>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Research & Development</h4>
-                  <p className="text-gray-400 text-sm">
-                    Apply machine learning and computational methods to advance biomedical research, 
-                    particularly in immunology and cell therapy applications.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Healthcare Innovation</h4>
-                  <p className="text-gray-400 text-sm">
-                    Work on projects that directly impact patient outcomes and contribute to the 
-                    development of next-generation therapeutic approaches.
-                  </p>
-                </div>
-              </div>
-
-              <div className="prose prose-lg text-gray-300">
-                <p className="text-lg leading-relaxed">
-                  I'm looking for a collaborative environment where I can grow both as a scientist and 
-                  as a technologist, working alongside multidisciplinary teams to tackle complex challenges 
-                  in biotechnology and healthcare. Whether it's a biotech startup, pharmaceutical company, 
-                  or research institution, I'm excited about opportunities that push the boundaries of 
-                  what's possible in modern medicine.
-                </p>
+            {/* Connect with me section */}
+            <div className="mt-8 pt-6 border-t border-slate-600">
+              <h4 className="text-lg font-semibold text-white mb-4">Connect with me:</h4>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://www.linkedin.com/in/stuartcansdale/" 
+                  className="group p-4 bg-slate-800 border border-slate-600 hover:border-blue-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin size={24} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
+                </a>
+                <a 
+                  href="mailto:stuartcansdale@gmail.com" 
+                  className="group p-4 bg-slate-800 border border-slate-600 hover:border-emerald-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
+                >
+                  <Mail size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
+                </a>
               </div>
             </div>
           </div>
