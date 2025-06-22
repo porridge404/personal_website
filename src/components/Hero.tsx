@@ -38,6 +38,7 @@ const Hero: React.FC = () => {
           
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Research Associate & Bioengineer
+            <br />
             Experienced in immunology, cell therapy, and machine learning.
           </p>
           
