@@ -32,9 +32,7 @@ const About: React.FC = () => {
                 scientific rigor with technological innovation.
               </p>
               <p className="text-lg leading-relaxed">
-                When I'm not in the lab or coding, you'll find me exploring the intersection of biology 
-                and technology, always looking for new ways to apply machine learning to solve real-world 
-                healthcare challenges.
+                As for my personal hobbies, I love cooking, making music, playing cards games (ask me about EDH/commander!), and pushing high-level dungeons and raids with my World of Warcraft guild!
               </p>
             </div>
 
