@@ -1,14 +1,7 @@
 import React from 'react';
-import { ChevronDown, Github, Linkedin, Mail, MapPin, Download, FileText, File } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Download, FileText, File } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const scrollToAbout = () => {
-    const element = document.querySelector('#about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleDownload = (fileType: 'pdf' | 'docx') => {
     const fileName = fileType === 'pdf' 
       ? 'Stuart_Cansdale_Resume.pdf' 
@@ -91,7 +84,7 @@ const Hero: React.FC = () => {
           </div>
           
           {/* Social Links */}
-          <div className="flex justify-center space-x-6 mb-12">
+          <div className="flex justify-center space-x-6">
             <a 
               href="https://www.linkedin.com/in/stuartcansdale/" 
               className="group p-4 bg-slate-800 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
@@ -115,26 +108,7 @@ const Hero: React.FC = () => {
               <Github size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
             </a>
           </div>
-
-          {/* CTA Button */}
-          <button
-            onClick={scrollToAbout}
-            className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold rounded-lg hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
-          >
-            <span>Learn More About Me</span>
-            <ChevronDown size={20} className="ml-2 group-hover:translate-y-1 transition-transform" />
-          </button>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <button
-          onClick={scrollToAbout}
-          className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 animate-bounce"
-        >
-          <ChevronDown size={32} />
-        </button>
       </div>
     </section>
   );
