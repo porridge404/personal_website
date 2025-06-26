@@ -1,7 +1,10 @@
 import React from 'react';
-import { Heart, Code, User } from 'lucide-react';
+import { Heart, Code, User, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  // This blurb matches the one in Hero.tsx
+  const heroBlurb = "Research Associate & Bioengineer\nExperienced in immunology, cell therapy, and machine learning.";
+
   return (
     <footer className="bg-slate-900 border-t border-slate-800 text-white py-12">
       <div className="container mx-auto px-6">
@@ -12,9 +15,8 @@ const Footer: React.FC = () => {
               <User className="text-emerald-400" size={24} />
               <span className="text-xl font-bold">Stuart Cansdale</span>
             </div>
-            <p className="text-gray-400">
-              Software Engineer passionate about creating innovative digital solutions 
-              with modern technologies.
+            <p className="text-gray-400 whitespace-pre-line">
+              {heroBlurb}
             </p>
           </div>
 
@@ -22,10 +24,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-emerald-400">Quick Links</h4>
             <ul className="space-y-2">
-              {['Home', 'About', 'Experience', 'Projects', 'Contact'].map((item) => (
+              {['Home', 'About', 'My Projects', 'Interactive Résumé', 'Contact'].map((item) => (
                 <li key={item}>
                   <a 
-                    href={`#${item.toLowerCase()}`} 
+                    href={`#${item.toLowerCase().replace(' ', '-')}`} 
                     className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
                     <span className="w-2 h-2 bg-emerald-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></span>
@@ -39,15 +41,23 @@ const Footer: React.FC = () => {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-emerald-400">Get in Touch</h4>
-            <a 
-              href="mailto:stuartcansdale@gmail.com"
-              className="text-gray-400 mb-2 hover:text-white transition-colors cursor-pointer block"
-            >
-              stuartcansdale@gmail.com
-            </a>
-            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              United Kingdom
-            </p>
+            <div className="space-y-3">
+              <a 
+                href="mailto:stuartcansdale@gmail.com"
+                className="text-gray-400 hover:text-white transition-colors cursor-pointer block"
+              >
+                stuartcansdale@gmail.com
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/stuartcansdale/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-400 transition-colors cursor-pointer flex items-center space-x-2"
+              >
+                <Linkedin size={16} />
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
           </div>
         </div>
 
