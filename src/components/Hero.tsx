@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, MapPin, Download, FileText, File } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Download, FileText, File, MousePointer } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const handleDownload = (fileType: 'pdf' | 'docx') => {
@@ -14,6 +14,13 @@ const Hero: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const scrollToInteractiveResume = () => {
+    const element = document.querySelector('#interactive-resume');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -55,7 +62,7 @@ const Hero: React.FC = () => {
           </div>
           
           {/* Resume Download Links */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <button
               onClick={() => handleDownload('pdf')}
               className="group flex items-center justify-center space-x-3 px-6 py-3 bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg"
@@ -80,6 +87,19 @@ const Hero: React.FC = () => {
                 <p className="text-white font-medium text-sm">Resume DOCX</p>
               </div>
               <Download size={16} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
+            </button>
+          </div>
+
+          {/* Interactive Resume Link */}
+          <div className="mb-12">
+            <button
+              onClick={scrollToInteractiveResume}
+              className="group flex items-center justify-center space-x-3 px-6 py-3 bg-gradient-to-r from-emerald-600/20 to-emerald-500/20 border border-emerald-500/50 hover:border-emerald-400 hover:from-emerald-600/30 hover:to-emerald-500/30 transition-all duration-300 rounded-lg mx-auto"
+            >
+              <MousePointer size={16} className="text-emerald-400 group-hover:text-emerald-300 transition-colors" />
+              <span className="text-emerald-400 group-hover:text-emerald-300 font-medium transition-colors">
+                Try my Interactive Résumé! (work in progress)
+              </span>
             </button>
           </div>
           
