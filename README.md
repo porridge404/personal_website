@@ -24,8 +24,8 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/porridge404/personal_website.git
-cd personal_website
+git clone https://github.com/porridge404/portfolio.git
+cd portfolio
 ```
 
 2. Install dependencies:
@@ -102,7 +102,7 @@ npm run build
 npm run deploy
 ```
 
-The site will be available at: `https://porridge404.github.io/personal_website/`
+The site will be available at: `https://porridge404.github.io/portfolio/`
 
 ## 📁 Project Structure
 
@@ -173,4 +173,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Stuart Cansdale - [stuartcansdale@gmail.com](mailto:stuartcansdale@gmail.com)
 
-Project Link: [https://github.com/porridge404/personal_website](https://github.com/porridge404/personal_website)
+Project Link: [https://github.com/porridge404/portfolio](https://github.com/porridge404/portfolio)
