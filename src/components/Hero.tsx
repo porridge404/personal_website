@@ -33,6 +33,9 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
         <div className="animate-fade-in">
+          {/* Added top spacing before the introduction */}
+          <div className="mb-8"></div>
+          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="text-white">Hi, I'm</span>
             <br />
@@ -56,13 +59,14 @@ const Hero: React.FC = () => {
             Experienced in immunology, cell therapy, and machine learning.
           </p>
           
-          <div className="flex items-center justify-center space-x-2 mb-6 text-gray-400">
+          {/* Reduced spacing between location and above blurb from mb-6 to mb-4 */}
+          <div className="flex items-center justify-center space-x-2 mb-4 text-gray-400">
             <MapPin size={20} className="text-emerald-400" />
             <span>Currently in the process of moving and searching for opportunities in Seattle, Portland, and the Bay Area</span>
           </div>
           
-          {/* Resume Download Links */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          {/* Resume Download Links - kept mb-8 but reduced from mb-12 */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
             <button
               onClick={() => handleDownload('pdf')}
               className="group flex items-center justify-center space-x-3 px-6 py-3 bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg"
@@ -90,8 +94,8 @@ const Hero: React.FC = () => {
             </button>
           </div>
 
-          {/* Interactive Resume Link */}
-          <div className="mb-12">
+          {/* Interactive Resume Link - reduced spacing from mb-12 to mb-8 */}
+          <div className="mb-8">
             <button
               onClick={scrollToInteractiveResume}
               className="group flex items-center justify-center space-x-3 px-6 py-3 bg-gradient-to-r from-emerald-600/20 to-emerald-500/20 border border-emerald-500/50 hover:border-emerald-400 hover:from-emerald-600/30 hover:to-emerald-500/30 transition-all duration-300 rounded-lg mx-auto"
