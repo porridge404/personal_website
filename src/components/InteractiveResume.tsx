@@ -141,7 +141,7 @@ const InteractiveResume: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Interactive <span className="text-emerald-400">Resume</span>
+            Timeline
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Click on any timeline point to explore my professional journey in detail
@@ -149,9 +149,9 @@ const InteractiveResume: React.FC = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Timeline */}
-            <div className="lg:col-span-1">
+            <div className="order-2 lg:order-1">
               <div className="relative">
                 {/* Vertical Line */}
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-600"></div>
@@ -200,8 +200,8 @@ const InteractiveResume: React.FC = () => {
             </div>
 
             {/* Content Area */}
-            <div className="lg:col-span-2">
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
+            <div className="order-1 lg:order-2">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full sticky top-8">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
