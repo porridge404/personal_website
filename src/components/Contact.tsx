@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information - Redesigned */}
+          {/* Contact Information - Simplified */}
           <div className="space-y-6">
             {/* LinkedIn Connection */}
             <a 
@@ -94,12 +94,9 @@ const Contact: React.FC = () => {
                   <Linkedin className="text-blue-400 group-hover:text-blue-300 transition-colors" size={28} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
                     Add me on LinkedIn
                   </h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                    Connect with me professionally
-                  </p>
                 </div>
                 <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
@@ -119,12 +116,9 @@ const Contact: React.FC = () => {
                   <Mail className="text-emerald-400 group-hover:text-emerald-300 transition-colors" size={28} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors mb-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
                     Send me an email
                   </h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                    stuartcansdale@gmail.com
-                  </p>
                 </div>
                 <div className="text-emerald-400 group-hover:text-emerald-300 transition-colors">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
@@ -133,21 +127,6 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </a>
-
-            {/* Fun addition - Optional motivational message */}
-            <div className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20 rounded-lg p-6 mt-8">
-              <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-emerald-400 text-lg">💡</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Let's make something great!</h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    Whether you have a project in mind, want to discuss opportunities, or just want to chat about biotech and data science, I'd love to hear from you!
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
