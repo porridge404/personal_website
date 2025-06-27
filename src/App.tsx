@@ -21,8 +21,8 @@ function App() {
               <main>
                 <Hero />
                 <About />
-                <MyProjects />
                 <InteractiveResume />
+                <MyProjects />
                 <Contact />
               </main>
               <Footer />
