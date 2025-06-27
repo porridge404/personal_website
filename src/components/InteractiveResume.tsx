@@ -12,6 +12,7 @@ interface TimelineEntry {
   responsibilities: string[];
   achievements: string[];
   skills: string[];
+  reasonForLeaving?: string; // Added optional reason for leaving field
 }
 
 const InteractiveResume: React.FC = () => {
@@ -35,7 +36,9 @@ const InteractiveResume: React.FC = () => {
         'Built comprehensive portfolio showcasing technical and scientific expertise',
         'Established professional network across target geographic regions'
       ],
-      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation']
+      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
+      // Commented out reason for leaving for current position
+      // reasonForLeaving: 'Currently active in job search - not applicable'
     },
     {
       id: 'stanford-research',
@@ -58,7 +61,8 @@ const InteractiveResume: React.FC = () => {
         'Developed novel experimental protocols for cell characterization',
         'Mentored undergraduate research assistants'
       ],
-      skills: ['Academic Research', 'Immunology', 'Data Analysis', 'Scientific Writing', 'Team Collaboration']
+      skills: ['Academic Research', 'Immunology', 'Data Analysis', 'Scientific Writing', 'Team Collaboration'],
+      reasonForLeaving: 'Transitioned to pursue industry opportunities that combine my research expertise with commercial applications in biotechnology and data science.'
     },
     {
       id: 'industry-experience',
@@ -81,7 +85,8 @@ const InteractiveResume: React.FC = () => {
         'Improved analytical workflows resulting in 20% efficiency gains',
         'Received recognition for technical excellence and attention to detail'
       ],
-      skills: ['Flow Cytometry', 'Cell Therapy', 'GMP Compliance', 'Data Analysis', 'Technical Presentations']
+      skills: ['Flow Cytometry', 'Cell Therapy', 'GMP Compliance', 'Data Analysis', 'Technical Presentations'],
+      reasonForLeaving: 'Sought to expand my research experience in an academic setting to deepen my understanding of fundamental immunological mechanisms while maintaining industry connections.'
     },
     {
       id: 'undergraduate-research',
@@ -104,7 +109,9 @@ const InteractiveResume: React.FC = () => {
         'Gained proficiency in multiple laboratory techniques and instrumentation',
         'Developed strong foundation in experimental design and data analysis'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design']
+      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design'],
+      // Commented out reason for leaving for undergraduate experience
+      // reasonForLeaving: 'Graduated and transitioned to full-time industry position to apply learned skills in a commercial biotechnology environment.'
     }
   ];
 
@@ -261,6 +268,18 @@ const InteractiveResume: React.FC = () => {
                     ))}
                   </ul>
                 </div>
+
+                {/* Reason for Leaving Section */}
+                {selectedEntry.reasonForLeaving && (
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-white mb-3">Reason for Leaving</h4>
+                    <div className="bg-slate-600/50 border border-slate-500/50 rounded-lg p-4">
+                      <p className="text-gray-300 text-sm leading-relaxed italic">
+                        {selectedEntry.reasonForLeaving}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Skills */}
                 <div>
