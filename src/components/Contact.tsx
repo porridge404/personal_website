@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             </h2>
           </div>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Let's build something amazing together.
+            Always happy to connect, don't hesitate to reach out!
           </p>
         </div>
 
