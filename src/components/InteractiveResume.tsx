@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical } from 'lucide-react';
 
 interface TimelineEntry {
@@ -12,10 +12,12 @@ interface TimelineEntry {
   responsibilities: string[];
   achievements: string[];
   skills: string[];
-  reasonForLeaving?: string; // Added optional reason for leaving field
+  reasonForLeaving?: string;
 }
 
 const InteractiveResume: React.FC = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  
   const timelineData: TimelineEntry[] = [
     {
       id: 'current-search',
@@ -36,9 +38,7 @@ const InteractiveResume: React.FC = () => {
         'Built comprehensive portfolio showcasing technical and scientific expertise',
         'Established professional network across target geographic regions'
       ],
-      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
-      // Commented out reason for leaving for current position
-      // reasonForLeaving: 'Currently active in job search - not applicable'
+      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation']
     },
     {
       id: 'stanford-research',
@@ -109,13 +109,21 @@ const InteractiveResume: React.FC = () => {
         'Gained proficiency in multiple laboratory techniques and instrumentation',
         'Developed strong foundation in experimental design and data analysis'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design'],
-      // Commented out reason for leaving for undergraduate experience
-      // reasonForLeaving: 'Graduated and transitioned to full-time industry position to apply learned skills in a commercial biotechnology environment.'
+      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design']
     }
   ];
 
   const [selectedEntry, setSelectedEntry] = useState<TimelineEntry>(timelineData[0]);
+
+  // Scroll to content when selectedEntry changes (for mobile)
+  useEffect(() => {
+    if (contentRef.current && window.innerWidth < 1024) {
+      contentRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  }, [selectedEntry]);
 
   const getIcon = (type: string) => {
     switch (type) {
@@ -143,6 +151,17 @@ const InteractiveResume: React.FC = () => {
     }
   };
 
+  const getTypeColorClasses = (type: string, isSelected: boolean = false) => {
+    const baseClasses = isSelected ? 'text-white' : 'text-gray-300';
+    const bgClasses = isSelected 
+      ? type === 'work' ? 'bg-emerald-500 border-emerald-400' 
+        : type === 'education' ? 'bg-blue-500 border-blue-400'
+        : 'bg-purple-500 border-purple-400'
+      : 'bg-slate-700 border-slate-600 hover:border-slate-500';
+    
+    return `${baseClasses} ${bgClasses}`;
+  };
+
   return (
     <section id="interactive-resume" className="py-20 bg-slate-800">
       <div className="container mx-auto px-6">
@@ -155,10 +174,46 @@ const InteractiveResume: React.FC = () => {
           </p>
         </div>
 
+        {/* Horizontal Timeline - Mobile Only */}
+        <div className="lg:hidden mb-8">
+          <div className="sticky top-16 z-40 bg-slate-800 border-b border-slate-700 pb-4 mb-8">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex space-x-4 px-2 min-w-max">
+                {timelineData.map((entry) => (
+                  <button
+                    key={entry.id}
+                    onClick={() => setSelectedEntry(entry)}
+                    className={`
+                      flex-shrink-0 px-4 py-3 rounded-lg border-2 transition-all duration-300 min-w-[140px] text-center
+                      ${selectedEntry.id === entry.id 
+                        ? getTypeColorClasses(entry.type, true)
+                        : getTypeColorClasses(entry.type, false)
+                      }
+                      hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500/50
+                    `}
+                  >
+                    <div className="flex items-center justify-center space-x-2 mb-1">
+                      <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
+                        {getIcon(entry.type)}
+                      </div>
+                    </div>
+                    <div className="text-xs font-semibold truncate mb-1">
+                      {entry.period}
+                    </div>
+                    <div className="text-xs opacity-75 truncate">
+                      {entry.organization}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Timeline - Now takes 1 column */}
-            <div className="order-2 lg:order-1 lg:col-span-1">
+            {/* Vertical Timeline - Desktop Only */}
+            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
               <div className="relative">
                 {/* Vertical Line */}
                 <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-slate-600"></div>
@@ -171,7 +226,7 @@ const InteractiveResume: React.FC = () => {
                       className="relative flex items-start cursor-pointer group"
                       onClick={() => setSelectedEntry(entry)}
                     >
-                      {/* Timeline Marker - Reduced from w-12 h-12 to w-3 h-3 */}
+                      {/* Timeline Marker */}
                       <div className={`
                         relative z-10 w-3 h-3 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0
                         ${selectedEntry.id === entry.id 
@@ -179,10 +234,9 @@ const InteractiveResume: React.FC = () => {
                           : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
                         }
                       `}>
-                        {/* Remove icon from small bullets */}
                       </div>
                       
-                      {/* Timeline Content Preview - Simplified for narrow layout */}
+                      {/* Timeline Content Preview */}
                       <div className="ml-3 flex-1 min-w-0">
                         <div className={`
                           p-3 rounded-lg border transition-all duration-300
@@ -211,9 +265,9 @@ const InteractiveResume: React.FC = () => {
               </div>
             </div>
 
-            {/* Content Area - Now takes 3 columns */}
-            <div className="order-1 lg:order-2 lg:col-span-3">
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full sticky top-8">
+            {/* Content Area */}
+            <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
@@ -300,6 +354,16 @@ const InteractiveResume: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };
