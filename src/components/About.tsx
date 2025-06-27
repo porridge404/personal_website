@@ -3,7 +3,7 @@ import { Linkedin, Mail, MessageSquare } from 'lucide-react';
 
 const About: React.FC = () => {
   const scrollToContact = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector('#connect');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }

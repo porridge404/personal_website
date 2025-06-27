@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
   const isConfigured = import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY;
 
   return (
-    <section id="contact" className="py-20 bg-slate-900">
+    <section id="connect" className="py-20 bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-4 mb-6">

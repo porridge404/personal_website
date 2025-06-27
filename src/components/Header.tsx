@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     { name: 'About', href: '#about' },
     { name: 'Interactive Résumé', href: '#interactive-resume' },
     { name: 'My Projects', href: '#my-projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Connect', href: '#connect' },
   ];
 
   const scrollToSection = (href: string) => {
