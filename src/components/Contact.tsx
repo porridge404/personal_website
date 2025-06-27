@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Linkedin, MessageSquare, AlertCircle, CheckCircle } from 'lucide-react';
+import { Mail, Send, Linkedin, MessageSquare, AlertCircle, CheckCircle, Copy, Check } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,12 +11,39 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    try {
+      await navigator.clipboard.writeText('stuartcansdale@gmail.com');
+      setIsEmailCopied(true);
+      setTimeout(() => setIsEmailCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = 'stuartcansdale@gmail.com';
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        setIsEmailCopied(true);
+        setTimeout(() => setIsEmailCopied(false), 2000);
+      } catch (fallbackErr) {
+        console.error('Fallback copy failed:', fallbackErr);
+      }
+      document.body.removeChild(textArea);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -106,27 +133,55 @@ const Contact: React.FC = () => {
               </div>
             </a>
 
-            {/* Email Connection */}
-            <a 
-              href="mailto:stuartcansdale@gmail.com" 
-              className="group block bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg p-6 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/10"
-            >
+            {/* Email Connection with Copy Button */}
+            <div className="group bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg p-6 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/10">
               <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
                   <Mail className="text-emerald-400 group-hover:text-emerald-300 transition-colors" size={28} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors mb-1">
                     Send me an email
                   </h3>
+                  <p className="text-gray-400 text-sm">stuartcansdale@gmail.com</p>
                 </div>
-                <div className="text-emerald-400 group-hover:text-emerald-300 transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
+                <div className="flex items-center space-x-2">
+                  {/* Copy Button */}
+                  <button
+                    onClick={handleCopyEmail}
+                    className="relative p-2 bg-slate-700 border border-slate-600 hover:border-emerald-500/50 hover:bg-slate-600 transition-all duration-300 rounded-lg group/copy"
+                    title="Copy email address"
+                  >
+                    {isEmailCopied ? (
+                      <Check size={16} className="text-green-400" />
+                    ) : (
+                      <Copy size={16} className="text-gray-400 group-hover/copy:text-emerald-400 transition-colors" />
+                    )}
+                    
+                    {/* Tooltip */}
+                    <div className={`
+                      absolute -top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-slate-900 text-white text-xs rounded whitespace-nowrap transition-all duration-200 pointer-events-none
+                      ${isEmailCopied 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-1 group-hover/copy:opacity-100 group-hover/copy:translate-y-0'
+                      }
+                    `}>
+                      {isEmailCopied ? 'Copied!' : 'Copy email'}
+                    </div>
+                  </button>
+                  
+                  {/* Email Link */}
+                  <a 
+                    href="mailto:stuartcansdale@gmail.com"
+                    className="text-emerald-400 group-hover:text-emerald-300 transition-colors"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </a>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
 
           {/* Contact Form */}
@@ -243,12 +298,21 @@ const Contact: React.FC = () => {
                 <p className="text-gray-300 text-sm mb-2">
                   <strong>Alternative:</strong> Email me directly at:
                 </p>
-                <a 
-                  href="mailto:stuartcansdale@gmail.com" 
-                  className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
-                >
-                  stuartcansdale@gmail.com
-                </a>
+                <div className="flex items-center justify-between">
+                  <a 
+                    href="mailto:stuartcansdale@gmail.com" 
+                    className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                  >
+                    stuartcansdale@gmail.com
+                  </a>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="p-1 text-gray-400 hover:text-emerald-400 transition-colors"
+                    title="Copy email address"
+                  >
+                    {isEmailCopied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+                  </button>
+                </div>
               </div>
             )}
           </div>
