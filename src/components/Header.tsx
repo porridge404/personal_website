@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, User } from 'lucide-react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  hideOnInteractiveResume?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ hideOnInteractiveResume = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -30,11 +34,17 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled 
+    <header className={`
+      fixed w-full top-0 z-50 transition-all duration-300
+      ${hideOnInteractiveResume 
+        ? 'opacity-0 pointer-events-none -translate-y-full' 
+        : 'opacity-100 pointer-events-auto translate-y-0'
+      }
+      ${isScrolled 
         ? 'bg-slate-900/95 backdrop-blur-md border-b border-emerald-500/20' 
         : 'bg-transparent'
-    }`}>
+      }
+    `}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">

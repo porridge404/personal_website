@@ -15,8 +15,14 @@ interface TimelineEntry {
   reasonForLeaving?: string;
 }
 
-const InteractiveResume: React.FC = () => {
+interface InteractiveResumeProps {
+  setIsInteractiveResumeActive: (active: boolean) => void;
+}
+
+const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveResumeActive }) => {
+  const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [isTimelineSticky, setIsTimelineSticky] = useState(false);
   
   const timelineData: TimelineEntry[] = [
     {
@@ -115,6 +121,37 @@ const InteractiveResume: React.FC = () => {
 
   const [selectedEntry, setSelectedEntry] = useState<TimelineEntry>(timelineData[0]);
 
+  // IntersectionObserver to detect when the section is active
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const isIntersecting = entry.isIntersecting;
+        const intersectionRatio = entry.intersectionRatio;
+        
+        // Consider the section "active" when it's significantly visible
+        const isActive = isIntersecting && intersectionRatio > 0.3;
+        
+        setIsInteractiveResumeActive(isActive);
+        setIsTimelineSticky(isActive);
+      },
+      {
+        threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0],
+        rootMargin: '-64px 0px -64px 0px' // Account for header height
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [setIsInteractiveResumeActive]);
+
   // Scroll to content when selectedEntry changes (for mobile)
   useEffect(() => {
     if (contentRef.current && window.innerWidth < 1024) {
@@ -163,7 +200,7 @@ const InteractiveResume: React.FC = () => {
   };
 
   return (
-    <section id="interactive-resume" className="py-20 bg-slate-800">
+    <section ref={sectionRef} id="interactive-resume" className="py-20 bg-slate-800">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -176,7 +213,10 @@ const InteractiveResume: React.FC = () => {
 
         {/* Horizontal Timeline - Mobile Only */}
         <div className="lg:hidden mb-8">
-          <div className="sticky top-16 z-40 bg-slate-800 border-b border-slate-700 pb-4 mb-8">
+          <div className={`
+            sticky z-40 bg-slate-800 border-b border-slate-700 pb-4 mb-8 transition-all duration-300
+            ${isTimelineSticky ? 'top-0' : 'top-16'}
+          `}>
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex space-x-4 px-2 min-w-max">
                 {timelineData.map((entry) => (
