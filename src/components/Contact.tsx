@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, Github, Linkedin, MessageSquare, AlertCircle, CheckCircle } from 'lucide-react';
+import { Mail, Send, Linkedin, MessageSquare, AlertCircle, CheckCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
           <div className="flex items-center justify-center space-x-4 mb-6">
             <MessageSquare size={32} className="text-emerald-400" />
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Get In <span className="text-emerald-400">Touch</span>
+              Let's <span className="text-emerald-400">Connect!</span>
             </h2>
           </div>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -80,60 +80,72 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-              <p className="text-gray-400 mb-8">
-                I'm always excited to discuss new opportunities, innovative projects, 
-                or simply connect with fellow developers and tech enthusiasts.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 group">
-                <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
-                  <Mail className="text-emerald-400" size={20} />
+          {/* Contact Information - Redesigned */}
+          <div className="space-y-6">
+            {/* LinkedIn Connection */}
+            <a 
+              href="https://www.linkedin.com/in/stuartcansdale/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block bg-slate-800 border border-slate-700 hover:border-blue-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg p-6 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-blue-500/10 border border-blue-500/30 rounded-lg flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                  <Linkedin className="text-blue-400 group-hover:text-blue-300 transition-colors" size={28} />
                 </div>
-                <div>
-                  <p className="font-medium text-white">Email</p>
-                  <a href="mailto:stuartcansdale@gmail.com" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
+                    Add me on LinkedIn
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                    Connect with me professionally
+                  </p>
+                </div>
+                <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+
+            {/* Email Connection */}
+            <a 
+              href="mailto:stuartcansdale@gmail.com" 
+              className="group block bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-700 transition-all duration-300 rounded-lg p-6 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/10"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                  <Mail className="text-emerald-400 group-hover:text-emerald-300 transition-colors" size={28} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors mb-1">
+                    Send me an email
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
                     stuartcansdale@gmail.com
-                  </a>
+                  </p>
+                </div>
+                <div className="text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg>
                 </div>
               </div>
+            </a>
 
-              <div className="flex items-center space-x-4 group">
-                <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
-                  <MapPin className="text-emerald-400" size={20} />
+            {/* Fun addition - Optional motivational message */}
+            <div className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20 rounded-lg p-6 mt-8">
+              <div className="flex items-start space-x-3">
+                <div className="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-emerald-400 text-lg">💡</span>
                 </div>
                 <div>
-                  <p className="font-medium text-white">Location</p>
-                  <p className="text-gray-400">Currently moving and searching for opportunities in Seattle, Portland, and the Bay Area</p>
+                  <h4 className="text-lg font-semibold text-white mb-2">Let's make something great!</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Whether you have a project in mind, want to discuss opportunities, or just want to chat about biotech and data science, I'd love to hear from you!
+                  </p>
                 </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Connect Online</h4>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://github.com/porridge404" 
-                  className="w-12 h-12 bg-slate-800 border border-slate-600 rounded-lg flex items-center justify-center hover:border-emerald-500 hover:bg-slate-700 transition-all duration-300 group"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github size={20} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/stuartcansdale/" 
-                  className="w-12 h-12 bg-slate-800 border border-slate-600 rounded-lg flex items-center justify-center hover:border-blue-500 hover:bg-slate-700 transition-all duration-300 group"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin size={20} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
-                </a>
               </div>
             </div>
           </div>
