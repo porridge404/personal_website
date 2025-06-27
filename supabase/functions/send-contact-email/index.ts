@@ -62,7 +62,7 @@ Deno.serve(async (req: Request) => {
 
     // Prepare email content
     const emailContent = {
-      from: 'Portfolio Contact <noreply@stuc.me>',
+      from: 'Portfolio Contact <noreply@connect.stuc.me>',
       to: ['stuartcansdale@gmail.com'],
       reply_to: email,
       subject: `Portfolio Contact: ${subject}`,
@@ -84,7 +84,7 @@ Deno.serve(async (req: Request) => {
           </div>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
-            <p>This message was sent from your portfolio contact form at stuc.me</p>
+            <p>This message was sent from your portfolio contact form at connect.stuc.me</p>
             <p>Reply directly to this email to respond to ${name}</p>
           </div>
         </div>
@@ -100,7 +100,7 @@ Message:
 ${message}
 
 ---
-This message was sent from your portfolio contact form at stuc.me
+This message was sent from your portfolio contact form at connect.stuc.me
 Reply directly to this email to respond to ${name}
       `
     };
