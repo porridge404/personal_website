@@ -1,25 +1,27 @@
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-}
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
 
 interface ContactFormData {
-  name: string
-  email: string
-  subject: string
-  message: string
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 }
 
-serve(async (req) => {
+Deno.serve(async (req: Request) => {
   // Handle CORS preflight requests
-  if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
+  if (req.method === "OPTIONS") {
+    return new Response(null, {
+      status: 200,
+      headers: corsHeaders,
+    });
   }
 
   try {
-    const { name, email, subject, message }: ContactFormData = await req.json()
+    const { name, email, subject, message }: ContactFormData = await req.json();
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
@@ -29,11 +31,11 @@ serve(async (req) => {
           status: 400, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
-      )
+      );
     }
 
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return new Response(
         JSON.stringify({ error: 'Invalid email format' }),
@@ -41,21 +43,21 @@ serve(async (req) => {
           status: 400, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
-      )
+      );
     }
 
     // Get the email service API key from environment variables
-    const emailApiKey = Deno.env.get('RESEND_API_KEY')
+    const emailApiKey = Deno.env.get('RESEND_API_KEY');
     
     if (!emailApiKey) {
-      console.error('RESEND_API_KEY not found in environment variables')
+      console.error('RESEND_API_KEY not found in environment variables');
       return new Response(
         JSON.stringify({ error: 'Email service not configured' }),
         { 
           status: 500, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
-      )
+      );
     }
 
     // Prepare email content
@@ -101,7 +103,7 @@ ${message}
 This message was sent from your portfolio contact form at stuc.me
 Reply directly to this email to respond to ${name}
       `
-    }
+    };
 
     // Send email using Resend API
     const response = await fetch('https://api.resend.com/emails', {
@@ -111,22 +113,22 @@ Reply directly to this email to respond to ${name}
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(emailContent),
-    })
+    });
 
     if (!response.ok) {
-      const errorData = await response.text()
-      console.error('Resend API error:', errorData)
+      const errorData = await response.text();
+      console.error('Resend API error:', errorData);
       return new Response(
         JSON.stringify({ error: 'Failed to send email' }),
         { 
           status: 500, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
-      )
+      );
     }
 
-    const result = await response.json()
-    console.log('Email sent successfully:', result)
+    const result = await response.json();
+    console.log('Email sent successfully:', result);
 
     return new Response(
       JSON.stringify({ 
@@ -138,16 +140,16 @@ Reply directly to this email to respond to ${name}
         status: 200, 
         headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
       }
-    )
+    );
 
   } catch (error) {
-    console.error('Error in send-contact-email function:', error)
+    console.error('Error in send-contact-email function:', error);
     return new Response(
       JSON.stringify({ error: 'Internal server error' }),
       { 
         status: 500, 
         headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
       }
-    )
+    );
   }
-})
+});

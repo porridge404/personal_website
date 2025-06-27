@@ -28,8 +28,9 @@ const Contact: React.FC = () => {
     try {
       // Get Supabase URL from environment variables
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
       
-      if (!supabaseUrl) {
+      if (!supabaseUrl || !supabaseAnonKey) {
         throw new Error('Supabase configuration missing. Please set up your environment variables.');
       }
 
@@ -37,7 +38,7 @@ const Contact: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Authorization': `Bearer ${supabaseAnonKey}`,
         },
         body: JSON.stringify(formData),
       });
@@ -59,6 +60,9 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Check if environment variables are configured
+  const isConfigured = import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY;
 
   return (
     <section id="contact" className="py-20 bg-slate-900">
@@ -138,6 +142,19 @@ const Contact: React.FC = () => {
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
             
+            {/* Configuration Warning */}
+            {!isConfigured && (
+              <div className="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-start space-x-3">
+                <AlertCircle size={20} className="text-yellow-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-yellow-400 font-medium">Setup Required</p>
+                  <p className="text-yellow-300 text-sm mt-1">
+                    Contact form requires Supabase configuration. Please set up your environment variables or email me directly.
+                  </p>
+                </div>
+              </div>
+            )}
+            
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg flex items-start space-x-3">
                 <CheckCircle size={20} className="text-green-400 flex-shrink-0 mt-0.5" />
@@ -173,7 +190,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isConfigured}
                     className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="Your name"
                   />
@@ -189,7 +206,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isConfigured}
                     className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="your.email@example.com"
                   />
@@ -207,7 +224,7 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !isConfigured}
                   className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="What's this about?"
                 />
@@ -223,7 +240,7 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !isConfigured}
                   rows={5}
                   className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Tell me about your project or idea..."
@@ -232,20 +249,28 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isConfigured}
                 className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-3 px-6 rounded-lg hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 flex items-center justify-center space-x-2 font-bold hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
               >
                 <Send size={20} />
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                <span>
+                  {!isConfigured ? 'Setup Required' : isSubmitting ? 'Sending...' : 'Send Message'}
+                </span>
               </button>
             </form>
 
-            {/* Environment Variables Notice */}
-            {!import.meta.env.VITE_SUPABASE_URL && (
-              <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                <p className="text-yellow-400 text-sm">
-                  <strong>Setup Required:</strong> Supabase environment variables need to be configured for the contact form to work.
+            {/* Direct Email Alternative */}
+            {!isConfigured && (
+              <div className="mt-6 p-4 bg-slate-700 border border-slate-600 rounded-lg">
+                <p className="text-gray-300 text-sm mb-2">
+                  <strong>Alternative:</strong> Email me directly at:
                 </p>
+                <a 
+                  href="mailto:stuartcansdale@gmail.com" 
+                  className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                >
+                  stuartcansdale@gmail.com
+                </a>
               </div>
             )}
           </div>
