@@ -133,18 +133,6 @@ const Contact: React.FC = () => {
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
             
-            {/* Configuration Warning */}
-            {!isConfigured && (
-              <div className="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-start space-x-3">
-                <AlertCircle size={20} className="text-yellow-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-yellow-400 font-medium">Setup Required</p>
-                  <p className="text-yellow-300 text-sm mt-1">
-                    Contact form requires Supabase configuration. Please set up your environment variables or email me directly.
-                  </p>
-                </div>
-              </div>
-            )}
             
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg flex items-start space-x-3">
