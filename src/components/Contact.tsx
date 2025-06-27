@@ -28,9 +28,8 @@ const Contact: React.FC = () => {
     try {
       // Get Supabase URL from environment variables
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
       
-      if (!supabaseUrl || !supabaseAnonKey) {
+      if (!supabaseUrl) {
         throw new Error('Supabase configuration missing. Please set up your environment variables.');
       }
 
@@ -38,7 +37,6 @@ const Contact: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabaseAnonKey}`,
         },
         body: JSON.stringify(formData),
       });
@@ -62,7 +60,7 @@ const Contact: React.FC = () => {
   };
 
   // Check if environment variables are configured
-  const isConfigured = import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY;
+  const isConfigured = import.meta.env.VITE_SUPABASE_URL;
 
   return (
     <section id="contact" className="py-20 bg-slate-900">
