@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                     required
                     disabled={isSubmitting || !isConfigured}
                     className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                    placeholder="your.email@example.com"
+                    placeholder="your_email@email.com"
                   />
                 </div>
               </div>
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
                   required
                   disabled={isSubmitting || !isConfigured}
                   className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="What's this about?"
+                  placeholder="Job, project, or just saying hi"
                 />
               </div>
 
@@ -221,7 +221,7 @@ const Contact: React.FC = () => {
                   disabled={isSubmitting || !isConfigured}
                   rows={5}
                   className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Tell me about your project or idea..."
+                  placeholder="What's on your mind?"
                 />
               </div>
 
