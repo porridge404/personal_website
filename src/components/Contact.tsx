@@ -133,7 +133,6 @@ const Contact: React.FC = () => {
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
             
-            
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg flex items-start space-x-3">
                 <CheckCircle size={20} className="text-green-400 flex-shrink-0 mt-0.5" />
