@@ -1,7 +1,14 @@
 import React from 'react';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, MessageSquare } from 'lucide-react';
 
 const About: React.FC = () => {
+  const scrollToContact = () => {
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-slate-800">
       <div className="container mx-auto px-6">
@@ -20,7 +27,7 @@ const About: React.FC = () => {
             
             <div className="prose prose-lg text-gray-300 space-y-4">
               <p className="text-lg leading-relaxed">
-               I’m a Research Associate with over six years of experience in cell therapy, with training in both academic and industry labs. In industry, I specialized in multi-color flow cytometry, where I generated critical process data, presented findings in departmental meetings, and designed a 32-color panel for starting material characterization.
+               I'm a Research Associate with over six years of experience in cell therapy, with training in both academic and industry labs. In industry, I specialized in multi-color flow cytometry, where I generated critical process data, presented findings in departmental meetings, and designed a 32-color panel for starting material characterization.
               </p>
               <p className="text-lg leading-relaxed">
                 Additionally, I have experience applying supervised machine learning to biological datasets. As an undergraduate at Santa Clara University, I developed predictive models for EEG states as part of a brain-computer interface project. More recently, I trained a supervised model on sleep data to demonstrate my ability to identify and communicate key insights, maintain technical fluency, and stay current with modern ML libraries and AI coding tools.
@@ -83,7 +90,7 @@ const About: React.FC = () => {
             {/* Connect with me section */}
             <div className="mt-8 pt-6 border-t border-slate-600">
               <h4 className="text-lg font-semibold text-white mb-4">Connect with me:</h4>
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-4">
                 <a 
                   href="https://www.linkedin.com/in/stuartcansdale/" 
                   className="group p-4 bg-slate-800 border border-slate-600 hover:border-blue-500 transition-all duration-300 hover:bg-slate-700 rounded-lg"
@@ -98,6 +105,13 @@ const About: React.FC = () => {
                 >
                   <Mail size={24} className="text-gray-400 group-hover:text-emerald-400 transition-colors" />
                 </a>
+                <button
+                  onClick={scrollToContact}
+                  className="group p-4 bg-slate-800 border border-slate-600 hover:border-purple-500 transition-all duration-300 hover:bg-slate-700 rounded-lg cursor-pointer"
+                  title="Send me a message"
+                >
+                  <MessageSquare size={24} className="text-gray-400 group-hover:text-purple-400 transition-colors" />
+                </button>
               </div>
             </div>
           </div>
