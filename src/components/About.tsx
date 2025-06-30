@@ -69,7 +69,7 @@ const About: React.FC = () => {
               <p className="text-lg leading-relaxed">
                 I'm actively seeking Junior Engineer and Research Associate/Senior Research Associate positions. I would love to work at the intersection of medical devices and machine learning. With my multidisciplinary background in signal processing, machine learning, and immunotherapy I would love the opportunity to work at a robotics company and realign my career path to what I was doing during my undergrad.
               </p>
-                I also really enjoyed my time working in CAR-T and cell therapy and I'm also seeking opportunities in that field. Additionally, I'm passionate about a wide array of topics such as medicine in space, satellites, climate change, and alternative proteins. I believe my broad skillset, ability to quickly learn tasks, communicate data effecitively, and passion for research 
+                I also really enjoyed my time working in CAR-T and cell therapy and I'm also seeking opportunities in that field. Additionally, I'm passionate about a wide array of topics such as medicine in space, satellites, climate change, and alternative proteins. I believe my ability to quickly learn tasks, communicate data effecitively, and passion for research makes me a valuable asset in a team environment.
               </p>
               <p className="text-lg leading-relaxed">
                 There are more things I'm interested in than not, so if you think I would be a good fit on your team, please reach out! I would love to learn more about what you do.
