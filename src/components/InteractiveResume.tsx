@@ -330,10 +330,9 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
             {/* Vertical Timeline - Desktop Only - Now wider */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-2">
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-6 h-[600px] overflow-hidden">
-                <h3 className="text-lg font-semibold text-white mb-6 text-center border-b border-slate-600 pb-3">Timeline</h3>
                 <div className="relative h-full overflow-y-auto pr-3">
                   {/* Enhanced Vertical Line */}
-                  <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60"></div>
+                  <div className="absolute left-2.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60"></div>
                   
                   <div className="space-y-8 pb-4">
                     {timelineData.map((entry, index) => (
@@ -350,18 +349,18 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                             : 'bg-slate-600 border-slate-500 group-hover:border-slate-400 group-hover:scale-110 group-hover:shadow-lg'
                           }
                         `}>
-                          <div className="w-3 h-3">
-                            <IconRenderer entry={entry} size={14} />
+                          <div className="w-4 h-4">
+                            <IconRenderer entry={entry} size={16} />
                           </div>
                         </div>
                         
-                        {/* Enhanced Timeline Content Preview */}
+                        {/* Simplified Timeline Content Preview */}
                         <div className="ml-6 flex-1 min-w-0">
                           <div className={`
                             p-4 rounded-lg border transition-all duration-300 shadow-sm
                             ${selectedEntry.id === entry.id 
                               ? 'bg-slate-600 border-emerald-500/50 shadow-lg ring-1 ring-emerald-500/20' 
-                              : 'bg-slate-800/50 border-slate-600 group-hover:border-slate-500 group-hover:bg-slate-700/50 group-hover:shadow-md'
+                              : 'bg-slate-800 border-slate-600 group-hover:border-slate-500 group-hover:bg-slate-700 group-hover:shadow-md'
                             }
                           `}>
                             <h4 className={`font-bold text-sm mb-2 transition-colors leading-tight ${
@@ -370,17 +369,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                               {entry.title}
                             </h4>
                             <p className="text-gray-400 text-xs mb-1 font-medium">{entry.organization}</p>
-                            <p className="text-gray-500 text-xs mb-2">{entry.period}</p>
-                            {entry.employmentType && (
-                              <div className="flex items-center space-x-1 mb-2">
-                                <Clock size={10} className="text-gray-500" />
-                                <span className="text-gray-500 text-xs">{entry.employmentType}</span>
-                              </div>
-                            )}
-                            <div className="flex items-center space-x-1">
-                              <MapPin size={10} className="text-gray-500" />
-                              <span className="text-gray-500 text-xs truncate">{entry.location}</span>
-                            </div>
+                            <p className="text-gray-500 text-xs">{entry.period}</p>
                           </div>
                         </div>
                       </div>
