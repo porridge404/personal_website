@@ -222,8 +222,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Gained proficiency in multiple laboratory techniques and instrumentation',
         'Developed strong foundation in experimental design and data analysis'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics'],
-      reasonForLeaving: 'Completed degree program and transitioned to full-time professional career in biotechnology.'
+      skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics']
+      // No reasonForLeaving - this will demonstrate the conditional display
       // No logoUrl - will use default education icon
     }
   ];
