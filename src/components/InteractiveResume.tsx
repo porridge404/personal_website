@@ -71,7 +71,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Career Transition',
       period: 'May 2024 - Present',
       location: 'Seattle, Portland, Bay Area',
-      employmentType: 'Full-time',
+      employmentType: 'Part-time',
       type: 'work',
       description: 'Currently seeking opportunities in biotechnology and data science roles where I can apply my experience in immunology, cell therapy, and machine learning to advance biomedical research and patient outcomes.',
       responsibilities: [
@@ -91,12 +91,12 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     {
       id: 'planned break',
       title: 'Planned Break',
-      organization: 'Self-Employed',
+      organization: 'DJ, MC, and Music Producer',
       period: 'Apr 2023 - May 2024',
       location: 'Palo Alto, CA',
       employmentType: 'Full-time',
       type: 'work',
-      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic.\n\nDuring this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
+      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic.\n\nDuring this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a DJ and MC for weddings and corporate events. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
       responsibilities: [],
       achievements: [],
       skills: ['Event Hosting and Public Speaking', 'Teamwork and Coordination with Weddings Planners and Event Staff', 'Audio Equipment setup, operation, and troubleshooting'],
