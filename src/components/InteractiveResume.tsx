@@ -22,24 +22,24 @@ interface InteractiveResumeProps {
 }
 
 // Component to handle icon rendering with fallback
-const IconRenderer: React.FC<{ entry: TimelineEntry }> = ({ entry }) => {
+const IconRenderer: React.FC<{ entry: TimelineEntry; size?: number }> = ({ entry, size = 12 }) => {
   const [imageError, setImageError] = useState(false);
 
   const getDefaultIcon = (type: string, id?: string) => {
     // Special case for DJ/music related entries
     if (id === 'planned break') {
-      return <Music size={12} />;
+      return <Music size={size} />;
     }
     
     switch (type) {
       case 'work':
-        return <Briefcase size={12} />;
+        return <Briefcase size={size} />;
       case 'education':
-        return <GraduationCap size={12} />;
+        return <GraduationCap size={size} />;
       case 'research':
-        return <FlaskConical size={12} />;
+        return <FlaskConical size={size} />;
       default:
-        return <Briefcase size={12} />;
+        return <Briefcase size={size} />;
     }
   };
 
@@ -309,7 +309,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   >
                     <div className="flex items-center justify-center space-x-2 mb-1">
                       <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                        <IconRenderer entry={entry} />
+                        <IconRenderer entry={entry} size={12} />
                       </div>
                     </div>
                     <div className="text-xs font-semibold truncate mb-1">
@@ -325,52 +325,62 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Vertical Timeline - Desktop Only */}
-            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-4 h-[600px] overflow-hidden">
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">Timeline</h3>
-                <div className="relative h-full overflow-y-auto pr-2">
-                  {/* Vertical Line */}
-                  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-500"></div>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Vertical Timeline - Desktop Only - Now wider */}
+            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-2">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-6 h-[600px] overflow-hidden">
+                <h3 className="text-lg font-semibold text-white mb-6 text-center border-b border-slate-600 pb-3">Timeline</h3>
+                <div className="relative h-full overflow-y-auto pr-3">
+                  {/* Enhanced Vertical Line */}
+                  <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60"></div>
                   
-                  <div className="space-y-6 pb-4">
+                  <div className="space-y-8 pb-4">
                     {timelineData.map((entry, index) => (
                       <div
                         key={entry.id}
                         className="relative flex items-start cursor-pointer group"
                         onClick={() => setSelectedEntry(entry)}
                       >
-                        {/* Timeline Marker */}
+                        {/* Enhanced Timeline Marker */}
                         <div className={`
-                          relative z-10 w-4 h-4 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0
+                          relative z-10 w-6 h-6 rounded-full border-3 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0 shadow-lg
                           ${selectedEntry.id === entry.id 
-                            ? `${getTypeColor(entry.type)} scale-125 shadow-lg` 
-                            : 'bg-slate-600 border-slate-500 group-hover:border-slate-400 group-hover:scale-110'
+                            ? `${getTypeColor(entry.type)} scale-125 shadow-xl ring-4 ring-white/20` 
+                            : 'bg-slate-600 border-slate-500 group-hover:border-slate-400 group-hover:scale-110 group-hover:shadow-lg'
                           }
                         `}>
-                          <div className="w-2 h-2">
-                            <IconRenderer entry={entry} />
+                          <div className="w-3 h-3">
+                            <IconRenderer entry={entry} size={14} />
                           </div>
                         </div>
                         
-                        {/* Timeline Content Preview */}
-                        <div className="ml-4 flex-1 min-w-0">
+                        {/* Enhanced Timeline Content Preview */}
+                        <div className="ml-6 flex-1 min-w-0">
                           <div className={`
-                            p-3 rounded-lg border transition-all duration-300
+                            p-4 rounded-lg border transition-all duration-300 shadow-sm
                             ${selectedEntry.id === entry.id 
-                              ? 'bg-slate-600 border-emerald-500/50 shadow-lg' 
-                              : 'bg-slate-800/50 border-slate-600 group-hover:border-slate-500 group-hover:bg-slate-700/50'
+                              ? 'bg-slate-600 border-emerald-500/50 shadow-lg ring-1 ring-emerald-500/20' 
+                              : 'bg-slate-800/50 border-slate-600 group-hover:border-slate-500 group-hover:bg-slate-700/50 group-hover:shadow-md'
                             }
                           `}>
-                            <h4 className={`font-bold text-sm mb-1 transition-colors ${
+                            <h4 className={`font-bold text-sm mb-2 transition-colors leading-tight ${
                               selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
                             }`}>
                               {entry.title}
                             </h4>
-                            <p className="text-gray-400 text-xs mb-1 truncate">{entry.organization}</p>
-                            <p className="text-gray-500 text-xs">{entry.period}</p>
+                            <p className="text-gray-400 text-xs mb-1 font-medium">{entry.organization}</p>
+                            <p className="text-gray-500 text-xs mb-2">{entry.period}</p>
+                            {entry.employmentType && (
+                              <div className="flex items-center space-x-1 mb-2">
+                                <Clock size={10} className="text-gray-500" />
+                                <span className="text-gray-500 text-xs">{entry.employmentType}</span>
+                              </div>
+                            )}
+                            <div className="flex items-center space-x-1">
+                              <MapPin size={10} className="text-gray-500" />
+                              <span className="text-gray-500 text-xs truncate">{entry.location}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -380,14 +390,14 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
               </div>
             </div>
 
-            {/* Content Area */}
+            {/* Content Area - Now takes remaining space */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-[600px] overflow-y-auto">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className={`w-8 h-8 rounded-full ${getTypeColor(selectedEntry.type)} flex items-center justify-center text-white`}>
-                      <IconRenderer entry={selectedEntry} />
+                    <div className={`w-10 h-10 rounded-full ${getTypeColor(selectedEntry.type)} flex items-center justify-center text-white shadow-lg`}>
+                      <IconRenderer entry={selectedEntry} size={20} />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{selectedEntry.title}</h3>
