@@ -183,22 +183,9 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       title: 'BS in Bioengineering',
       organization: 'Santa Clara University',
       period: 'June 2020',
-      location: 'Santa Clara, CA',
+      location: 'Couch at home (graduated during COVID)',
       type: 'education',
       description: 'Graduated with a Bachelor of Science in Bioengineering, with an research paper in machine learning and a degree emphasis on medical devices.',
-      responsibilities: [
-        'Completed rigorous bioengineering curriculum',
-        'Maintained high academic standards throughout degree program',
-        'Participated in graduation ceremonies and academic recognition events',
-        'Transitioned from undergraduate student to professional career'
-      ],
-      achievements: [
-        'Successfully earned Bachelor of Science degree in Bioengineering',
-        'Completed capstone projects demonstrating technical competency',
-        'Achieved academic milestones and degree requirements',
-        'Prepared for transition to professional career in biotechnology'
-      ],
-      skills: ['Bioengineering Fundamentals', 'Academic Excellence', 'Project Completion', 'Professional Preparation'],
       logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
     },
     {
