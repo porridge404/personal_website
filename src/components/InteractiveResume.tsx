@@ -328,7 +328,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Vertical Timeline - Desktop Only - Narrower width */}
-            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-4">
+            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-2">
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-4 h-[600px] overflow-hidden">
                 <div className="relative h-full overflow-y-auto pr-2">
                   {/* Enhanced Vertical Line */}
