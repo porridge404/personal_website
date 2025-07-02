@@ -329,10 +329,17 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Vertical Timeline - Desktop Only - Fixed positioning and sizing */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-4 h-[600px] overflow-hidden">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-6 h-[600px] overflow-hidden">
                 <div className="relative h-full overflow-y-auto pr-2">
                   {/* Fixed Vertical Line - Properly positioned and extended */}
-                  <div className="absolute left-3 top-0 w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60" style={{ height: `${timelineData.length * 100 + 50}px` }}></div>
+                  <div 
+                    className="absolute w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60" 
+                    style={{ 
+                      left: '15px', // Centered on the 30px wide markers (15px from left edge)
+                      top: '12px', // Start at center of first marker
+                      height: `${timelineData.length * 80 + 40}px` // Extended height
+                    }}
+                  ></div>
                   
                   <div className="space-y-6 pb-8 relative">
                     {timelineData.map((entry, index) => (
@@ -341,15 +348,17 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                         className="relative flex items-start cursor-pointer group"
                         onClick={() => setSelectedEntry(entry)}
                       >
-                        {/* Fixed Timeline Marker - Properly centered on the line */}
+                        {/* Fixed Timeline Marker - Properly centered and sized */}
                         <div className={`
-                          relative z-10 w-6 h-6 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0 shadow-lg
+                          relative z-10 w-8 h-8 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0 shadow-lg
                           ${selectedEntry.id === entry.id 
                             ? `${getTypeColor(entry.type)} scale-125 shadow-xl ring-2 ring-white/20` 
                             : 'bg-slate-600 border-slate-500 group-hover:border-slate-400 group-hover:scale-110 group-hover:shadow-lg'
                           }
                         `}>
-                          <IconRenderer entry={entry} size={12} />
+                          <div className="w-4 h-4 flex items-center justify-center">
+                            <IconRenderer entry={entry} size={14} />
+                          </div>
                         </div>
                         
                         {/* Timeline Content Preview */}
