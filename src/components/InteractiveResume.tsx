@@ -84,14 +84,14 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       logoUrl: '/custom-logos/career-search.svg' // Example custom logo
     },
     {
-      id: 'stanford-research',
-      title: 'Life Science Research Professional',
-      organization: 'Stanford University',
-      period: 'April 2023 - May 2024',
-      location: 'Stanford, CA',
-      employmentType: 'Full-time',
-      type: 'research',
-      description: 'Conducted full-time academic research focusing on immunology and cell therapy applications. Collaborated with multidisciplinary teams to advance understanding of cellular mechanisms and therapeutic approaches.',
+      id: 'planned break',
+      title: 'Planned Break',
+      organization: ,
+      period: 'Apr 2023 - May 2024',
+      location: 'Palo Alto, CA',
+      employmentType: 'Part-time',
+      type: 'break',
+      description: 'Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn\'t ab During this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.,
       responsibilities: [
         'Designed and executed complex immunological experiments',
         'Analyzed large datasets using statistical and computational methods',
@@ -130,7 +130,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Initiated cross-functional capabilities by seeking opportunities to train with the NGS team'
       ],
       skills: ['Multi-color Flow Cytometry', 'BD FACSLyric', 'BD FACSVerse', 'BD Fortessa', 'Cytek Aurora', 'FlowJo', 'FACSDiva', 'Spotfire', 'NGS', 'Illumina', 'PCR'],
-      reasonForLeaving: 'Mass layoffs resultings in over a 20% workforce reduction.',
+      reasonForLeaving: 'Mass layoffs resulting in an over 20% workforce reduction.',
       logoUrl: '/custom-logos/biotech-company-logo.png' // Example company logo
     },
     {
