@@ -137,9 +137,9 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     },
     {
       id: 'industry-cell-therapy-1',
-      title: 'Research Associate - Cell Therapy',
-      organization: 'Biotechnology Company',
-      period: 'March 2021 - December 2021',
+      title: 'Life Science Technician II',
+      organization: 'Stanford University SNP Center for Allergy & Asthma Research',
+      period: 'Mar 2021 - Dec 2021',
       location: 'Industry Setting',
       employmentType: 'Full-time',
       type: 'work',
@@ -169,22 +169,17 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Pleasanton, CA',
       employmentType: '6 month contract',
       type: 'work',
-      description: 'Contract position in biotechnology manufacturing focusing on process development and quality control. Gained hands-on experience in GMP manufacturing environments and bioprocessing techniques.',
+      description: 'Contract position in cell culture manufacturing for the production of novel cancer vaccines and COVID treatment. Gained hands-on experience in GMP manufacturing, cell culture, and aseptic techniques.',
       responsibilities: [
-        'Executed manufacturing protocols for biotechnology products',
+        'Executed manufacturing protocols for upstream manufacturing of mammalian cell lines',
         'Maintained quality control standards in GMP environment',
         'Documented manufacturing processes and batch records',
         'Collaborated with cross-functional teams on process improvements',
         'Participated in equipment maintenance and calibration'
       ],
-      achievements: [
-        'Successfully completed contract deliverables ahead of schedule',
-        'Contributed to process optimization initiatives',
-        'Maintained 100% compliance with GMP documentation requirements',
-        'Built foundational knowledge in biotechnology manufacturing'
-      ],
-      skills: ['GMP Manufacturing', 'Quality Control', 'Process Documentation', 'Bioprocessing', 'Team Collaboration'],
-      reasonForLeaving: 'Contract completion led to transition into cell therapy research role with expanded analytical responsibilities.'
+      achievements: [],
+      skills: ['GMP Manufacturing', 'HEK and TTS Cell Lines', 'Bioreactor Scale-up', 'Transfection', 'Closed-system Suspension Cell Culture', 'Adherent Cell Culture', 'GDP', 'ELN', 'Batch Record Management', 'Aseptic Technique', 'Cleanroom Experience and Gowning up to BSL2+ and ISO5'],
+      reasonForLeaving: 'Contract completion led to transition into a full-time position at an academic research lab at Stanford University.'
     },
     {
       id: 'graduation',
