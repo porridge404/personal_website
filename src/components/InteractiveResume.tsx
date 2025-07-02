@@ -183,7 +183,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     },
     {
       id: 'undergraduate-research',
-      title: 'Undergraduate Research Experience',
+      title: 'Undergraduate Research',
       organization: 'Santa Clara University',
       period: 'Dec 2016 - Jun 2020',
       location: 'Santa Clara, CA',
