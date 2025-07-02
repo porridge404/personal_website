@@ -7,14 +7,14 @@ interface TimelineEntry {
   organization: string;
   period: string;
   location: string;
-  employmentType?: string; // New field for employment type
+  employmentType?: string;
   type: 'work' | 'education' | 'research';
   description: string;
   responsibilities: string[];
   achievements: string[];
   skills: string[];
   reasonForLeaving?: string;
-  logoUrl?: string; // New property for custom logos
+  logoUrl?: string;
 }
 
 interface InteractiveResumeProps {
@@ -86,7 +86,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Established professional network across target geographic regions'
       ],
       skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
-      logoUrl: '/custom-logos/career-search.svg' // Example custom logo
+      logoUrl: '/custom-logos/career-search.svg'
     },
     {
       id: 'planned break',
@@ -100,7 +100,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       responsibilities: [],
       achievements: [],
       skills: ['Event Hosting and Public Speaking', 'Teamwork and Coordination with Weddings Planners and Event Staff', 'Audio Equipment setup, operation, and troubleshooting'],
-      logoUrl: '/custom-logos/stanford-logo.svg' // Example Stanford logo
+      logoUrl: '/custom-logos/stanford-logo.svg'
     },
     {
       id: 'Allogene',
@@ -124,7 +124,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       ],
       skills: ['Multi-color Flow Cytometry', 'BD FACSLyric', 'BD FACSVerse', 'BD Fortessa', 'Cytek Aurora', 'FlowJo', 'FACSDiva', 'Spotfire', 'NGS', 'Illumina', 'PCR'],
       reasonForLeaving: 'Mass layoffs resulting in an over 20% workforce reduction.',
-      logoUrl: '/custom-logos/biotech-company-logo.png' // Example company logo
+      logoUrl: '/custom-logos/biotech-company-logo.png'
     },
     {
       id: 'Stanford',
@@ -147,7 +147,6 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       ],
       skills: ['Flow Cytometry', 'PBMC Isolation', 'Biobank', 'Mass Cytometry', 'Helios', 'MiSeq', 'Luminex', 'PCR', 'ELISA', 'EpiTOF', 'HPLC', 'Western Blot'],
       reasonForLeaving: 'Amazing industry opportunity at a cell therapy company through a connection from my time at Gritstone Bio. PI was also transitioning out of Stanford University to Harvard University.'
-      // No logoUrl - will use default icon
     },
     {
       id: 'Gritstone',
@@ -180,7 +179,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       responsibilities: [],
       achievements: [],
       skills: [],
-      logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
+      logoUrl: '/custom-logos/scu-logo.png'
     },
     {
       id: 'undergraduate-research',
@@ -205,8 +204,6 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Developed strong foundation in experimental design and data analysis'
       ],
       skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics']
-      // No reasonForLeaving - this will demonstrate the conditional display
-      // No logoUrl - will use default education icon
     }
   ];
 
@@ -278,7 +275,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
   };
 
   return (
-    <section ref={sectionRef} id="interactive-resume" className="py-20 bg-slate-800">
+    <section ref={sectionRef} id="interactive-resume" className="py-20 bg-slate-800 mb-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -329,16 +326,16 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:h-[600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Vertical Timeline - Desktop Only */}
-            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1 h-full">
-              <div className="relative h-full">
-                {/* Timeline Entries Container with Scroll */}
-                <div className="h-full overflow-y-auto relative pl-6">
-                  {/* Vertical Line - Now inside the scrollable container */}
-                  <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-4 h-[600px] overflow-hidden">
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Timeline</h3>
+                <div className="relative h-full overflow-y-auto pr-2">
+                  {/* Vertical Line */}
+                  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-500"></div>
                   
-                  <div className="space-y-8">
+                  <div className="space-y-6 pb-4">
                     {timelineData.map((entry, index) => (
                       <div
                         key={entry.id}
@@ -347,34 +344,32 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                       >
                         {/* Timeline Marker */}
                         <div className={`
-                          relative z-10 w-3 h-3 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0 ml-[-18px]
+                          relative z-10 w-4 h-4 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0
                           ${selectedEntry.id === entry.id 
-                            ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
-                            : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
+                            ? `${getTypeColor(entry.type)} scale-125 shadow-lg` 
+                            : 'bg-slate-600 border-slate-500 group-hover:border-slate-400 group-hover:scale-110'
                           }
                         `}>
+                          <div className="w-2 h-2">
+                            <IconRenderer entry={entry} />
+                          </div>
                         </div>
                         
                         {/* Timeline Content Preview */}
-                        <div className="flex-1 min-w-0">
+                        <div className="ml-4 flex-1 min-w-0">
                           <div className={`
                             p-3 rounded-lg border transition-all duration-300
                             ${selectedEntry.id === entry.id 
-                              ? 'bg-slate-700 border-emerald-500/50' 
-                              : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
+                              ? 'bg-slate-600 border-emerald-500/50 shadow-lg' 
+                              : 'bg-slate-800/50 border-slate-600 group-hover:border-slate-500 group-hover:bg-slate-700/50'
                             }
                           `}>
-                            <div className="flex items-center space-x-2 mb-1">
-                              <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                                <IconRenderer entry={entry} />
-                              </div>
-                              <h3 className={`font-bold text-xs transition-colors truncate ${
-                                selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
-                              }`}>
-                                {entry.title}
-                              </h3>
-                            </div>
-                            <p className="text-gray-400 text-xs truncate">{entry.organization}</p>
+                            <h4 className={`font-bold text-sm mb-1 transition-colors ${
+                              selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
+                            }`}>
+                              {entry.title}
+                            </h4>
+                            <p className="text-gray-400 text-xs mb-1 truncate">{entry.organization}</p>
                             <p className="text-gray-500 text-xs">{entry.period}</p>
                           </div>
                         </div>
@@ -387,7 +382,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
 
             {/* Content Area */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full overflow-y-auto">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-[600px] overflow-y-auto">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
