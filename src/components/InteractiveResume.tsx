@@ -13,6 +13,7 @@ interface TimelineEntry {
   achievements: string[];
   skills: string[];
   reasonForLeaving?: string;
+  logoUrl?: string; // New property for custom logos
 }
 
 interface InteractiveResumeProps {
@@ -44,7 +45,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Built comprehensive portfolio showcasing technical and scientific expertise',
         'Established professional network across target geographic regions'
       ],
-      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation']
+      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
+      logoUrl: '/custom-logos/career-search.svg' // Example custom logo
     },
     {
       id: 'stanford-research',
@@ -68,7 +70,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Mentored undergraduate research assistants'
       ],
       skills: ['Academic Research', 'Immunology', 'Data Analysis', 'Scientific Writing', 'Team Collaboration'],
-      reasonForLeaving: 'Transitioned to pursue industry opportunities that combine my research expertise with commercial applications in biotechnology and data science.'
+      reasonForLeaving: 'Transitioned to pursue industry opportunities that combine my research expertise with commercial applications in biotechnology and data science.',
+      logoUrl: '/custom-logos/stanford-logo.svg' // Example Stanford logo
     },
     {
       id: 'industry-cell-therapy-2',
@@ -92,7 +95,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Received recognition for technical excellence and innovation'
       ],
       skills: ['Advanced Flow Cytometry', 'Method Development', 'GMP Compliance', 'Team Leadership', 'Regulatory Support'],
-      reasonForLeaving: 'Sought to expand research experience in academic setting to deepen understanding of fundamental immunological mechanisms.'
+      reasonForLeaving: 'Sought to expand research experience in academic setting to deepen understanding of fundamental immunological mechanisms.',
+      logoUrl: '/custom-logos/biotech-company-logo.png' // Example company logo
     },
     {
       id: 'industry-cell-therapy-1',
@@ -116,6 +120,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Developed proficiency in complex flow cytometry techniques'
       ],
       skills: ['Flow Cytometry', 'GMP Compliance', 'Quality Control', 'Data Analysis', 'Technical Documentation']
+      // No logoUrl - will use default icon
     },
     {
       id: 'early-career-transition',
@@ -160,7 +165,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Achieved academic milestones and degree requirements',
         'Prepared for transition to professional career in biotechnology'
       ],
-      skills: ['Bioengineering Fundamentals', 'Academic Excellence', 'Project Completion', 'Professional Preparation']
+      skills: ['Bioengineering Fundamentals', 'Academic Excellence', 'Project Completion', 'Professional Preparation'],
+      logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
     },
     {
       id: 'undergraduate-research',
@@ -185,6 +191,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Published or presented research findings at academic conferences'
       ],
       skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design', 'Bioengineering', 'Signal Processing']
+      // No logoUrl - will use default education icon
     }
   ];
 
@@ -231,16 +238,41 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     }
   }, [selectedEntry]);
 
-  const getIcon = (type: string) => {
+  const getIcon = (entry: TimelineEntry) => {
+    // If custom logo is provided, use it
+    if (entry.logoUrl) {
+      return (
+        <img 
+          src={entry.logoUrl} 
+          alt={`${entry.organization} logo`}
+          className="w-full h-full object-contain"
+          onError={(e) => {
+            // Fallback to default icon if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const parent = target.parentElement;
+            if (parent) {
+              parent.innerHTML = getDefaultIcon(entry.type);
+            }
+          }}
+        />
+      );
+    }
+    
+    // Otherwise use default Lucide React icons
+    return getDefaultIcon(entry.type);
+  };
+
+  const getDefaultIcon = (type: string) => {
     switch (type) {
       case 'work':
-        return <Briefcase size={12} />;
+        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
       case 'education':
-        return <GraduationCap size={12} />;
+        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 10-6-6-6 6-6-6-6 6"></path><path d="M2 21V8l6-6 6 6 6-6 6 6v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"></path></svg>';
       case 'research':
-        return <FlaskConical size={12} />;
+        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v20"></path><path d="M14 2v20"></path><path d="M4 7h16"></path><path d="M4 17h16"></path><circle cx="12" cy="12" r="3"></circle></svg>';
       default:
-        return <Briefcase size={12} />;
+        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
     }
   };
 
@@ -303,7 +335,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   >
                     <div className="flex items-center justify-center space-x-2 mb-1">
                       <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                        {getIcon(entry.type)}
+                        {getIcon(entry)}
                       </div>
                     </div>
                     <div className="text-xs font-semibold truncate mb-1">
@@ -356,7 +388,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                         `}>
                           <div className="flex items-center space-x-2 mb-1">
                             <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                              {getIcon(entry.type)}
+                              {getIcon(entry)}
                             </div>
                             <h3 className={`font-bold text-xs transition-colors truncate ${
                               selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
@@ -381,7 +413,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className={`w-8 h-8 rounded-full ${getTypeColor(selectedEntry.type)} flex items-center justify-center text-white`}>
-                      {getIcon(selectedEntry.type)}
+                      {getIcon(selectedEntry)}
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{selectedEntry.title}</h3>
