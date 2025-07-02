@@ -166,7 +166,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Gritstone Bio',
       period: 'Oct 2020 - Mar 2021',
       location: 'Pleasanton, CA',
-      employmentType: 'Full-time',
+      employmentType: '6 month contract',
       type: 'work',
       description: 'Focused period of career development and transition from academic research to industry applications. Completed specialized training in biotechnology and cell therapy while building professional network.',
       responsibilities: [
@@ -207,11 +207,6 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       type: 'education',
       description: 'Comprehensive bioengineering program spanning multiple courses including advanced math, coding, physics, chemisty, organic chemisty, biology, anatomy, phsyiology. Lab training in a variety of projects suchs as CRISPR-Cas9 and microfluidics chip synthesis.',
       responsibilities: [
-        'Conducted independent research projects across multiple laboratory settings',
-        'Developed predictive models for EEG states in brain-computer interface project',
-        'Performed data collection, analysis, and interpretation for various research initiatives',
-        'Collaborated with faculty, graduate students, and research teams',
-        'Maintained laboratory equipment, protocols, and safety standards'
       ],
       achievements: [
         'Completed my first publication on signal processing and using live EEG as a control method for a brain-computer interface.'
