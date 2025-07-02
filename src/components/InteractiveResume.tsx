@@ -186,10 +186,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Couch at home (graduated during COVID)',
       type: 'education',
       description: 'Graduated with a Bachelor of Science in Bioengineering, with a research paper in machine learning and a degree emphasis on medical devices.',
-      responsibilities: [
-      ],
-      achievements: [
-      ],
+      responsibilities: [],
+      achievements: [],
       skills: [],
       logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
     },
@@ -425,31 +423,35 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   <p className="text-gray-300 leading-relaxed">{selectedEntry.description}</p>
                 </div>
 
-                {/* Responsibilities */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-3">Key Responsibilities</h4>
-                  <ul className="space-y-2">
-                    {selectedEntry.responsibilities.map((responsibility, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-300 text-sm">{responsibility}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Responsibilities - Only show if there are responsibilities */}
+                {selectedEntry.responsibilities.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-white mb-3">Key Responsibilities</h4>
+                    <ul className="space-y-2">
+                      {selectedEntry.responsibilities.map((responsibility, index) => (
+                        <li key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-300 text-sm">{responsibility}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
-                {/* Achievements */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-3">Key Achievements</h4>
-                  <ul className="space-y-2">
-                    {selectedEntry.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-300 text-sm">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Achievements - Only show if there are achievements */}
+                {selectedEntry.achievements.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-white mb-3">Key Achievements</h4>
+                    <ul className="space-y-2">
+                      {selectedEntry.achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-300 text-sm">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Reason for Leaving Section */}
                 {selectedEntry.reasonForLeaving && (
@@ -463,20 +465,22 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   </div>
                 )}
 
-                {/* Skills */}
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Skills & Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedEntry.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-sm border border-emerald-500/30 rounded-full"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                {/* Skills - Only show if there are skills */}
+                {selectedEntry.skills.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-3">Skills & Technologies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedEntry.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-sm border border-emerald-500/30 rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
