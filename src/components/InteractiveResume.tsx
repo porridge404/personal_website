@@ -187,18 +187,10 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       type: 'education',
       description: 'Graduated with a Bachelor of Science in Bioengineering, with a research paper in machine learning and a degree emphasis on medical devices.',
       responsibilities: [
-        'Completed comprehensive bioengineering curriculum',
-        'Conducted research in machine learning applications',
-        'Focused on medical device design and development',
-        'Participated in capstone design projects'
       ],
       achievements: [
-        'Graduated with Bachelor of Science in Bioengineering',
-        'Completed research paper in machine learning',
-        'Specialized in medical device emphasis',
-        'Successfully adapted to remote learning during COVID-19'
       ],
-      skills: ['Bioengineering', 'Machine Learning', 'Medical Device Design', 'Research Methods', 'Problem Solving'],
+      skills: [],
       logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
     },
     {
