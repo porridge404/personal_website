@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical, Clock } from 'lucide-react';
+import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical, Clock, Music } from 'lucide-react';
 
 interface TimelineEntry {
   id: string;
@@ -25,7 +25,12 @@ interface InteractiveResumeProps {
 const IconRenderer: React.FC<{ entry: TimelineEntry }> = ({ entry }) => {
   const [imageError, setImageError] = useState(false);
 
-  const getDefaultIcon = (type: string) => {
+  const getDefaultIcon = (type: string, id?: string) => {
+    // Special case for DJ/music related entries
+    if (id === 'planned break') {
+      return <Music size={12} />;
+    }
+    
     switch (type) {
       case 'work':
         return <Briefcase size={12} />;
@@ -51,7 +56,7 @@ const IconRenderer: React.FC<{ entry: TimelineEntry }> = ({ entry }) => {
   }
   
   // Otherwise use default Lucide React icons
-  return getDefaultIcon(entry.type);
+  return getDefaultIcon(entry.type, entry.id);
 };
 
 const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveResumeActive }) => {
@@ -91,7 +96,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Palo Alto, CA',
       employmentType: 'Part-time',
       type: 'work',
-      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic. During this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
+      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic.\n\nDuring this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
       responsibilities: [],
       achievements: [],
       skills: [''],
@@ -413,7 +418,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
 
                 {/* Description */}
                 <div className="mb-6">
-                  <p className="text-gray-300 leading-relaxed">{selectedEntry.description}</p>
+                  <p className="text-gray-300 leading-relaxed whitespace-pre-line">{selectedEntry.description}</p>
                 </div>
 
                 {/* Responsibilities - Only show if there are responsibilities */}
