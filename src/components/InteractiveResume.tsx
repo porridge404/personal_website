@@ -117,19 +117,19 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'South San Francisco, CA',
       employmentType: 'Full-time',
       type: 'work',
-      description: 'Associate Scientist role in cell therapy product characterization and process development with a focus on multi-color flow cytometry. Contributed to the development of multiple allogeneic "off-the-shelf" CAR-T cell therapy pipelines targeting different antigens.,
+      description: 'Associate Scientist role in cell therapy product characterization and process development with a focus on multi-color flow cytometry. Contributed to the development of multiple allogeneic "off-the-shelf" CAR-T cell therapy pipelines targeting different antigens.',
       responsibilities: [
         'Generated process data through multi-color flow panels and FlowJo or FACSDiva analysis',
-        'Visualized data using dashboards in Spotfire'
+        'Visualized data using dashboards in Spotfire',
         'Provided critical flow analysis and visualizations in department and C-Suite meetings',
         'Mentored and trained junior associates on flow cytometry'
       ],
       achievements: [
         'Designed and optimized a 32 color flow cytometry panel for the Cytek Aurora to analyze starting material and donor differences',
         'Facilitated crash courses in immunology to bridge knowledge gaps and cultivate an environment where team members felt confident contributing insights',
-        'Initiated cross-functional capabilities by seeking opportunities to train with the NGS team',',
+        'Initiated cross-functional capabilities by seeking opportunities to train with the NGS team'
       ],
-      skills: ['Multi-color Flow Cytometry', 'BD FACSLyric', 'BD FACSVerse', 'BD Fortessa', 'Cytek Aurora', 'FlowJo', 'FACSDiva', 'Spotfire', 'NGS', 'Illumina', 'PCR', ],
+      skills: ['Multi-color Flow Cytometry', 'BD FACSLyric', 'BD FACSVerse', 'BD Fortessa', 'Cytek Aurora', 'FlowJo', 'FACSDiva', 'Spotfire', 'NGS', 'Illumina', 'PCR'],
       reasonForLeaving: 'Mass layoffs resultings in over a 20% workforce reduction.',
       logoUrl: '/custom-logos/biotech-company-logo.png' // Example company logo
     },
@@ -146,7 +146,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Primary responsibility was receiving whole blood to perform basophil activation tests to run on the BD FACSCanto II',
         'Isolated PBMCs with ficoll',
         'Learned new experiements as necessary to provide lab support to PhD students and postdocs',
-        'Pulled samples from Biobank and ran data queueries for collaborators',
+        'Pulled samples from Biobank and ran data queueries for collaborators'
       ],
       achievements: [
         'Trained in only two weeks to be the sole technician for FACS and basophil activation tests before previous technician left',
