@@ -234,13 +234,13 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
   const getIcon = (type: string) => {
     switch (type) {
       case 'work':
-        return <Briefcase size={12} />;
+        return <Briefcase size={14} />;
       case 'education':
-        return <GraduationCap size={12} />;
+        return <GraduationCap size={14} />;
       case 'research':
-        return <FlaskConical size={12} />;
+        return <FlaskConical size={14} />;
       default:
-        return <Briefcase size={12} />;
+        return <Briefcase size={14} />;
     }
   };
 
@@ -321,78 +321,92 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            {/* Vertical Timeline - Desktop Only - Increased width and buffer space */}
+            {/* Vertical Timeline - Desktop Only with Gradient Line */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-2">
-              {/* Scrollable Timeline Container with extra padding */}
               <div className="sticky top-24 h-[calc(100vh-8rem)]">
                 <div className="h-full overflow-y-auto scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-500 pr-4">
-                  <div className="relative pb-8 px-6">
-                    {/* Vertical Line - Positioned with buffer space */}
+                  <div className="relative px-8 py-16">
+                    {/* Beautiful Gradient Line */}
                     <div 
-                      className="absolute w-0.5 bg-slate-600" 
+                      className="absolute w-1 rounded-full bg-gradient-to-b from-emerald-400 via-blue-400 to-purple-400 shadow-lg"
                       style={{ 
-                        left: '36px', // Increased left margin for buffer space
-                        top: '20px',
-                        bottom: '32px'
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        top: '80px',
+                        bottom: '80px'
                       }}
                     ></div>
                     
-                    {/* Timeline Entries with increased spacing */}
-                    <div className="space-y-12">
-                      {timelineData.map((entry, index) => (
-                        <div
-                          key={entry.id}
-                          className="relative flex items-start cursor-pointer group"
-                          onClick={() => setSelectedEntry(entry)}
-                        >
-                          {/* Timeline Marker - Positioned with buffer space */}
-                          <div 
-                            className={`
-                              relative z-10 w-6 h-6 rounded-full border-2 transition-all duration-300 flex-shrink-0 flex items-center justify-center
-                              ${selectedEntry.id === entry.id 
-                                ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
-                                : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
-                              }
-                            `}
-                            style={{ marginLeft: '24px' }} // Buffer space from left edge
+                    {/* Timeline Entries with proper spacing */}
+                    <div className="space-y-16">
+                      {timelineData.map((entry, index) => {
+                        const cardHeight = 120; // Approximate height of timeline card
+                        const iconOffset = cardHeight / 2; // Center icon to middle of card
+                        
+                        return (
+                          <div
+                            key={entry.id}
+                            className="relative flex items-start cursor-pointer group"
+                            onClick={() => setSelectedEntry(entry)}
                           >
-                            <div className="text-white">
-                              {getIcon(entry.type)}
-                            </div>
-                          </div>
-                          
-                          {/* Timeline Content Preview */}
-                          <div className="ml-4 flex-1 min-w-0">
-                            <div className={`
-                              p-4 rounded-lg border transition-all duration-300
-                              ${selectedEntry.id === entry.id 
-                                ? 'bg-slate-700 border-emerald-500/50' 
-                                : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
-                              }
-                            `}>
-                              <div className="flex items-center space-x-2 mb-2">
-                                <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                                  {getIcon(entry.type)}
-                                </div>
-                                <h3 className={`font-bold text-sm transition-colors ${
-                                  selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
-                                }`}>
-                                  {entry.title}
-                                </h3>
+                            {/* Timeline Marker - Centered to card height */}
+                            <div 
+                              className={`
+                                absolute z-10 w-8 h-8 rounded-full border-3 transition-all duration-300 flex items-center justify-center shadow-lg
+                                ${selectedEntry.id === entry.id 
+                                  ? `${getTypeColor(entry.type)} scale-125 shadow-xl` 
+                                  : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-110'
+                                }
+                              `}
+                              style={{ 
+                                left: '50%',
+                                transform: `translateX(-50%) translateY(${iconOffset - 16}px)`, // Center to card middle
+                                boxShadow: selectedEntry.id === entry.id 
+                                  ? '0 0 20px rgba(16, 185, 129, 0.4)' 
+                                  : '0 4px 8px rgba(0, 0, 0, 0.3)'
+                              }}
+                            >
+                              <div className="text-white">
+                                {getIcon(entry.type)}
                               </div>
-                              <p className="text-gray-400 text-sm mb-1">{entry.organization}</p>
-                              <p className="text-gray-500 text-xs">{entry.period}</p>
+                            </div>
+                            
+                            {/* Timeline Content Preview - Full width */}
+                            <div className="w-full">
+                              <div className={`
+                                p-6 rounded-lg border-2 transition-all duration-300 shadow-md
+                                ${selectedEntry.id === entry.id 
+                                  ? 'bg-slate-700 border-emerald-500/50 shadow-lg shadow-emerald-500/10' 
+                                  : 'bg-slate-700/80 border-slate-600 group-hover:border-slate-500 group-hover:shadow-lg'
+                                }
+                              `}>
+                                <div className="flex items-center space-x-3 mb-3">
+                                  <div className={`w-5 h-5 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
+                                    {getIcon(entry.type)}
+                                  </div>
+                                  <h3 className={`font-bold text-sm transition-colors ${
+                                    selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
+                                  }`}>
+                                    {entry.title}
+                                  </h3>
+                                </div>
+                                <p className="text-gray-400 text-sm mb-2 font-medium">{entry.organization}</p>
+                                <p className="text-gray-500 text-xs">{entry.period}</p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
+                    
+                    {/* Extra spacing after last entry for easier scrolling */}
+                    <div className="h-32"></div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Content Area - Adjusted width */}
+            {/* Content Area */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
                 {/* Header */}
