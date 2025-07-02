@@ -185,7 +185,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       period: 'June 2020',
       location: 'Couch at home (graduated during COVID)',
       type: 'education',
-      description: 'Graduated with a Bachelor of Science in Bioengineering, with an research paper in machine learning and a degree emphasis on medical devices.',
+      description: 'Graduated with a Bachelor of Science in Bioengineering, with a research paper in machine learning and a degree emphasis on medical devices.',
       responsibilities: [
         'Completed comprehensive bioengineering curriculum',
         'Conducted research in machine learning applications',
