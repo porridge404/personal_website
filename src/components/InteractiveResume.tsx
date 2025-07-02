@@ -309,7 +309,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   >
                     <div className="flex items-center justify-center space-x-2 mb-1">
                       <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                        <IconRenderer entry={entry} size={12} />
+                        <IconRenderer entry={entry} size={10} />
                       </div>
                     </div>
                     <div className="text-xs font-semibold truncate mb-1">
@@ -332,9 +332,9 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-4 h-[600px] overflow-hidden">
                 <div className="relative h-full overflow-y-auto pr-2">
                   {/* Enhanced Vertical Line - Extended to full height */}
-                  <div className="absolute left-2.5 top-0 h-full w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60"></div>
+                  <div className="absolute left-2.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60"></div>
                   
-                  <div className="space-y-6 pb-8 min-h-full">
+                  <div className="space-y-6 pb-8 relative min-h-full">
                     {timelineData.map((entry, index) => (
                       <div
                         key={entry.id}
@@ -350,7 +350,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                           }
                         `}>
                           <div className="w-3 h-3 flex items-center justify-center">
-                            <IconRenderer entry={entry} size={10} />
+                            <IconRenderer entry={entry} size={8} />
                           </div>
                         </div>
                         
