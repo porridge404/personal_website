@@ -110,59 +110,54 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       logoUrl: '/custom-logos/stanford-logo.svg' // Example Stanford logo
     },
     {
-      id: 'industry-cell-therapy-2',
-      title: 'Research Associate - Advanced Cell Therapy',
-      organization: 'Biotechnology Company',
+      id: 'Allogene',
+      title: 'Associate Scientist',
+      organization: 'Allogene Therapeutics',
       period: 'January 2022 - April 2023',
-      location: 'Industry Setting',
+      location: 'South San Francisco, CA',
       employmentType: 'Full-time',
       type: 'work',
-      description: 'Advanced role in cell therapy development with focus on multi-color flow cytometry and process optimization. Led critical analytical projects and designed comprehensive characterization strategies for "off-the-shelf" cell therapy products.',
+      description: 'Associate Scientist role in cell therapy product characterization and process development with a focus on multi-color flow cytometry. Contributed to the development of multiple allogeneic "off-the-shelf" CAR-T cell therapy pipelines targeting different antigens.,
       responsibilities: [
-        'Designed and optimized complex flow cytometry panels (up to 32-color)',
-        'Led analytical method development for cell therapy characterization',
-        'Generated critical process data supporting regulatory submissions',
-        'Presented analytical findings to cross-functional teams and leadership',
-        'Mentored junior research associates and laboratory technicians'
+        'Generated process data through multi-color flow panels and FlowJo or FACSDiva analysis',
+        'Visualized data using dashboards in Spotfire'
+        'Provided critical flow analysis and visualizations in department and C-Suite meetings',
+        'Mentored and trained junior associates on flow cytometry'
       ],
       achievements: [
-        'Developed industry-leading 32-color flow cytometry panel for comprehensive cell characterization',
-        'Improved analytical workflows resulting in 25% efficiency gains',
-        'Successfully supported multiple IND submissions with high-quality analytical data',
-        'Received recognition for technical excellence and innovation'
+        'Designed and optimized a 32 color flow cytometry panel for the Cytek Aurora to analyze starting material and donor differences',
+        'Facilitated crash courses in immunology to bridge knowledge gaps and cultivate an environment where team members felt confident contributing insights',
+        'Initiated cross-functional capabilities by seeking opportunities to train with the NGS team',',
       ],
-      skills: ['Advanced Flow Cytometry', 'Method Development', 'GMP Compliance', 'Team Leadership', 'Regulatory Support'],
-      reasonForLeaving: 'Sought to expand research experience in academic setting to deepen understanding of fundamental immunological mechanisms.',
+      skills: ['Multi-color Flow Cytometry', 'BD FACSLyric', 'BD FACSVerse', 'BD Fortessa', 'Cytek Aurora', 'FlowJo', 'FACSDiva', 'Spotfire', 'NGS', 'Illumina', 'PCR', ],
+      reasonForLeaving: 'Mass layoffs resultings in over a 20% workforce reduction.',
       logoUrl: '/custom-logos/biotech-company-logo.png' // Example company logo
     },
     {
-      id: 'industry-cell-therapy-1',
+      id: 'Stanford',
       title: 'Life Science Technician II',
       organization: 'Stanford University',
       period: 'Mar 2021 - Dec 2021',
-      location: 'Industry Setting',
+      location: 'Palo Alto, CA',
       employmentType: 'Full-time',
       type: 'work',
-      description: 'Entry-level position in cell therapy development focusing on analytical characterization and quality control. Gained expertise in multi-color flow cytometry and GMP-compliant laboratory practices.',
+      description: 'Lab support role at the Stanford University SNP Center for Allergy & Asthma Research.',
       responsibilities: [
-        'Performed multi-color flow cytometry analysis for cell therapy products',
-        'Executed analytical protocols for starting material characterization',
-        'Maintained GMP-compliant documentation and laboratory practices',
-        'Collaborated with manufacturing teams on process development',
-        'Participated in cross-functional project meetings'
+        'Primary responsibility was receiving whole blood to perform basophil activation tests to run on the BD FACSCanto II',
+        'Isolated PBMCs with ficoll',
+        'Learned new experiements as necessary to provide lab support to PhD students and postdocs',
+        'Pulled samples from Biobank and ran data queueries for collaborators',
       ],
       achievements: [
-        'Successfully completed training in GMP laboratory practices',
-        'Consistently delivered high-quality analytical data on schedule',
-        'Contributed to process improvements in analytical workflows',
-        'Developed proficiency in complex flow cytometry techniques'
+        'Trained in only two weeks to be the sole technician for FACS and basophil activation tests before previous technician left',
+        'Contributed to publications, posters, and abstracts through lab support'
       ],
-      skills: ['Flow Cytometry', 'PBMC Isolation with ficol', 'Biobank', 'Mass Cytometry', 'MiSeq', 'Luminex', 'PCR', 'ELISA', ''],
-      reasonForLeaving: 'Promoted to advanced role with increased responsibilities in analytical method development and team leadership.'
+      skills: ['Flow Cytometry', 'PBMC Isolation', 'Biobank', 'Mass Cytometry', 'Helios', 'MiSeq', 'Luminex', 'PCR', 'ELISA', 'EpiTOF', 'HPLC', 'Western Blot'],
+      reasonForLeaving: 'Amazing industry opportunity at a cell therapy company through a connection from my time at Gritstone Bio. PI was also transitioning out of Stanford University to Harvard University.'
       // No logoUrl - will use default icon
     },
     {
-      id: 'early-career-transition',
+      id: 'Gritstone',
       title: 'Manufacturing Associate II',
       organization: 'Gritstone Bio',
       period: 'Oct 2020 - Mar 2021',
