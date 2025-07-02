@@ -86,11 +86,11 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     {
       id: 'planned break',
       title: 'Planned Break',
-      organization: ,
+      organization: 'Self-Employed',
       period: 'Apr 2023 - May 2024',
       location: 'Palo Alto, CA',
       employmentType: 'Part-time',
-      type: 'break',
+      type: 'work',
       description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic. During this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
       responsibilities: [],
       achievements: [],
