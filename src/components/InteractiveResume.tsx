@@ -180,12 +180,12 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     },
     {
       id: 'graduation',
-      title: 'Bachelor of Science in Bioengineering',
+      title: 'BS in Bioengineering',
       organization: 'Santa Clara University',
       period: 'June 2020',
       location: 'Santa Clara, CA',
       type: 'education',
-      description: 'Graduated with Bachelor of Science in Bioengineering, completing comprehensive coursework in engineering principles, biology, and biomedical applications. Culmination of four years of academic excellence and research experience.',
+      description: 'Graduated with a Bachelor of Science in Bioengineering, with an research paper in machine learning and a degree emphasis on medical devices.',
       responsibilities: [
         'Completed rigorous bioengineering curriculum',
         'Maintained high academic standards throughout degree program',
