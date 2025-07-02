@@ -91,22 +91,10 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Palo Alto, CA',
       employmentType: 'Part-time',
       type: 'break',
-      description: 'Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn\'t ab During this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.,
-      responsibilities: [
-        'Designed and executed complex immunological experiments',
-        'Analyzed large datasets using statistical and computational methods',
-        'Collaborated with cross-functional research teams',
-        'Presented findings at departmental meetings and seminars',
-        'Maintained detailed laboratory records and protocols'
-      ],
-      achievements: [
-        'Successfully completed multiple research projects on schedule',
-        'Contributed to ongoing publications in peer-reviewed journals',
-        'Developed novel experimental protocols for cell characterization',
-        'Mentored undergraduate research assistants'
-      ],
-      skills: ['Academic Research', 'Immunology', 'Data Analysis', 'Scientific Writing', 'Team Collaboration'],
-      reasonForLeaving: 'Transitioned to pursue industry opportunities that combine my research expertise with commercial applications in biotechnology and data science.',
+      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic. During this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a wedding DJ and MC. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
+      responsibilities: [],
+      achievements: [],
+      skills: [''],
       logoUrl: '/custom-logos/stanford-logo.svg' // Example Stanford logo
     },
     {
