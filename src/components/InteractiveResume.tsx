@@ -319,65 +319,68 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Vertical Timeline - Desktop Only */}
-            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
-              {/* Scrollable Timeline Container */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Vertical Timeline - Desktop Only - Increased width and buffer space */}
+            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-2">
+              {/* Scrollable Timeline Container with extra padding */}
               <div className="sticky top-24 h-[calc(100vh-8rem)]">
-                <div className="h-full overflow-y-auto scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-500 pr-2">
-                  <div className="relative pb-8">
-                    {/* Vertical Line - Fixed positioning */}
+                <div className="h-full overflow-y-auto scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-500 pr-4">
+                  <div className="relative pb-8 px-6">
+                    {/* Vertical Line - Positioned with buffer space */}
                     <div 
                       className="absolute w-0.5 bg-slate-600" 
                       style={{ 
-                        left: '11px', // Center on 24px wide markers (12px from left edge)
-                        top: '12px',
-                        bottom: '32px' // Leave space at bottom
+                        left: '36px', // Increased left margin for buffer space
+                        top: '20px',
+                        bottom: '32px'
                       }}
                     ></div>
                     
-                    {/* Timeline Entries */}
-                    <div className="space-y-8">
+                    {/* Timeline Entries with increased spacing */}
+                    <div className="space-y-12">
                       {timelineData.map((entry, index) => (
                         <div
                           key={entry.id}
                           className="relative flex items-start cursor-pointer group"
                           onClick={() => setSelectedEntry(entry)}
                         >
-                          {/* Timeline Marker - Fixed size and centering */}
-                          <div className={`
-                            relative z-10 w-6 h-6 rounded-full border-2 transition-all duration-300 flex-shrink-0 flex items-center justify-center
-                            ${selectedEntry.id === entry.id 
-                              ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
-                              : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
-                            }
-                          `}>
+                          {/* Timeline Marker - Positioned with buffer space */}
+                          <div 
+                            className={`
+                              relative z-10 w-6 h-6 rounded-full border-2 transition-all duration-300 flex-shrink-0 flex items-center justify-center
+                              ${selectedEntry.id === entry.id 
+                                ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
+                                : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
+                              }
+                            `}
+                            style={{ marginLeft: '24px' }} // Buffer space from left edge
+                          >
                             <div className="text-white">
                               {getIcon(entry.type)}
                             </div>
                           </div>
                           
                           {/* Timeline Content Preview */}
-                          <div className="ml-3 flex-1 min-w-0">
+                          <div className="ml-4 flex-1 min-w-0">
                             <div className={`
-                              p-3 rounded-lg border transition-all duration-300
+                              p-4 rounded-lg border transition-all duration-300
                               ${selectedEntry.id === entry.id 
                                 ? 'bg-slate-700 border-emerald-500/50' 
                                 : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
                               }
                             `}>
-                              <div className="flex items-center space-x-2 mb-1">
+                              <div className="flex items-center space-x-2 mb-2">
                                 <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
                                   {getIcon(entry.type)}
                                 </div>
-                                <h3 className={`font-bold text-xs transition-colors truncate ${
+                                <h3 className={`font-bold text-sm transition-colors ${
                                   selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
                                 }`}>
                                   {entry.title}
                                 </h3>
                               </div>
-                              <p className="text-gray-400 text-xs truncate">{entry.organization}</p>
+                              <p className="text-gray-400 text-sm mb-1">{entry.organization}</p>
                               <p className="text-gray-500 text-xs">{entry.period}</p>
                             </div>
                           </div>
@@ -389,7 +392,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
               </div>
             </div>
 
-            {/* Content Area */}
+            {/* Content Area - Adjusted width */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
                 {/* Header */}
