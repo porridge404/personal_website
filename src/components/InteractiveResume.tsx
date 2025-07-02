@@ -329,63 +329,65 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:h-[600px]">
             {/* Vertical Timeline - Desktop Only */}
-            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
-              <div className="relative">
-                {/* Vertical Line */}
-                <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-slate-600"></div>
-                
-                {/* Timeline Entries */}
-                <div className="space-y-8">
-                  {timelineData.map((entry, index) => (
-                    <div
-                      key={entry.id}
-                      className="relative flex items-start cursor-pointer group"
-                      onClick={() => setSelectedEntry(entry)}
-                    >
-                      {/* Timeline Marker */}
-                      <div className={`
-                        relative z-10 w-3 h-3 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0
-                        ${selectedEntry.id === entry.id 
-                          ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
-                          : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
-                        }
-                      `}>
-                      </div>
-                      
-                      {/* Timeline Content Preview */}
-                      <div className="ml-3 flex-1 min-w-0">
+            <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1 h-full">
+              <div className="relative h-full">
+                {/* Timeline Entries Container with Scroll */}
+                <div className="h-full overflow-y-auto relative pl-6">
+                  {/* Vertical Line - Now inside the scrollable container */}
+                  <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+                  
+                  <div className="space-y-8">
+                    {timelineData.map((entry, index) => (
+                      <div
+                        key={entry.id}
+                        className="relative flex items-start cursor-pointer group"
+                        onClick={() => setSelectedEntry(entry)}
+                      >
+                        {/* Timeline Marker */}
                         <div className={`
-                          p-3 rounded-lg border transition-all duration-300
+                          relative z-10 w-3 h-3 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0 ml-[-18px]
                           ${selectedEntry.id === entry.id 
-                            ? 'bg-slate-700 border-emerald-500/50' 
-                            : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
+                            ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
+                            : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
                           }
                         `}>
-                          <div className="flex items-center space-x-2 mb-1">
-                            <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                              <IconRenderer entry={entry} />
+                        </div>
+                        
+                        {/* Timeline Content Preview */}
+                        <div className="flex-1 min-w-0">
+                          <div className={`
+                            p-3 rounded-lg border transition-all duration-300
+                            ${selectedEntry.id === entry.id 
+                              ? 'bg-slate-700 border-emerald-500/50' 
+                              : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
+                            }
+                          `}>
+                            <div className="flex items-center space-x-2 mb-1">
+                              <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
+                                <IconRenderer entry={entry} />
+                              </div>
+                              <h3 className={`font-bold text-xs transition-colors truncate ${
+                                selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
+                              }`}>
+                                {entry.title}
+                              </h3>
                             </div>
-                            <h3 className={`font-bold text-xs transition-colors truncate ${
-                              selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
-                            }`}>
-                              {entry.title}
-                            </h3>
+                            <p className="text-gray-400 text-xs truncate">{entry.organization}</p>
+                            <p className="text-gray-500 text-xs">{entry.period}</p>
                           </div>
-                          <p className="text-gray-400 text-xs truncate">{entry.organization}</p>
-                          <p className="text-gray-500 text-xs">{entry.period}</p>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Content Area */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full overflow-y-auto">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
