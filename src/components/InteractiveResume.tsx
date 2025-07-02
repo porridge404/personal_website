@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical } from 'lucide-react';
+import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical, Clock } from 'lucide-react';
 
 interface TimelineEntry {
   id: string;
@@ -7,6 +7,7 @@ interface TimelineEntry {
   organization: string;
   period: string;
   location: string;
+  employmentType?: string; // New field for employment type
   type: 'work' | 'education' | 'research';
   description: string;
   responsibilities: string[];
@@ -65,6 +66,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Career Transition',
       period: 'May 2024 - Present',
       location: 'Seattle, Portland, Bay Area',
+      employmentType: 'Full-time',
       type: 'work',
       description: 'Currently seeking opportunities in biotechnology and data science roles where I can apply my experience in immunology, cell therapy, and machine learning to advance biomedical research and patient outcomes.',
       responsibilities: [
@@ -87,6 +89,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Stanford University',
       period: 'April 2023 - May 2024',
       location: 'Stanford, CA',
+      employmentType: 'Full-time',
       type: 'research',
       description: 'Conducted full-time academic research focusing on immunology and cell therapy applications. Collaborated with multidisciplinary teams to advance understanding of cellular mechanisms and therapeutic approaches.',
       responsibilities: [
@@ -112,6 +115,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Biotechnology Company',
       period: 'January 2022 - April 2023',
       location: 'Industry Setting',
+      employmentType: 'Full-time',
       type: 'work',
       description: 'Advanced role in cell therapy development with focus on multi-color flow cytometry and process optimization. Led critical analytical projects and designed comprehensive characterization strategies for "off-the-shelf" cell therapy products.',
       responsibilities: [
@@ -137,6 +141,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Biotechnology Company',
       period: 'March 2021 - December 2021',
       location: 'Industry Setting',
+      employmentType: 'Full-time',
       type: 'work',
       description: 'Entry-level position in cell therapy development focusing on analytical characterization and quality control. Gained expertise in multi-color flow cytometry and GMP-compliant laboratory practices.',
       responsibilities: [
@@ -161,6 +166,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Gritstone Bio',
       period: 'Oct 2020 - Mar 2021',
       location: 'Pleasanton, CA',
+      employmentType: 'Full-time',
       type: 'work',
       description: 'Focused period of career development and transition from academic research to industry applications. Completed specialized training in biotechnology and cell therapy while building professional network.',
       responsibilities: [
@@ -197,6 +203,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Santa Clara University',
       period: 'Dec 2016 - Jun 2020',
       location: 'Santa Clara, CA',
+      employmentType: 'Part-time',
       type: 'education',
       description: 'Comprehensive bioengineering program spanning multiple courses including advanced math, coding, physics, chemisty, organic chemisty, biology, anatomy, phsyiology. Lab training in a variety of projects suchs as CRISPR-Cas9 and microfluidics chip synthesis.',
       responsibilities: [
@@ -411,6 +418,12 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                       <MapPin size={14} />
                       <span>{selectedEntry.location}</span>
                     </div>
+                    {selectedEntry.employmentType && (
+                      <div className="flex items-center space-x-1">
+                        <Clock size={14} />
+                        <span>{selectedEntry.employmentType}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
