@@ -197,7 +197,6 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       responsibilities: [],
       achievements: [],
       skills: [],
-      reasonForLeaving: 'Graduated and transitioned to professional career in biotechnology industry.',
       logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
     },
     {
