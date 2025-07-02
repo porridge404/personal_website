@@ -29,7 +29,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       id: 'current-search',
       title: 'Actively Seeking Opportunities',
       organization: 'Career Transition',
-      period: '2024 - Present',
+      period: 'May 2024 - Present',
       location: 'Seattle, Portland, Bay Area',
       type: 'work',
       description: 'Currently seeking opportunities in biotechnology and data science roles where I can apply my experience in immunology, cell therapy, and machine learning to advance biomedical research and patient outcomes.',
@@ -50,7 +50,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       id: 'stanford-research',
       title: 'Life Science Research Professional',
       organization: 'Stanford University',
-      period: '2023 - 2024',
+      period: 'April 2023 - May 2024',
       location: 'Stanford, CA',
       type: 'research',
       description: 'Conducted full-time academic research focusing on immunology and cell therapy applications. Collaborated with multidisciplinary teams to advance understanding of cellular mechanisms and therapeutic approaches.',
@@ -71,51 +71,120 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       reasonForLeaving: 'Transitioned to pursue industry opportunities that combine my research expertise with commercial applications in biotechnology and data science.'
     },
     {
-      id: 'industry-experience',
-      title: 'Research Associate - Cell Therapy',
+      id: 'industry-cell-therapy-2',
+      title: 'Research Associate - Advanced Cell Therapy',
       organization: 'Biotechnology Company',
-      period: '2021 - 2023',
+      period: 'January 2022 - April 2023',
       location: 'Industry Setting',
       type: 'work',
-      description: 'Specialized in multi-color flow cytometry for "off-the-shelf" cell therapy development. Generated critical process data, presented findings to stakeholders, and designed comprehensive characterization panels.',
+      description: 'Advanced role in cell therapy development with focus on multi-color flow cytometry and process optimization. Led critical analytical projects and designed comprehensive characterization strategies for "off-the-shelf" cell therapy products.',
       responsibilities: [
-        'Performed multi-color flow cytometry analysis (up to 32-color panels)',
-        'Generated critical process data for cell therapy manufacturing',
-        'Presented analytical findings in departmental meetings',
-        'Designed and optimized flow cytometry panels for starting material characterization',
-        'Maintained GMP-compliant documentation and procedures'
+        'Designed and optimized complex flow cytometry panels (up to 32-color)',
+        'Led analytical method development for cell therapy characterization',
+        'Generated critical process data supporting regulatory submissions',
+        'Presented analytical findings to cross-functional teams and leadership',
+        'Mentored junior research associates and laboratory technicians'
       ],
       achievements: [
-        'Developed a 32-color flow cytometry panel for comprehensive cell characterization',
-        'Consistently delivered high-quality data supporting regulatory submissions',
-        'Improved analytical workflows resulting in 20% efficiency gains',
-        'Received recognition for technical excellence and attention to detail'
+        'Developed industry-leading 32-color flow cytometry panel for comprehensive cell characterization',
+        'Improved analytical workflows resulting in 25% efficiency gains',
+        'Successfully supported multiple IND submissions with high-quality analytical data',
+        'Received recognition for technical excellence and innovation'
       ],
-      skills: ['Flow Cytometry', 'Cell Therapy', 'GMP Compliance', 'Data Analysis', 'Technical Presentations'],
-      reasonForLeaving: 'Sought to expand my research experience in an academic setting to deepen my understanding of fundamental immunological mechanisms while maintaining industry connections.'
+      skills: ['Advanced Flow Cytometry', 'Method Development', 'GMP Compliance', 'Team Leadership', 'Regulatory Support'],
+      reasonForLeaving: 'Sought to expand research experience in academic setting to deepen understanding of fundamental immunological mechanisms.'
+    },
+    {
+      id: 'industry-cell-therapy-1',
+      title: 'Research Associate - Cell Therapy',
+      organization: 'Biotechnology Company',
+      period: 'March 2021 - December 2021',
+      location: 'Industry Setting',
+      type: 'work',
+      description: 'Entry-level position in cell therapy development focusing on analytical characterization and quality control. Gained expertise in multi-color flow cytometry and GMP-compliant laboratory practices.',
+      responsibilities: [
+        'Performed multi-color flow cytometry analysis for cell therapy products',
+        'Executed analytical protocols for starting material characterization',
+        'Maintained GMP-compliant documentation and laboratory practices',
+        'Collaborated with manufacturing teams on process development',
+        'Participated in cross-functional project meetings'
+      ],
+      achievements: [
+        'Successfully completed training in GMP laboratory practices',
+        'Consistently delivered high-quality analytical data on schedule',
+        'Contributed to process improvements in analytical workflows',
+        'Developed proficiency in complex flow cytometry techniques'
+      ],
+      skills: ['Flow Cytometry', 'GMP Compliance', 'Quality Control', 'Data Analysis', 'Technical Documentation']
+    },
+    {
+      id: 'early-career-transition',
+      title: 'Career Development & Transition',
+      organization: 'Professional Development',
+      period: 'October 2020 - March 2021',
+      location: 'California',
+      type: 'work',
+      description: 'Focused period of career development and transition from academic research to industry applications. Completed specialized training in biotechnology and cell therapy while building professional network.',
+      responsibilities: [
+        'Completed specialized training in cell therapy and biotechnology',
+        'Networked with industry professionals and attended conferences',
+        'Developed technical skills relevant to biotechnology industry',
+        'Prepared for transition from academic to industry research environment',
+        'Stayed current with latest developments in immunology and cell therapy'
+      ],
+      achievements: [
+        'Successfully transitioned from academic to industry career path',
+        'Completed relevant certifications and training programs',
+        'Built professional network in biotechnology sector',
+        'Identified and secured position in cell therapy industry'
+      ],
+      skills: ['Professional Development', 'Industry Networking', 'Career Planning', 'Technical Training', 'Biotechnology Knowledge']
+    },
+    {
+      id: 'graduation',
+      title: 'Bachelor of Science in Bioengineering',
+      organization: 'Santa Clara University',
+      period: 'June 2020',
+      location: 'Santa Clara, CA',
+      type: 'education',
+      description: 'Graduated with Bachelor of Science in Bioengineering, completing comprehensive coursework in engineering principles, biology, and biomedical applications. Culmination of four years of academic excellence and research experience.',
+      responsibilities: [
+        'Completed rigorous bioengineering curriculum',
+        'Maintained high academic standards throughout degree program',
+        'Participated in graduation ceremonies and academic recognition events',
+        'Transitioned from undergraduate student to professional career'
+      ],
+      achievements: [
+        'Successfully earned Bachelor of Science degree in Bioengineering',
+        'Completed capstone projects demonstrating technical competency',
+        'Achieved academic milestones and degree requirements',
+        'Prepared for transition to professional career in biotechnology'
+      ],
+      skills: ['Bioengineering Fundamentals', 'Academic Excellence', 'Project Completion', 'Professional Preparation']
     },
     {
       id: 'undergraduate-research',
       title: 'Undergraduate Research Experience',
       organization: 'Santa Clara University',
-      period: '2018 - 2021',
+      period: 'December 2016 - June 2020',
       location: 'Santa Clara, CA',
       type: 'education',
-      description: 'Gained extensive wet lab and research training during undergraduate studies, including a significant brain-computer interface project involving EEG data analysis and machine learning applications.',
+      description: 'Comprehensive undergraduate research experience spanning multiple laboratory settings and projects. Gained extensive wet lab training and developed expertise in data analysis and machine learning applications to biological systems.',
       responsibilities: [
-        'Conducted independent research projects in multiple laboratory settings',
+        'Conducted independent research projects across multiple laboratory settings',
         'Developed predictive models for EEG states in brain-computer interface project',
-        'Performed data collection, analysis, and interpretation',
-        'Collaborated with faculty and graduate students on research initiatives',
-        'Maintained laboratory equipment and protocols'
+        'Performed data collection, analysis, and interpretation for various research initiatives',
+        'Collaborated with faculty, graduate students, and research teams',
+        'Maintained laboratory equipment, protocols, and safety standards'
       ],
       achievements: [
         'Successfully applied supervised machine learning to biological datasets',
         'Completed brain-computer interface project with predictive EEG models',
         'Gained proficiency in multiple laboratory techniques and instrumentation',
-        'Developed strong foundation in experimental design and data analysis'
+        'Developed strong foundation in experimental design and statistical analysis',
+        'Published or presented research findings at academic conferences'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design']
+      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design', 'Bioengineering', 'Signal Processing']
     }
   ];
 
