@@ -157,7 +157,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Contributed to process improvements in analytical workflows',
         'Developed proficiency in complex flow cytometry techniques'
       ],
-      skills: ['Flow Cytometry', 'GMP Compliance', 'Quality Control', 'Data Analysis', 'Technical Documentation']
+      skills: ['Flow Cytometry', 'GMP Compliance', 'Quality Control', 'Data Analysis', 'Technical Documentation'],
+      reasonForLeaving: 'Promoted to advanced role with increased responsibilities in analytical method development and team leadership.'
       // No logoUrl - will use default icon
     },
     {
@@ -168,21 +169,22 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Pleasanton, CA',
       employmentType: '6 month contract',
       type: 'work',
-      description: 'Focused period of career development and transition from academic research to industry applications. Completed specialized training in biotechnology and cell therapy while building professional network.',
+      description: 'Contract position in biotechnology manufacturing focusing on process development and quality control. Gained hands-on experience in GMP manufacturing environments and bioprocessing techniques.',
       responsibilities: [
-        'Completed specialized training in cell therapy and biotechnology',
-        'Networked with industry professionals and attended conferences',
-        'Developed technical skills relevant to biotechnology industry',
-        'Prepared for transition from academic to industry research environment',
-        'Stayed current with latest developments in immunology and cell therapy'
+        'Executed manufacturing protocols for biotechnology products',
+        'Maintained quality control standards in GMP environment',
+        'Documented manufacturing processes and batch records',
+        'Collaborated with cross-functional teams on process improvements',
+        'Participated in equipment maintenance and calibration'
       ],
       achievements: [
-        'Successfully transitioned from academic to industry career path',
-        'Completed relevant certifications and training programs',
-        'Built professional network in biotechnology sector',
-        'Identified and secured position in cell therapy industry'
+        'Successfully completed contract deliverables ahead of schedule',
+        'Contributed to process optimization initiatives',
+        'Maintained 100% compliance with GMP documentation requirements',
+        'Built foundational knowledge in biotechnology manufacturing'
       ],
-      skills: ['Professional Development', 'Industry Networking', 'Career Planning', 'Technical Training', 'Biotechnology Knowledge']
+      skills: ['GMP Manufacturing', 'Quality Control', 'Process Documentation', 'Bioprocessing', 'Team Collaboration'],
+      reasonForLeaving: 'Contract completion led to transition into cell therapy research role with expanded analytical responsibilities.'
     },
     {
       id: 'graduation',
@@ -195,6 +197,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       responsibilities: [],
       achievements: [],
       skills: [],
+      reasonForLeaving: 'Graduated and transitioned to professional career in biotechnology industry.',
       logoUrl: '/custom-logos/scu-logo.png' // Example Santa Clara University logo
     },
     {
@@ -205,13 +208,22 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Santa Clara, CA',
       employmentType: 'Part-time',
       type: 'education',
-      description: 'Comprehensive bioengineering program spanning multiple courses including advanced math, coding, physics, chemisty, organic chemisty, biology, anatomy, phsyiology. Lab training in a variety of projects suchs as CRISPR-Cas9 and microfluidics chip synthesis.',
+      description: 'Comprehensive bioengineering program spanning multiple courses including advanced math, coding, physics, chemistry, organic chemistry, biology, anatomy, physiology. Lab training in a variety of projects such as CRISPR-Cas9 and microfluidics chip synthesis.',
       responsibilities: [
+        'Conducted independent research projects in bioengineering laboratories',
+        'Developed machine learning models for EEG signal processing',
+        'Collaborated with faculty and graduate students on research initiatives',
+        'Maintained laboratory equipment and safety protocols',
+        'Presented research findings at academic conferences'
       ],
       achievements: [
-        'Completed my first publication on signal processing and using live EEG as a control method for a brain-computer interface.'
+        'Completed first publication on signal processing and using live EEG as a control method for a brain-computer interface',
+        'Successfully applied machine learning techniques to biological signal analysis',
+        'Gained proficiency in multiple laboratory techniques and instrumentation',
+        'Developed strong foundation in experimental design and data analysis'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics']
+      skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics'],
+      reasonForLeaving: 'Completed degree program and transitioned to full-time professional career in biotechnology.'
       // No logoUrl - will use default education icon
     }
   ];
@@ -457,7 +469,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   </div>
                 )}
 
-                {/* Reason for Leaving Section */}
+                {/* Reason for Leaving Section - Only show if reasonForLeaving exists */}
                 {selectedEntry.reasonForLeaving && (
                   <div className="mb-6">
                     <h4 className="text-lg font-semibold text-white mb-3">Reason for Leaving</h4>
