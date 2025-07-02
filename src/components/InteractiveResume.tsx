@@ -138,7 +138,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     {
       id: 'industry-cell-therapy-1',
       title: 'Life Science Technician II',
-      organization: 'Stanford University SNP Center for Allergy & Asthma Research',
+      organization: 'Stanford University',
       period: 'Mar 2021 - Dec 2021',
       location: 'Industry Setting',
       employmentType: 'Full-time',
@@ -157,7 +157,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Contributed to process improvements in analytical workflows',
         'Developed proficiency in complex flow cytometry techniques'
       ],
-      skills: ['Flow Cytometry', 'GMP Compliance', 'Quality Control', 'Data Analysis', 'Technical Documentation'],
+      skills: ['Flow Cytometry', 'PBMC Isolation with ficol', 'Biobank', 'Mass Cytometry', 'MiSeq', 'Luminex', 'PCR', 'ELISA', ''],
       reasonForLeaving: 'Promoted to advanced role with increased responsibilities in analytical method development and team leadership.'
       // No logoUrl - will use default icon
     },
