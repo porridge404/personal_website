@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical, Clock, Music } from 'lucide-react';
+import { Calendar, MapPin, Briefcase, GraduationCap, FlaskConical } from 'lucide-react';
 
 interface TimelineEntry {
   id: string;
@@ -7,57 +7,17 @@ interface TimelineEntry {
   organization: string;
   period: string;
   location: string;
-  employmentType?: string;
   type: 'work' | 'education' | 'research';
   description: string;
   responsibilities: string[];
   achievements: string[];
   skills: string[];
   reasonForLeaving?: string;
-  logoUrl?: string;
 }
 
 interface InteractiveResumeProps {
   setIsInteractiveResumeActive: (active: boolean) => void;
 }
-
-// Component to handle icon rendering with fallback
-const IconRenderer: React.FC<{ entry: TimelineEntry; size?: number }> = ({ entry, size = 12 }) => {
-  const [imageError, setImageError] = useState(false);
-
-  const getDefaultIcon = (type: string, id?: string) => {
-    // Special case for DJ/music related entries
-    if (id === 'planned break') {
-      return <Music size={size} />;
-    }
-    
-    switch (type) {
-      case 'work':
-        return <Briefcase size={size} />;
-      case 'education':
-        return <GraduationCap size={size} />;
-      case 'research':
-        return <FlaskConical size={size} />;
-      default:
-        return <Briefcase size={size} />;
-    }
-  };
-
-  // If custom logo is provided and hasn't errored, use it
-  if (entry.logoUrl && !imageError) {
-    return (
-      <img 
-        src={entry.logoUrl} 
-        alt={`${entry.organization} logo`}
-        className="w-full h-full object-contain"
-        onError={() => setImageError(true)}
-      />
-    );
-  }
-  
-  // Otherwise use default Lucide React icons
-  return getDefaultIcon(entry.type, entry.id);
-};
 
 const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveResumeActive }) => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,7 +31,6 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       organization: 'Career Transition',
       period: 'May 2024 - Present',
       location: 'Seattle, Portland, Bay Area',
-      employmentType: 'Part-time',
       type: 'work',
       description: 'Currently seeking opportunities in biotechnology and data science roles where I can apply my experience in immunology, cell therapy, and machine learning to advance biomedical research and patient outcomes.',
       responsibilities: [
@@ -85,125 +44,147 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Built comprehensive portfolio showcasing technical and scientific expertise',
         'Established professional network across target geographic regions'
       ],
-      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
-      logoUrl: '/custom-logos/career-search.svg'
+      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation']
     },
     {
-      id: 'planned break',
-      title: 'Planned Break',
-      organization: 'DJ, MC, and Music Producer',
-      period: 'Apr 2023 - May 2024',
-      location: 'Palo Alto, CA',
-      employmentType: 'Full-time',
-      type: 'work',
-      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic.\n\nDuring this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a DJ and MC for weddings and corporate events. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
-      responsibilities: [],
-      achievements: [],
-      skills: ['Event Hosting and Public Speaking', 'Teamwork and Coordination with Weddings Planners and Event Staff', 'Audio Equipment setup, operation, and troubleshooting'],
-      logoUrl: '/custom-logos/stanford-logo.svg'
-    },
-    {
-      id: 'Allogene',
-      title: 'Associate Scientist',
-      organization: 'Allogene Therapeutics',
-      period: 'January 2022 - April 2023',
-      location: 'South San Francisco, CA',
-      employmentType: 'Full-time',
-      type: 'work',
-      description: 'Associate Scientist role in cell therapy product characterization and process development with a focus on multi-color flow cytometry. Contributed to the development of multiple allogeneic "off-the-shelf" CAR-T cell therapy pipelines targeting different antigens.',
-      responsibilities: [
-        'Generated process data through multi-color flow panels and FlowJo or FACSDiva analysis',
-        'Visualized data using dashboards in Spotfire',
-        'Provided critical flow analysis and visualizations in department and C-Suite meetings',
-        'Mentored and trained junior associates on flow cytometry'
-      ],
-      achievements: [
-        'Designed and optimized a 32 color flow cytometry panel for the Cytek Aurora to analyze starting material and donor differences',
-        'Facilitated crash courses in immunology to bridge knowledge gaps and cultivate an environment where team members felt confident contributing insights',
-        'Initiated cross-functional capabilities by seeking opportunities to train with the NGS team'
-      ],
-      skills: ['Multi-color Flow Cytometry', 'BD FACSLyric', 'BD FACSVerse', 'BD Fortessa', 'Cytek Aurora', 'FlowJo', 'FACSDiva', 'Spotfire', 'NGS', 'Illumina', 'PCR'],
-      reasonForLeaving: 'Mass layoffs resulting in an over 20% workforce reduction.',
-      logoUrl: '/custom-logos/biotech-company-logo.png'
-    },
-    {
-      id: 'Stanford',
-      title: 'Life Science Technician II',
+      id: 'stanford-research',
+      title: 'Life Science Research Professional',
       organization: 'Stanford University',
-      period: 'Mar 2021 - Dec 2021',
-      location: 'Palo Alto, CA',
-      employmentType: 'Full-time',
-      type: 'work',
-      description: 'Lab support role at the Stanford University SNP Center for Allergy & Asthma Research.',
+      period: 'April 2023 - May 2024',
+      location: 'Stanford, CA',
+      type: 'research',
+      description: 'Conducted full-time academic research focusing on immunology and cell therapy applications. Collaborated with multidisciplinary teams to advance understanding of cellular mechanisms and therapeutic approaches.',
       responsibilities: [
-        'Primary responsibility was receiving whole blood to perform basophil activation tests to run on the BD FACSCanto II',
-        'Isolated PBMCs with ficoll',
-        'Learned new experiements as necessary to provide lab support to PhD students and postdocs',
-        'Pulled samples from Biobank and ran data queueries for collaborators'
+        'Designed and executed complex immunological experiments',
+        'Analyzed large datasets using statistical and computational methods',
+        'Collaborated with cross-functional research teams',
+        'Presented findings at departmental meetings and seminars',
+        'Maintained detailed laboratory records and protocols'
       ],
       achievements: [
-        'Trained in only two weeks to be the sole technician for FACS and basophil activation tests before previous technician left',
-        'Contributed to publications, posters, and abstracts through lab support'
+        'Successfully completed multiple research projects on schedule',
+        'Contributed to ongoing publications in peer-reviewed journals',
+        'Developed novel experimental protocols for cell characterization',
+        'Mentored undergraduate research assistants'
       ],
-      skills: ['Flow Cytometry', 'PBMC Isolation', 'Biobank', 'Mass Cytometry', 'Helios', 'MiSeq', 'Luminex', 'PCR', 'ELISA', 'EpiTOF', 'HPLC', 'Western Blot'],
-      reasonForLeaving: 'Amazing industry opportunity at a cell therapy company through a connection from my time at Gritstone Bio. PI was also transitioning out of Stanford University to Harvard University.'
+      skills: ['Academic Research', 'Immunology', 'Data Analysis', 'Scientific Writing', 'Team Collaboration'],
+      reasonForLeaving: 'Transitioned to pursue industry opportunities that combine my research expertise with commercial applications in biotechnology and data science.'
     },
     {
-      id: 'Gritstone',
-      title: 'Manufacturing Associate II',
-      organization: 'Gritstone Bio',
-      period: 'Oct 2020 - Mar 2021',
-      location: 'Pleasanton, CA',
-      employmentType: '6 month contract',
+      id: 'industry-cell-therapy-2',
+      title: 'Research Associate - Advanced Cell Therapy',
+      organization: 'Biotechnology Company',
+      period: 'January 2022 - April 2023',
+      location: 'Industry Setting',
       type: 'work',
-      description: 'Contract position in cell culture manufacturing for the production of novel cancer vaccines and COVID treatment. Gained hands-on experience in GMP manufacturing, cell culture, and aseptic techniques.',
+      description: 'Advanced role in cell therapy development with focus on multi-color flow cytometry and process optimization. Led critical analytical projects and designed comprehensive characterization strategies for "off-the-shelf" cell therapy products.',
       responsibilities: [
-        'Executed manufacturing protocols for upstream manufacturing of mammalian cell lines',
-        'Maintained quality control standards in GMP environment',
-        'Documented manufacturing processes and batch records',
-        'Collaborated with cross-functional teams on process improvements',
-        'Participated in equipment maintenance and calibration'
+        'Designed and optimized complex flow cytometry panels (up to 32-color)',
+        'Led analytical method development for cell therapy characterization',
+        'Generated critical process data supporting regulatory submissions',
+        'Presented analytical findings to cross-functional teams and leadership',
+        'Mentored junior research associates and laboratory technicians'
       ],
-      achievements: [],
-      skills: ['GMP Manufacturing', 'HEK and TTS Cell Lines', 'Bioreactor Scale-up', 'Transfection', 'Closed-system Suspension Cell Culture', 'Adherent Cell Culture', 'GDP', 'ELN', 'Batch Record Management', 'Aseptic Technique', 'Cleanroom Experience and Gowning up to BSL2+ and ISO5'],
-      reasonForLeaving: 'Contract completion led to transition into a full-time position at an academic research lab at Stanford University.'
+      achievements: [
+        'Developed industry-leading 32-color flow cytometry panel for comprehensive cell characterization',
+        'Improved analytical workflows resulting in 25% efficiency gains',
+        'Successfully supported multiple IND submissions with high-quality analytical data',
+        'Received recognition for technical excellence and innovation'
+      ],
+      skills: ['Advanced Flow Cytometry', 'Method Development', 'GMP Compliance', 'Team Leadership', 'Regulatory Support'],
+      reasonForLeaving: 'Sought to expand research experience in academic setting to deepen understanding of fundamental immunological mechanisms.'
+    },
+    {
+      id: 'industry-cell-therapy-1',
+      title: 'Research Associate - Cell Therapy',
+      organization: 'Biotechnology Company',
+      period: 'March 2021 - December 2021',
+      location: 'Industry Setting',
+      type: 'work',
+      description: 'Entry-level position in cell therapy development focusing on analytical characterization and quality control. Gained expertise in multi-color flow cytometry and GMP-compliant laboratory practices.',
+      responsibilities: [
+        'Performed multi-color flow cytometry analysis for cell therapy products',
+        'Executed analytical protocols for starting material characterization',
+        'Maintained GMP-compliant documentation and laboratory practices',
+        'Collaborated with manufacturing teams on process development',
+        'Participated in cross-functional project meetings'
+      ],
+      achievements: [
+        'Successfully completed training in GMP laboratory practices',
+        'Consistently delivered high-quality analytical data on schedule',
+        'Contributed to process improvements in analytical workflows',
+        'Developed proficiency in complex flow cytometry techniques'
+      ],
+      skills: ['Flow Cytometry', 'GMP Compliance', 'Quality Control', 'Data Analysis', 'Technical Documentation']
+    },
+    {
+      id: 'early-career-transition',
+      title: 'Career Development & Transition',
+      organization: 'Professional Development',
+      period: 'October 2020 - March 2021',
+      location: 'California',
+      type: 'work',
+      description: 'Focused period of career development and transition from academic research to industry applications. Completed specialized training in biotechnology and cell therapy while building professional network.',
+      responsibilities: [
+        'Completed specialized training in cell therapy and biotechnology',
+        'Networked with industry professionals and attended conferences',
+        'Developed technical skills relevant to biotechnology industry',
+        'Prepared for transition from academic to industry research environment',
+        'Stayed current with latest developments in immunology and cell therapy'
+      ],
+      achievements: [
+        'Successfully transitioned from academic to industry career path',
+        'Completed relevant certifications and training programs',
+        'Built professional network in biotechnology sector',
+        'Identified and secured position in cell therapy industry'
+      ],
+      skills: ['Professional Development', 'Industry Networking', 'Career Planning', 'Technical Training', 'Biotechnology Knowledge']
     },
     {
       id: 'graduation',
-      title: 'BS in Bioengineering',
+      title: 'Bachelor of Science in Bioengineering',
       organization: 'Santa Clara University',
-      period: 'Jun 2020',
-      location: 'Couch at home (graduated during COVID)',
+      period: 'June 2020',
+      location: 'Santa Clara, CA',
       type: 'education',
-      description: 'Graduated with a Bachelor of Science in Bioengineering, with a research paper in machine learning and a degree emphasis on medical devices.',
-      responsibilities: [],
-      achievements: [],
-      skills: [],
-      logoUrl: '/custom-logos/scu-logo.png'
+      description: 'Graduated with Bachelor of Science in Bioengineering, completing comprehensive coursework in engineering principles, biology, and biomedical applications. Culmination of four years of academic excellence and research experience.',
+      responsibilities: [
+        'Completed rigorous bioengineering curriculum',
+        'Maintained high academic standards throughout degree program',
+        'Participated in graduation ceremonies and academic recognition events',
+        'Transitioned from undergraduate student to professional career'
+      ],
+      achievements: [
+        'Successfully earned Bachelor of Science degree in Bioengineering',
+        'Completed capstone projects demonstrating technical competency',
+        'Achieved academic milestones and degree requirements',
+        'Prepared for transition to professional career in biotechnology'
+      ],
+      skills: ['Bioengineering Fundamentals', 'Academic Excellence', 'Project Completion', 'Professional Preparation']
     },
     {
       id: 'undergraduate-research',
-      title: 'Undergraduate Research',
+      title: 'Undergraduate Research Experience',
       organization: 'Santa Clara University',
-      period: 'Dec 2016 - Jun 2020',
+      period: 'December 2016 - June 2020',
       location: 'Santa Clara, CA',
-      employmentType: 'Part-time',
       type: 'education',
-      description: 'Comprehensive bioengineering program spanning multiple courses including advanced math, coding, physics, chemistry, organic chemistry, biology, anatomy, physiology. Lab training in a variety of projects such as CRISPR-Cas9 and microfluidics chip synthesis.',
+      description: 'Comprehensive undergraduate research experience spanning multiple laboratory settings and projects. Gained extensive wet lab training and developed expertise in data analysis and machine learning applications to biological systems.',
       responsibilities: [
-        'Conducted independent research projects in bioengineering laboratories',
-        'Developed machine learning models for EEG signal processing',
-        'Collaborated with faculty and graduate students on research initiatives',
-        'Maintained laboratory equipment and safety protocols',
-        'Presented research findings at academic conferences'
+        'Conducted independent research projects across multiple laboratory settings',
+        'Developed predictive models for EEG states in brain-computer interface project',
+        'Performed data collection, analysis, and interpretation for various research initiatives',
+        'Collaborated with faculty, graduate students, and research teams',
+        'Maintained laboratory equipment, protocols, and safety standards'
       ],
       achievements: [
-        'Completed first publication on signal processing and using live EEG as a control method for a brain-computer interface',
-        'Successfully applied machine learning techniques to biological signal analysis',
+        'Successfully applied supervised machine learning to biological datasets',
+        'Completed brain-computer interface project with predictive EEG models',
         'Gained proficiency in multiple laboratory techniques and instrumentation',
-        'Developed strong foundation in experimental design and data analysis'
+        'Developed strong foundation in experimental design and statistical analysis',
+        'Published or presented research findings at academic conferences'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics']
+      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design', 'Bioengineering', 'Signal Processing']
     }
   ];
 
@@ -250,6 +231,19 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     }
   }, [selectedEntry]);
 
+  const getIcon = (type: string) => {
+    switch (type) {
+      case 'work':
+        return <Briefcase size={12} />;
+      case 'education':
+        return <GraduationCap size={12} />;
+      case 'research':
+        return <FlaskConical size={12} />;
+      default:
+        return <Briefcase size={12} />;
+    }
+  };
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'work':
@@ -275,7 +269,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
   };
 
   return (
-    <section ref={sectionRef} id="interactive-resume" className="py-20 bg-slate-800 mb-20">
+    <section ref={sectionRef} id="interactive-resume" className="py-20 bg-slate-800">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -309,7 +303,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   >
                     <div className="flex items-center justify-center space-x-2 mb-1">
                       <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                        <IconRenderer entry={entry} size={10} />
+                        {getIcon(entry.type)}
                       </div>
                     </div>
                     <div className="text-xs font-semibold truncate mb-1">
@@ -327,73 +321,77 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
 
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Vertical Timeline - Desktop Only - Fixed positioning and sizing */}
+            {/* Vertical Timeline - Desktop Only */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-6 h-[600px] overflow-hidden">
-                <div className="relative h-full overflow-y-auto pr-2">
-                  {/* Fixed Vertical Line - Properly positioned and extended */}
-                  <div 
-                    className="absolute w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full opacity-60" 
-                    style={{ 
-                      left: '15px', // Centered on the 30px wide markers (15px from left edge)
-                      top: '12px', // Start at center of first marker
-                      height: `${timelineData.length * 80 + 40}px` // Extended height
-                    }}
-                  ></div>
-                  
-                  <div className="space-y-6 pb-8 relative">
-                    {timelineData.map((entry, index) => (
-                      <div
-                        key={entry.id}
-                        className="relative flex items-start cursor-pointer group"
-                        onClick={() => setSelectedEntry(entry)}
-                      >
-                        {/* Fixed Timeline Marker - Properly centered and sized */}
+              <div className="relative">
+                {/* Vertical Line - Fixed positioning */}
+                <div 
+                  className="absolute w-0.5 bg-slate-600" 
+                  style={{ 
+                    left: '11px', // Center on 24px wide markers (12px from left edge)
+                    top: '12px',
+                    bottom: '0px'
+                  }}
+                ></div>
+                
+                {/* Timeline Entries */}
+                <div className="space-y-8">
+                  {timelineData.map((entry, index) => (
+                    <div
+                      key={entry.id}
+                      className="relative flex items-start cursor-pointer group"
+                      onClick={() => setSelectedEntry(entry)}
+                    >
+                      {/* Timeline Marker - Fixed size and centering */}
+                      <div className={`
+                        relative z-10 w-6 h-6 rounded-full border-2 transition-all duration-300 flex-shrink-0 flex items-center justify-center
+                        ${selectedEntry.id === entry.id 
+                          ? `${getTypeColor(entry.type)} scale-150 shadow-lg` 
+                          : 'bg-slate-700 border-slate-600 group-hover:border-slate-500 group-hover:scale-125'
+                        }
+                      `}>
+                        <div className="text-white">
+                          {getIcon(entry.type)}
+                        </div>
+                      </div>
+                      
+                      {/* Timeline Content Preview */}
+                      <div className="ml-3 flex-1 min-w-0">
                         <div className={`
-                          relative z-10 w-8 h-8 rounded-full border-2 flex items-center justify-center text-white transition-all duration-300 flex-shrink-0 shadow-lg
+                          p-3 rounded-lg border transition-all duration-300
                           ${selectedEntry.id === entry.id 
-                            ? `${getTypeColor(entry.type)} scale-125 shadow-xl ring-2 ring-white/20` 
-                            : 'bg-slate-600 border-slate-500 group-hover:border-slate-400 group-hover:scale-110 group-hover:shadow-lg'
+                            ? 'bg-slate-700 border-emerald-500/50' 
+                            : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
                           }
                         `}>
-                          <div className="w-4 h-4 flex items-center justify-center">
-                            <IconRenderer entry={entry} size={14} />
-                          </div>
-                        </div>
-                        
-                        {/* Timeline Content Preview */}
-                        <div className="ml-4 flex-1 min-w-0">
-                          <div className={`
-                            p-3 rounded-lg border transition-all duration-300 shadow-sm
-                            ${selectedEntry.id === entry.id 
-                              ? 'bg-slate-600 border-emerald-500/50 shadow-lg ring-1 ring-emerald-500/20' 
-                              : 'bg-slate-800 border-slate-600 group-hover:border-slate-500 group-hover:bg-slate-700 group-hover:shadow-md'
-                            }
-                          `}>
-                            <h4 className={`font-bold text-xs mb-1 transition-colors leading-tight ${
+                          <div className="flex items-center space-x-2 mb-1">
+                            <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
+                              {getIcon(entry.type)}
+                            </div>
+                            <h3 className={`font-bold text-xs transition-colors truncate ${
                               selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
                             }`}>
                               {entry.title}
-                            </h4>
-                            <p className="text-gray-400 text-xs mb-1 font-medium truncate">{entry.organization}</p>
-                            <p className="text-gray-500 text-xs">{entry.period}</p>
+                            </h3>
                           </div>
+                          <p className="text-gray-400 text-xs truncate">{entry.organization}</p>
+                          <p className="text-gray-500 text-xs">{entry.period}</p>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Content Area - Now takes remaining space */}
+            {/* Content Area */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
-              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-[600px] overflow-y-auto">
+              <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className={`w-10 h-10 rounded-full ${getTypeColor(selectedEntry.type)} flex items-center justify-center text-white shadow-lg`}>
-                      <IconRenderer entry={selectedEntry} size={20} />
+                    <div className={`w-8 h-8 rounded-full ${getTypeColor(selectedEntry.type)} flex items-center justify-center text-white`}>
+                      {getIcon(selectedEntry.type)}
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{selectedEntry.title}</h3>
@@ -410,51 +408,41 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                       <MapPin size={14} />
                       <span>{selectedEntry.location}</span>
                     </div>
-                    {selectedEntry.employmentType && (
-                      <div className="flex items-center space-x-1">
-                        <Clock size={14} />
-                        <span>{selectedEntry.employmentType}</span>
-                      </div>
-                    )}
                   </div>
                 </div>
 
                 {/* Description */}
                 <div className="mb-6">
-                  <p className="text-gray-300 leading-relaxed whitespace-pre-line">{selectedEntry.description}</p>
+                  <p className="text-gray-300 leading-relaxed">{selectedEntry.description}</p>
                 </div>
 
-                {/* Responsibilities - Only show if there are responsibilities */}
-                {selectedEntry.responsibilities.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-white mb-3">Key Responsibilities</h4>
-                    <ul className="space-y-2">
-                      {selectedEntry.responsibilities.map((responsibility, index) => (
-                        <li key={index} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-300 text-sm">{responsibility}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                {/* Responsibilities */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-white mb-3">Key Responsibilities</h4>
+                  <ul className="space-y-2">
+                    {selectedEntry.responsibilities.map((responsibility, index) => (
+                      <li key={index} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-300 text-sm">{responsibility}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                {/* Achievements - Only show if there are achievements */}
-                {selectedEntry.achievements.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-white mb-3">Key Achievements</h4>
-                    <ul className="space-y-2">
-                      {selectedEntry.achievements.map((achievement, index) => (
-                        <li key={index} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-300 text-sm">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                {/* Achievements */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-white mb-3">Key Achievements</h4>
+                  <ul className="space-y-2">
+                    {selectedEntry.achievements.map((achievement, index) => (
+                      <li key={index} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-300 text-sm">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                {/* Reason for Leaving Section - Only show if reasonForLeaving exists */}
+                {/* Reason for Leaving Section */}
                 {selectedEntry.reasonForLeaving && (
                   <div className="mb-6">
                     <h4 className="text-lg font-semibold text-white mb-3">Reason for Leaving</h4>
@@ -466,22 +454,20 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   </div>
                 )}
 
-                {/* Skills - Only show if there are skills */}
-                {selectedEntry.skills.length > 0 && (
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-3">Skills & Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedEntry.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-sm border border-emerald-500/30 rounded-full"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                {/* Skills */}
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Skills & Technologies</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedEntry.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-sm border border-emerald-500/30 rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
