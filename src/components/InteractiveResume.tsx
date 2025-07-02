@@ -157,10 +157,10 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     },
     {
       id: 'early-career-transition',
-      title: 'Career Development & Transition',
-      organization: 'Professional Development',
-      period: 'October 2020 - March 2021',
-      location: 'California',
+      title: 'Manufacturing Associate II',
+      organization: 'Gritstone Bio',
+      period: 'Oct 2020 - Mar 2021',
+      location: 'Pleasanton, CA',
       type: 'work',
       description: 'Focused period of career development and transition from academic research to industry applications. Completed specialized training in biotechnology and cell therapy while building professional network.',
       responsibilities: [
@@ -198,7 +198,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       period: 'Dec 2016 - Jun 2020',
       location: 'Santa Clara, CA',
       type: 'education',
-      description: 'Comprehensive undergraduate research experience spanning multiple laboratory settings and projects. Gained extensive wet lab training and developed expertise in data analysis and machine learning applications to biological systems.',
+      description: 'Comprehensive bioengineering program spanning multiple courses including advanced math, coding, physics, chemisty, organic chemisty, biology, anatomy, phsyiology. Lab training in a variety of projects suchs as CRISPR-Cas9 and microfluidics chip synthesis.',
       responsibilities: [
         'Conducted independent research projects across multiple laboratory settings',
         'Developed predictive models for EEG states in brain-computer interface project',
@@ -207,13 +207,9 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Maintained laboratory equipment, protocols, and safety standards'
       ],
       achievements: [
-        'Successfully applied supervised machine learning to biological datasets',
-        'Completed brain-computer interface project with predictive EEG models',
-        'Gained proficiency in multiple laboratory techniques and instrumentation',
-        'Developed strong foundation in experimental design and statistical analysis',
-        'Published or presented research findings at academic conferences'
+        'Completed my first publication on signal processing and using live EEG as a control method for a brain-computer interface.'
       ],
-      skills: ['Machine Learning', 'EEG Analysis', 'Laboratory Techniques', 'Data Science', 'Research Design', 'Bioengineering', 'Signal Processing']
+      skills: ['Machine Learning', 'EEG Analysis', 'Signal Processing', 'Python', 'MATLAB', 'Microfluidics', 'Bioengineering', 'Genomics']
       // No logoUrl - will use default education icon
     }
   ];
