@@ -20,6 +20,39 @@ interface InteractiveResumeProps {
   setIsInteractiveResumeActive: (active: boolean) => void;
 }
 
+// Component to handle icon rendering with fallback
+const IconRenderer: React.FC<{ entry: TimelineEntry }> = ({ entry }) => {
+  const [imageError, setImageError] = useState(false);
+
+  const getDefaultIcon = (type: string) => {
+    switch (type) {
+      case 'work':
+        return <Briefcase size={12} />;
+      case 'education':
+        return <GraduationCap size={12} />;
+      case 'research':
+        return <FlaskConical size={12} />;
+      default:
+        return <Briefcase size={12} />;
+    }
+  };
+
+  // If custom logo is provided and hasn't errored, use it
+  if (entry.logoUrl && !imageError) {
+    return (
+      <img 
+        src={entry.logoUrl} 
+        alt={`${entry.organization} logo`}
+        className="w-full h-full object-contain"
+        onError={() => setImageError(true)}
+      />
+    );
+  }
+  
+  // Otherwise use default Lucide React icons
+  return getDefaultIcon(entry.type);
+};
+
 const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveResumeActive }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -238,44 +271,6 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
     }
   }, [selectedEntry]);
 
-  const getIcon = (entry: TimelineEntry) => {
-    // If custom logo is provided, use it
-    if (entry.logoUrl) {
-      return (
-        <img 
-          src={entry.logoUrl} 
-          alt={`${entry.organization} logo`}
-          className="w-full h-full object-contain"
-          onError={(e) => {
-            // Fallback to default icon if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            const parent = target.parentElement;
-            if (parent) {
-              parent.innerHTML = getDefaultIcon(entry.type);
-            }
-          }}
-        />
-      );
-    }
-    
-    // Otherwise use default Lucide React icons
-    return getDefaultIcon(entry.type);
-  };
-
-  const getDefaultIcon = (type: string) => {
-    switch (type) {
-      case 'work':
-        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
-      case 'education':
-        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 10-6-6-6 6-6-6-6 6"></path><path d="M2 21V8l6-6 6 6 6-6 6 6v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"></path></svg>';
-      case 'research':
-        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v20"></path><path d="M14 2v20"></path><path d="M4 7h16"></path><path d="M4 17h16"></path><circle cx="12" cy="12" r="3"></circle></svg>';
-      default:
-        return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
-    }
-  };
-
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'work':
@@ -335,7 +330,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   >
                     <div className="flex items-center justify-center space-x-2 mb-1">
                       <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                        {getIcon(entry)}
+                        <IconRenderer entry={entry} />
                       </div>
                     </div>
                     <div className="text-xs font-semibold truncate mb-1">
@@ -388,7 +383,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                         `}>
                           <div className="flex items-center space-x-2 mb-1">
                             <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                              {getIcon(entry)}
+                              <IconRenderer entry={entry} />
                             </div>
                             <h3 className={`font-bold text-xs transition-colors truncate ${
                               selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
@@ -413,7 +408,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className={`w-8 h-8 rounded-full ${getTypeColor(selectedEntry.type)} flex items-center justify-center text-white`}>
-                      {getIcon(selectedEntry)}
+                      <IconRenderer entry={selectedEntry} />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{selectedEntry.title}</h3>
