@@ -66,24 +66,26 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
   
   const timelineData: TimelineEntry[] = [
     {
-      id: 'current-search',
-      title: 'Actively Seeking Opportunities',
-      organization: 'Career Transition',
+      id: 'Gamelandia',
+      title: 'Retail Associate',
+      organization: 'Gamelandia',
       period: 'May 2024 - Present',
-      location: 'Seattle, Portland, Bay Area',
+      location: 'Palo Alto, CA',
       employmentType: 'Part-time',
       type: 'work',
-      description: 'Currently seeking opportunities in biotechnology and data science roles where I can apply my experience in immunology, cell therapy, and machine learning to advance biomedical research and patient outcomes.',
+      description: 'After my break I used my event hosting skills
+as a Retail Associate at my local Mom and Pop game store while
+searching for new opportunities in tech and applying to graduate school.
+\n\nUnfortunately many graduate programs were defunded at the start of 2025 so I was not able to join a program',
       responsibilities: [
-        'Networking with industry professionals and researchers',
-        'Developing machine learning projects to demonstrate technical skills',
-        'Staying current with latest developments in cell therapy and AI/ML',
-        'Preparing for technical interviews and case studies'
+        'Hosting various Trading Card Game events',
+        'Managing inventory and restocking retail space',
+        'Helping customers with board game recommendations',
+        'Training new associates'
       ],
       achievements: [
-        'Completed advanced machine learning projects using modern libraries',
+        'Winner ',
         'Built comprehensive portfolio showcasing technical and scientific expertise',
-        'Established professional network across target geographic regions'
       ],
       skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
       logoUrl: '/custom-logos/career-search.svg' // Example custom logo
