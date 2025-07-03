@@ -333,8 +333,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
             {/* Vertical Timeline - Desktop Only */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
               <div className="relative max-h-[600px] overflow-y-auto pl-4 pr-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
-                {/* Vertical Line */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+                {/* Vertical Line - Centered on the 12px (w-3 h-3) icons */}
+                <div className="absolute left-[22px] top-0 bottom-0 w-0.5 bg-slate-600"></div>
                 
                 {/* Timeline Entries */}
                 <div className="space-y-8">
