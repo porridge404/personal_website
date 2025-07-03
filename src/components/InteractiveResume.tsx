@@ -334,7 +334,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
               <div className="relative max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
                 {/* Vertical Line */}
-                <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+                <div className="absolute left-1 top-0 bottom-0 w-0.5 bg-slate-600"></div>
                 
                 {/* Timeline Entries */}
                 <div className="space-y-8">
@@ -355,7 +355,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                       </div>
                       
                       {/* Timeline Content Preview */}
-                      <div className="ml-3 flex-1 min-w-0">
+                      <div className="ml-2 flex-1 min-w-0">
                         <div className={`
                           p-3 rounded-lg border transition-all duration-300
                           ${selectedEntry.id === entry.id 
