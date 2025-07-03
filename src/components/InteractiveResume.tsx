@@ -321,17 +321,16 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            {/* Vertical Timeline - Desktop Only with Gradient Line */}
+            {/* Vertical Timeline - Desktop Only with Left-Aligned Line */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-2">
               <div className="sticky top-24 h-[calc(100vh-8rem)]">
                 <div className="h-full overflow-y-auto scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-500 pr-4">
-                  <div className="relative px-8 py-16">
-                    {/* Beautiful Gradient Line */}
+                  <div className="relative py-16 pl-12">
+                    {/* Beautiful Gradient Line - Left Aligned */}
                     <div 
                       className="absolute w-1 rounded-full bg-gradient-to-b from-emerald-400 via-blue-400 to-purple-400 shadow-lg"
                       style={{ 
-                        left: '50%',
-                        transform: 'translateX(-50%)',
+                        left: '24px', // Fixed position from left
                         top: '80px',
                         bottom: '80px'
                       }}
@@ -349,7 +348,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                             className="relative flex items-start cursor-pointer group"
                             onClick={() => setSelectedEntry(entry)}
                           >
-                            {/* Timeline Marker - Centered to card height */}
+                            {/* Timeline Marker - Left Aligned */}
                             <div 
                               className={`
                                 absolute z-10 w-8 h-8 rounded-full border-3 transition-all duration-300 flex items-center justify-center shadow-lg
@@ -359,8 +358,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                                 }
                               `}
                               style={{ 
-                                left: '50%',
-                                transform: `translateX(-50%) translateY(${iconOffset - 16}px)`, // Center to card middle
+                                left: '8px', // Centered on the line (24px - 16px = 8px)
+                                transform: `translateY(${iconOffset - 16}px)`, // Center to card middle
                                 boxShadow: selectedEntry.id === entry.id 
                                   ? '0 0 20px rgba(16, 185, 129, 0.4)' 
                                   : '0 4px 8px rgba(0, 0, 0, 0.3)'
@@ -371,8 +370,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                               </div>
                             </div>
                             
-                            {/* Timeline Content Preview - Full width */}
-                            <div className="w-full">
+                            {/* Timeline Content Preview - Offset from line */}
+                            <div className="ml-12 w-full">
                               <div className={`
                                 p-6 rounded-lg border-2 transition-all duration-300 shadow-md
                                 ${selectedEntry.id === entry.id 
