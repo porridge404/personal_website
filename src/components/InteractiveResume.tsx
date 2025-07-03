@@ -332,7 +332,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Vertical Timeline - Desktop Only */}
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
-              <div className="relative">
+              <div className="relative max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
                 {/* Vertical Line */}
                 <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-slate-600"></div>
                 
@@ -363,16 +363,11 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                             : 'bg-slate-700/50 border-slate-600 group-hover:border-slate-500'
                           }
                         `}>
-                          <div className="flex items-center space-x-2 mb-1">
-                            <div className={`w-4 h-4 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                              <IconRenderer entry={entry} />
-                            </div>
-                            <h3 className={`font-bold text-xs transition-colors truncate ${
-                              selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
-                            }`}>
-                              {entry.title}
-                            </h3>
-                          </div>
+                          <h3 className={`font-bold text-xs transition-colors truncate mb-1 ${
+                            selectedEntry.id === entry.id ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
+                          }`}>
+                            {entry.title}
+                          </h3>
                           <p className="text-gray-400 text-xs truncate">{entry.organization}</p>
                           <p className="text-gray-500 text-xs">{entry.period}</p>
                         </div>
@@ -492,6 +487,19 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+        .scrollbar-thin {
+          scrollbar-width: thin;
+        }
+        .scrollbar-thumb-slate-600::-webkit-scrollbar-thumb {
+          background-color: #475569;
+          border-radius: 4px;
+        }
+        .scrollbar-track-slate-800::-webkit-scrollbar-track {
+          background-color: #1e293b;
+        }
+        .scrollbar-thin::-webkit-scrollbar {
+          width: 6px;
         }
       `}</style>
     </section>
