@@ -405,7 +405,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
               </div>
             </div>
 
-            {/* Content Area */}
+            {/* Content Area - RESTORED WITH ALL DETAILS */}
             <div className="order-1 lg:order-2 lg:col-span-3" ref={contentRef}>
               <div className="bg-slate-700 border border-slate-600 rounded-lg p-8 h-full">
                 {/* Header */}
