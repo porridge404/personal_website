@@ -341,7 +341,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
                   {timelineData.map((entry, index) => (
                     <div
                       key={entry.id}
-                      className="relative flex items-start cursor-pointer group"
+                      className="relative flex items-center cursor-pointer group"
                       onClick={() => setSelectedEntry(entry)}
                     >
                       {/* Timeline Marker */}
