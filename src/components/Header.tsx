@@ -36,9 +36,9 @@ const Header: React.FC<HeaderProps> = ({ hideOnInteractiveResume = false }) => {
 
   return (
     <header className={`
-      fixed w-full top-0 z-50 transition-all duration-300
+      fixed w-full top-0 z-40 transition-all duration-300
       ${hideOnInteractiveResume 
-        ? 'opacity-0 pointer-events-none -translate-y-full md:opacity-100 md:pointer-events-auto md:translate-y-0' 
+        ? 'md:opacity-100 md:pointer-events-auto md:translate-y-0 opacity-0 pointer-events-none -translate-y-full' 
         : 'opacity-100 pointer-events-auto translate-y-0'
       }
       ${isScrolled 

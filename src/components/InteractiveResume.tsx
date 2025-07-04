@@ -62,7 +62,6 @@ const IconRenderer: React.FC<{ entry: TimelineEntry }> = ({ entry }) => {
 const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveResumeActive }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [isTimelineSticky, setIsTimelineSticky] = useState(false);
   
   const timelineData: TimelineEntry[] = [
     {
@@ -225,7 +224,6 @@ During this time, I reconnected with out-of-state and international family, purs
         const isActive = isIntersecting && intersectionRatio > 0.3;
         
         setIsInteractiveResumeActive(isActive);
-        setIsTimelineSticky(isActive);
       },
       {
         threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0],
@@ -292,10 +290,7 @@ During this time, I reconnected with out-of-state and international family, purs
 
         {/* Horizontal Timeline - Mobile Only */}
         <div className="lg:hidden mb-8">
-          <div className={`
-            sticky z-50 bg-slate-800 border-b border-slate-700 pb-4 mb-8 transition-all duration-300
-            ${isTimelineSticky ? 'top-0 shadow-lg' : 'top-16'}
-          `}>
+          <div className="sticky top-0 z-50 bg-slate-800 border-b border-slate-700 pb-4 mb-8 shadow-lg">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex space-x-4 px-2 min-w-max">
                 {timelineData.map((entry) => (
