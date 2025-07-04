@@ -73,3 +73,8 @@ export const projects: Project[] = [
     category: 'biotechnology'
   }
 ];
+
+// Function to get a project by its ID
+export const getProjectById = (id: string): Project | undefined => {
+  return projects.find(project => project.id === id);
+};
