@@ -235,7 +235,7 @@ const Contact: React.FC = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="Contact Info"
                     value={formData.email}
                     onChange={handleChange}
                     required
