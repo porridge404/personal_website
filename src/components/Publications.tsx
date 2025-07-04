@@ -6,6 +6,7 @@ interface Publication {
   title: string;
   journal: string;
   year: number;
+  volume?: string;
   issue?: string;
   doi?: string;
   url: string; // Made required since all will have placeholder links
@@ -19,7 +20,8 @@ const Publications: React.FC = () => {
       title: 'Impact of air pollution exposure on cytokines and histone modification profiles at single-cell levels during pregnancy.',
       journal: 'Science Advances',
       year: 2024,
-      issue: '10(25)',
+      volume: '10',
+      issue: '25',
       doi: '10.1088/1741-2552/ab1234',
       url: 'https://placeholder-link-1.com'
     },
@@ -29,7 +31,8 @@ const Publications: React.FC = () => {
       title: 'Multi-parameter flow cytometry analysis of CAR-T cell products: A comprehensive characterization approach',
       journal: 'Cytotherapy',
       year: 2023,
-      issue: '10(48), eadp5227.',
+      volume: '25',
+      issue: '10',
       doi: '10.1016/j.jcyt.2023.01.234',
       url: 'https://placeholder-link-2.com'
     },
@@ -39,7 +42,7 @@ const Publications: React.FC = () => {
       title: 'Machine learning approaches for sleep stage classification using wearable device data',
       journal: 'Sleep Medicine Reviews',
       year: 2024,
-      issue: '73',
+      volume: '73',
       doi: '10.1016/j.smrv.2024.01.567',
       url: 'https://placeholder-link-3.com'
     },
@@ -49,7 +52,7 @@ const Publications: React.FC = () => {
       title: 'Microfluidic device design for single-cell analysis in cancer research',
       journal: 'Proceedings of the Annual Bioengineering Conference',
       year: 2019,
-      issue: '2019',
+      volume: '2019',
       url: 'https://placeholder-link-4.com'
     }
   ];
@@ -78,14 +81,18 @@ const Publications: React.FC = () => {
     // Format journal name (italicized)
     const journal = publication.journal;
     
-    // Format issue
-    const issue = publication.issue ? `, ${publication.issue}` : '';
+    // Format volume (italicized)
+    const volume = publication.volume ? publication.volume : '';
+    
+    // Format issue (in parentheses, not italicized)
+    const issue = publication.issue ? `(${publication.issue})` : '';
     
     return {
       authors: authorsFormatted,
       year: publication.year,
       title: title,
       journal: journal,
+      volume: volume,
       issue: issue
     };
   };
@@ -160,7 +167,9 @@ const Publications: React.FC = () => {
                     <p className="text-gray-300 leading-relaxed text-base">
                       <span className="font-medium">
                         {renderAuthorsWithHighlight(apa.authors)}
-                      </span> ({apa.year}). {apa.title} <em>{apa.journal}</em>{apa.issue}.
+                      </span> ({apa.year}). {apa.title} <em>{apa.journal}</em>
+                      {apa.volume && <>, <em>{apa.volume}</em></>}
+                      {apa.issue && <>{apa.issue}</>}.
                     </p>
                   </div>
 
