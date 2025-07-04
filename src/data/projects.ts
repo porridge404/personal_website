@@ -36,7 +36,7 @@ export const projects: Project[] = [
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
     lastModified: '2025-05-20',
-    category: 'machine-learning',
+    category: 'machine-learning'
   },
   {
     id: 'flow-cytometry-panel',
@@ -51,3 +51,4 @@ export const projects: Project[] = [
     tags: ['Multi-color Flow Cytometry', 'Spectral Flow', 'Cytek Aurora', 'Product Characterization', 'CAR-T', '"Off-the-shelf" Drug Products'],
     lastModified: '2025-05-20',
     category: 'machine-learning'
+  }
