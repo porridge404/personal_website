@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
     title: 'Sleep Data Machine Learning Demo',
-    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
+    description: 'This is a project I put together for a sleep AI company (Somnology) interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
     goals: [
       'Apply machine learning to biological datasets to extract key features',
       'Demonstrate ability to communicate key info efficiently',
