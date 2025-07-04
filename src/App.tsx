@@ -20,7 +20,7 @@ function App() {
           <Route path="/project/:projectId" element={<ProjectLanding />} />
           <Route path="/" element={
             <>
-              <Header hideOnInteractiveResume={isInteractiveResumeActive} />
+              <Header />
               <main>
                 <Hero />
                 <About />
