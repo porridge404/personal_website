@@ -32,7 +32,7 @@ export const projects: Project[] = [
     slidesUrl: 'https://docs.google.com/presentation/d/1t1CxvhPpHPQ6Dp25kdu4_3YR-TXibxWacmTBspbPm8k/edit?usp=sharing',
     type: 'colab',
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
-    slidesEmbedUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/embed?start=false&loop=false&delayms=3000',
+    slidesEmbedUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pubembed?start=false&loop=false&delayms=3000',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
     lastModified: '2025-05-20',
     category: 'machine-learning'
