@@ -283,7 +283,7 @@ During this time, I reconnected with out-of-state and international family, purs
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Interactive Résumé
+            Interactive Resume
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Click on any timeline point to explore my professional journey in detail
