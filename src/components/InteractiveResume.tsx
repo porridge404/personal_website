@@ -290,10 +290,10 @@ During this time, I reconnected with out-of-state and international family, purs
 
         {/* Horizontal Timeline - Mobile Only */}
         <div className="lg:hidden mb-8">
-          <div className="sticky top-0 z-50 bg-slate-800 border-b border-slate-700 pb-4 mb-8 shadow-lg">
+          <div className="sticky top-0 z-50 bg-slate-800 border-b border-slate-700 pb-4 mb-8">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex space-x-4 px-2 min-w-max">
-                {timelineData.map((entry) => (
+                {[...timelineData].reverse().map((entry) => (
                   <button
                     key={entry.id}
                     onClick={() => setSelectedEntry(entry)}
@@ -337,9 +337,9 @@ During this time, I reconnected with out-of-state and international family, purs
                   }}
                 ></div>
                 
-                {/* Timeline Entries - Reversed order for desktop (most recent at bottom) */}
+                {/* Timeline Entries - Original order for desktop (most recent at top) */}
                 <div className="space-y-8 pb-32">
-                  {[...timelineData].reverse().map((entry, index) => (
+                  {timelineData.map((entry, index) => (
                     <div
                       key={entry.id}
                       className="relative flex items-center cursor-pointer group"
