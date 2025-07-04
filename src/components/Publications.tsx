@@ -27,14 +27,14 @@ const Publications: React.FC = () => {
     },
     {
       id: 'car-t-characterization-2023',
-      authors: ['Cansdale, S.', 'Wilson, S.', 'Chen, R.', 'Martinez, L.'],
-      title: 'Multi-parameter flow cytometry analysis of CAR-T cell products: A comprehensive characterization approach',
-      journal: 'Cytotherapy',
+      authors: ['Ha, J. W.', 'Aguilera, J.', 'Jung, Y. S.', 'Cansdale, S.', 'Lurmann, F.', 'Lutzker, L.', 'Hammond, K.', 'Balmes, J.', 'Noth, E.', 'Eisen, E.', 'Aghaeepour, N.', 'Shaw, G.', 'Waldrop, A.', 'Khatri, P.', 'Utz, P. J.', 'Rosenburg-Hasson, Y.', 'Maecker, H.', 'Burt, T.', 'Nadeau, K.', 'Prunicki, M.'],
+      title: 'The impacts of ambient air pollution exposure during pregnancy on maternal and neonatal inflammatory biomarkers',
+      journal: 'Journal of Allergy and Clinical Immunology',
       year: 2023,
-      volume: '25',
-      issue: '10',
-      doi: '10.1016/j.jcyt.2023.01.234',
-      url: 'https://doi.org/10.1016/j.jcyt.2023.01.234'
+      volume: '151',
+      issue: '(2), AB119–AB119',
+      doi: '10.1016/j.jaci.2022.12.377',
+      url: 'https://doi.org/10.1016/j.jaci.2022.12.377'
     },
     {
       id: 'ml-sleep-analysis-2024',
