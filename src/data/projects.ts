@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   description: string;
   goals: string[];
-  projectUrl: string;
+  projectUrl?: string;
   colabUrl?: string;
   slidesUrl?: string;
   githubUrl?: string;
@@ -20,16 +20,13 @@ export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
     title: 'Sleep Data Machine Learning Demo',
-    description: 'Project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals.',
+    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
     goals: [
-      'Demonstrate capability to apply machine learning to biological datasets',
-      'Implement data preprocessing and feature engineering techniques',
-      'Compare performance of different classification algorithms',
-      'Apply supervised machine learning algorithms for sleep stage detection',
-      'Achieve high accuracy in sleep pattern classification',
-      'Provide educational framework for understanding ML in healthcare applications'
+      'Apply machine learning to biological datasets to extract key features',
+      'Demonstrate ability to communicate key info efficiently',
+      'Proactively outline potential next steps',
+      'Independtly source and process labeled sleep data'
     ],
-    projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
     type: 'colab',
@@ -48,8 +45,54 @@ export const projects: Project[] = [
       'Summarize the pipelines and goals of my previous role at Allogene Therapeutics'
     ],
     slidesUrl: 'https://docs.google.com/presentation/d/1wTmXt0QeTmE5qFHDgGxjA8CN4l6qejSsrMO6V3Mlbkk/edit?usp=sharing',
+    type: 'slides',
     tags: ['Multi-color Flow Cytometry', 'Spectral Flow', 'Cytek Aurora', 'Product Characterization', 'CAR-T', '"Off-the-shelf" Drug Products'],
     lastModified: '2025-05-20',
-    category: 'machine-learning'
+    category: 'biotechnology'
   }
-]
+];
+
+// Debug function to inspect projects data
+export const debugProjects = () => {
+  console.group('🔍 Projects Debug Information');
+  console.log('Total projects:', projects.length);
+  
+  projects.forEach((project, index) => {
+    console.group(`📋 Project ${index + 1}: ${project.title}`);
+    console.log('ID:', project.id);
+    console.log('Description:', project.description);
+    console.log('Goals:', project.goals);
+    console.log('URLs:', {
+      projectUrl: project.projectUrl || 'Not set',
+      colabUrl: project.colabUrl || 'Not set',
+      slidesUrl: project.slidesUrl || 'Not set',
+      githubUrl: project.githubUrl || 'Not set'
+    });
+    console.log('Type:', project.type);
+    console.log('Tags:', project.tags);
+    console.log('Last Modified:', project.lastModified);
+    console.log('Category:', project.category);
+    if (project.slidesEmbedId) {
+      console.log('Slides Embed ID:', project.slidesEmbedId);
+    }
+    if (project.technicalDetails) {
+      console.log('Technical Details:', project.technicalDetails);
+    }
+    if (project.keyFeatures) {
+      console.log('Key Features:', project.keyFeatures);
+    }
+    console.groupEnd();
+  });
+  
+  console.groupEnd();
+  return projects;
+};
+
+// Helper function to get project by ID
+export const getProjectById = (id: string): Project | undefined => {
+  return projects.find(project => project.id === id);
+};
+
+export { getProjectById }
+
+export { debugProjects }
