@@ -9,7 +9,7 @@ interface Publication {
   month: string;
   pages?: string;
   doi?: string;
-  url?: string;
+  url: string; // Made required since all will have placeholder links
 }
 
 const Publications: React.FC = () => {
@@ -23,7 +23,7 @@ const Publications: React.FC = () => {
       month: 'June',
       pages: '123-145',
       doi: '10.1088/1741-2552/ab1234',
-      url: 'https://iopscience.iop.org/article/10.1088/1741-2552/ab1234'
+      url: 'https://placeholder-link-1.com'
     },
     {
       id: 'car-t-characterization-2023',
@@ -34,7 +34,7 @@ const Publications: React.FC = () => {
       month: 'March',
       pages: '567-582',
       doi: '10.1016/j.jcyt.2023.01.234',
-      url: 'https://www.sciencedirect.com/science/article/pii/S1465324923001234'
+      url: 'https://placeholder-link-2.com'
     },
     {
       id: 'ml-sleep-analysis-2024',
@@ -45,7 +45,7 @@ const Publications: React.FC = () => {
       month: 'January',
       pages: '89-104',
       doi: '10.1016/j.smrv.2024.01.567',
-      url: 'https://www.sciencedirect.com/science/article/pii/S1087079224001567'
+      url: 'https://placeholder-link-3.com'
     },
     {
       id: 'bioengineering-conference-2019',
@@ -55,7 +55,7 @@ const Publications: React.FC = () => {
       year: 2019,
       month: 'September',
       pages: '234-241',
-      url: 'https://conference.bioengineering.org/proceedings/2019/cansdale-microfluidics'
+      url: 'https://placeholder-link-4.com'
     }
   ];
 
@@ -67,6 +67,10 @@ const Publications: React.FC = () => {
     const pages = publication.pages ? `, pp. ${publication.pages}` : '';
     
     return `${authors} "${publication.title}" ${publication.journal}, ${publication.year}${pages}.`;
+  };
+
+  const handlePublicationClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -82,7 +86,8 @@ const Publications: React.FC = () => {
           {publications.map((publication) => (
             <div
               key={publication.id}
-              className="bg-slate-700 border border-slate-600 rounded-lg overflow-hidden"
+              onClick={() => handlePublicationClick(publication.url)}
+              className="bg-slate-700 border border-slate-600 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg hover:shadow-emerald-500/10"
             >
               {/* Title Header */}
               <div className="flex items-center justify-between p-4 bg-slate-600 border-b border-slate-500">
