@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   description: string;
   goals: string[];
+  projectUrl: string;
   colabUrl?: string;
   slidesUrl?: string;
   githubUrl?: string;
@@ -15,30 +16,24 @@ export interface Project {
   keyFeatures?: string[];
 }
 
-// Function to get a project by its ID
-export const getProjectById = (projectId: string): Project | undefined => {
-  return projects.find(project => project.id === projectId);
-};
-
 export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
     title: 'Sleep Data Machine Learning Demo',
-    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals.',
+    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
     goals: [
-      'Demonstrate capability to apply machine learning to biological datasets',
-      'Implement data preprocessing and feature engineering techniques',
-      'Compare performance of different classification algorithms',
-      'Apply supervised machine learning algorithms for sleep stage detection',
-      'Achieve high accuracy in sleep pattern classification',
-      'Provide educational framework for understanding ML in healthcare applications'
+      'Apply machine learning to biological datasets to extract key features',
+      'Demonstrate ability to communicate key info efficiently',
+      'Proactively outline potential next steps',
+      'Independtly source and process labeled sleep data'
     ],
+    projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
     type: 'colab',
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
-    lastModified: 'May 2024',
+    lastModified: '2025-05-20',
     category: 'machine-learning'
   },
   {
@@ -53,11 +48,6 @@ export const projects: Project[] = [
       'Create standardized protocols for consistent data generation',
       'Enable detailed characterization of CAR-T cell subsets and activation states'
     ],
-    slidesUrl: 'https://docs.google.com/presentation/d/1wTmXt0QeTmE5qFHDgGxjA8CN4l6qejSsrMO6V3Mlbkk/edit?usp=sharing',
-    type: 'slides',
-    tags: ['Flow Cytometry', 'CAR-T Cells', 'Panel Design', 'Immunology', 'Cell Analysis'],
-    lastModified: 'March 2023',
-    category: 'biotechnology',
     technicalDetails: [
       'Cytek Aurora spectral flow cytometer with 32-color capability',
       'Comprehensive antibody titration and optimization protocols',
@@ -71,6 +61,4 @@ export const projects: Project[] = [
       'Compensation strategies and quality control metrics',
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
-    ]
-  }
-];
+    ],
