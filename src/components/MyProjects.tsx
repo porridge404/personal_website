@@ -84,36 +84,6 @@ const MyProjects: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className="text-gray-400 mb-6 text-lg">
-            Want to see more of my work or discuss a collaboration?
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/porridge404"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
-            >
-              <Github size={20} />
-              <span>View GitHub Profile</span>
-            </a>
-            <button
-              onClick={() => {
-                const element = document.querySelector('#connect');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            >
-              <span>Let's Connect</span>
-              <ExternalLink size={16} />
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );

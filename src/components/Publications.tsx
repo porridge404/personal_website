@@ -148,27 +148,6 @@ const Publications: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-gray-400 mb-4">
-            Interested in collaborating on research?
-          </p>
-          <a
-            href="#connect"
-            className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              const element = document.querySelector('#connect');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
-            <span>Let's Connect</span>
-            <ExternalLink size={16} />
-          </a>
-        </div>
       </div>
     </section>
   );
