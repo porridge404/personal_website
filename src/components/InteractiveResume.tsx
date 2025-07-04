@@ -85,16 +85,16 @@ Unfortunately many graduate programs were defunded at the start of 2025 so I was
         'Training new associates'
       ],
       achievements: [
-        'Winner ',
-        'Built comprehensive portfolio showcasing technical and scientific expertise',
+        'Winner of the National “Hobby Shop of the Year 2024” awarded by TCGPlayer',
+        'Winner of “Best of Peninsula 2024: Best Place to Take Your Kid” Reader’s Choice awarded by Mercury News'
       ],
-      skills: ['Job Search Strategy', 'Technical Portfolio Development', 'Professional Networking', 'Interview Preparation'],
+      skills: ['Event Hosting', 'Customer Service', 'Inventory Management', 'Teamwork', 'Shopify'],
       logoUrl: '/custom-logos/career-search.svg' // Example custom logo
     },
     {
       id: 'planned break',
-      title: 'Planned Break',
-      organization: 'DJ, MC, and Music Producer',
+      title: 'Planned Break - DJ, MC, and Music Producer',
+      organization: 'Self-employed',
       period: 'Apr 2023 - May 2024',
       location: 'Palo Alto, CA',
       employmentType: 'Full-time',
