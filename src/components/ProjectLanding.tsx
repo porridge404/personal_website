@@ -184,12 +184,8 @@ const ProjectLanding: React.FC = () => {
             <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
               <h3 className="text-xl font-bold text-white mb-6">Presentation Preview:</h3>
               <div className="aspect-video bg-slate-700 rounded-lg overflow-hidden">
-                <iframe
-                  src={`https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/pubembed?start=false&loop=false&delayms=3000`}
-                  className="w-full h-full"
-                  allowFullScreen
-                  title={project.title}
-                />
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+                </iframe>
               </div>
               <p className="text-gray-400 text-sm mt-4">
                 Use the controls above to navigate through the presentation, or{' '}
