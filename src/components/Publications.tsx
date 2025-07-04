@@ -21,9 +21,9 @@ const Publications: React.FC = () => {
       journal: 'Science Advances',
       year: 2024,
       volume: '10',
-      issue: '(48), eadp5227',
+      issue: '48, eadp5227',
       doi: '10.1126/sciadv.adp5227',
-      url: 'https://www.science.org/doi/10.1126/sciadv.adp5227'
+      url: 'https://doi.org/10.1126/sciadv.adp5227'
     },
     {
       id: 'car-t-characterization-2023',
@@ -34,7 +34,7 @@ const Publications: React.FC = () => {
       volume: '25',
       issue: '10',
       doi: '10.1016/j.jcyt.2023.01.234',
-      url: 'https://placeholder-link-2.com'
+      url: 'https://doi.org/10.1016/j.jcyt.2023.01.234'
     },
     {
       id: 'ml-sleep-analysis-2024',
@@ -44,7 +44,7 @@ const Publications: React.FC = () => {
       year: 2024,
       volume: '73',
       doi: '10.1016/j.smrv.2024.01.567',
-      url: 'https://placeholder-link-3.com'
+      url: 'https://doi.org/10.1016/j.smrv.2024.01.567'
     },
     {
       id: 'undergrad-paper',
@@ -53,7 +53,7 @@ const Publications: React.FC = () => {
       journal: 'Proceedings of the Annual Bioengineering Conference',
       year: 2019,
       volume: '2019',
-      url: 'https://placeholder-link-4.com'
+      url: 'https://doi.org/10.1109/conference.2019.example'
     }
   ];
 
@@ -169,7 +169,7 @@ const Publications: React.FC = () => {
                         {renderAuthorsWithHighlight(apa.authors)}
                       </span> ({apa.year}). {apa.title} <em>{apa.journal}</em>
                       {apa.volume && <>, <em>{apa.volume}</em></>}
-                      {apa.issue && <>, {apa.issue}</>}.
+                      {apa.issue && <>{apa.volume ? '' : ', '}{apa.issue}</>}.
                     </p>
                   </div>
 
