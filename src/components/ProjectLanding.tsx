@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -8,10 +8,13 @@ interface Project {
   description: string;
   goals: string[];
   projectUrl: string;
+  githubUrl?: string;
   type: 'colab' | 'slides';
   slidesEmbedId?: string;
   tags: string[];
   lastModified: string;
+  technicalDetails?: string[];
+  keyFeatures?: string[];
 }
 
 const ProjectLanding: React.FC = () => {
@@ -26,70 +29,70 @@ const ProjectLanding: React.FC = () => {
     }, 100);
   }, []);
 
-  // Project data - you can modify these URLs and embed IDs in the code
+  // Updated project data with your two specific projects
   const projects: Record<string, Project> = {
-    'ml-pipeline': {
-      id: 'ml-pipeline',
-      title: 'Machine Learning Pipeline',
-      description: 'End-to-end ML pipeline with data preprocessing, model training, and evaluation using scikit-learn and pandas.',
+    'signal-processing-ml': {
+      id: 'signal-processing-ml',
+      title: 'Signal Processing and Machine Learning Demo',
+      description: 'Comprehensive demonstration of EEG signal processing techniques combined with supervised machine learning for brain-computer interface applications.',
       goals: [
-        'Demonstrate complete ML workflow from data ingestion to model deployment',
-        'Compare performance of different algorithms on the same dataset',
-        'Implement proper cross-validation and hyperparameter tuning',
-        'Create reproducible and well-documented code for educational purposes'
+        'Demonstrate real-time EEG signal acquisition and preprocessing techniques',
+        'Implement advanced filtering methods for noise reduction and artifact removal',
+        'Extract meaningful features from neural signals for classification',
+        'Apply supervised machine learning algorithms for motor imagery detection',
+        'Achieve high accuracy in brain-computer interface control applications',
+        'Provide educational framework for understanding neural signal processing'
+      ],
+      technicalDetails: [
+        'Real-time signal processing using Python and NumPy',
+        'Bandpass filtering and Common Spatial Pattern (CSP) feature extraction',
+        'Support Vector Machine (SVM) and Random Forest classification',
+        'Cross-validation and hyperparameter optimization',
+        'Integration with OpenBCI hardware for live data acquisition'
+      ],
+      keyFeatures: [
+        'Interactive Jupyter notebook with step-by-step explanations',
+        'Visualization of signal processing stages and classification results',
+        'Modular code structure for easy adaptation to different datasets',
+        'Performance metrics and statistical analysis of results'
       ],
       projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+      githubUrl: 'https://github.com/porridge404/eeg-signal-processing',
       type: 'colab',
       slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901',
-      tags: ['Machine Learning', 'Python', 'Scikit-learn', 'Pandas'],
-      lastModified: '2024-01-15'
-    },
-    'time-series-forecasting': {
-      id: 'time-series-forecasting',
-      title: 'Time Series Forecasting',
-      description: 'Advanced time series analysis using LSTM networks and Prophet for financial data prediction.',
-      goals: [
-        'Implement LSTM neural networks for time series prediction',
-        'Compare traditional statistical methods with deep learning approaches',
-        'Handle missing data and outliers in financial time series',
-        'Provide actionable insights for investment decision making'
-      ],
-      projectUrl: 'https://colab.research.google.com/drive/1Abc123DefGhi456JklMno789PqrStu012VwxYz345',
-      type: 'colab',
-      slidesEmbedId: '1Def456GhiJkl789MnoPqr012StuVwx345YzaB678',
-      tags: ['Time Series', 'LSTM', 'Prophet', 'TensorFlow'],
-      lastModified: '2024-01-10'
-    },
-    'ml-introduction': {
-      id: 'ml-introduction',
-      title: 'Introduction to Machine Learning',
-      description: 'Comprehensive overview of ML concepts, algorithms, and practical applications for technical teams.',
-      goals: [
-        'Provide clear explanations of fundamental ML concepts',
-        'Demonstrate practical applications across different industries',
-        'Compare supervised, unsupervised, and reinforcement learning',
-        'Guide teams on when and how to implement ML solutions'
-      ],
-      projectUrl: 'https://docs.google.com/presentation/d/1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901/edit',
-      type: 'slides',
-      slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901',
-      tags: ['Machine Learning', 'Education', 'Technical Overview'],
+      tags: ['Signal Processing', 'Machine Learning', 'EEG', 'Python', 'Scikit-learn', 'Brain-Computer Interface'],
       lastModified: '2024-01-20'
     },
-    'data-visualization': {
-      id: 'data-visualization',
-      title: 'Data Visualization Best Practices',
-      description: 'Guidelines and techniques for creating effective data visualizations that tell compelling stories.',
+    'flow-cytometry-panel': {
+      id: 'flow-cytometry-panel',
+      title: 'Multicolor Flow Cytometry Panel Design',
+      description: 'Detailed methodology and optimization process for designing a 32-color flow cytometry panel for comprehensive CAR-T cell characterization.',
       goals: [
-        'Establish design principles for effective data visualization',
-        'Demonstrate common pitfalls and how to avoid them',
-        'Showcase tools and libraries for different visualization needs',
-        'Provide templates and examples for common business scenarios'
+        'Design a comprehensive 32-color flow cytometry panel for CAR-T cell analysis',
+        'Optimize antibody combinations to minimize spectral overlap and spillover',
+        'Establish robust compensation strategies for accurate data interpretation',
+        'Validate panel performance across different donor samples and manufacturing batches',
+        'Create standardized protocols for consistent data generation',
+        'Enable detailed characterization of CAR-T cell subsets and activation states'
+      ],
+      technicalDetails: [
+        'Cytek Aurora spectral flow cytometer with 32-color capability',
+        'Comprehensive antibody titration and optimization protocols',
+        'Advanced compensation matrix calculation and validation',
+        'FlowJo analysis workflows with automated gating strategies',
+        'Statistical analysis of panel performance and reproducibility'
+      ],
+      keyFeatures: [
+        'Complete antibody panel design with rationale for each marker',
+        'Step-by-step optimization protocols and troubleshooting guides',
+        'Compensation strategies and quality control metrics',
+        'Data analysis workflows and interpretation guidelines',
+        'Validation results across multiple manufacturing runs'
       ],
       projectUrl: 'https://docs.google.com/presentation/d/1Def456GhiJkl789MnoPqr012StuVwx345YzaB678/edit',
       type: 'slides',
       slidesEmbedId: '1Def456GhiJkl789MnoPqr012StuVwx345YzaB678',
-      tags: ['Data Visualization', 'Design', 'Best Practices'],
+      tags: ['Flow Cytometry', 'Cell Therapy', 'CAR-T', 'Immunology', 'Panel Design', 'Data Analysis'],
       lastModified: '2024-01-15'
     }
   };
@@ -164,6 +167,35 @@ const ProjectLanding: React.FC = () => {
             ))}
           </div>
 
+          {/* Project Links */}
+          <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
+            <h3 className="text-xl font-bold text-white mb-4">Project Links:</h3>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                <ExternalLink size={20} />
+                <span>
+                  {project.type === 'colab' ? 'Open in Google Colab' : 'Open in Google Slides'}
+                </span>
+              </a>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-slate-700 border border-slate-600 hover:border-slate-500 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <Github size={20} />
+                  <span>View on GitHub</span>
+                </a>
+              )}
+            </div>
+          </div>
+
           {/* Project Goals */}
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
             <h2 className="text-2xl font-bold text-white mb-6">Project Goals:</h2>
@@ -177,21 +209,35 @@ const ProjectLanding: React.FC = () => {
             </ul>
           </div>
 
-          {/* Project Link */}
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
-            <h3 className="text-xl font-bold text-white mb-4">Project Link:</h3>
-            <a
-              href={project.projectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            >
-              <ExternalLink size={20} />
-              <span>
-                {project.type === 'colab' ? 'Open in Google Colab' : 'Open in Google Slides'}
-              </span>
-            </a>
-          </div>
+          {/* Technical Details */}
+          {project.technicalDetails && (
+            <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
+              <h2 className="text-2xl font-bold text-white mb-6">Technical Implementation:</h2>
+              <ul className="space-y-4">
+                {project.technicalDetails.map((detail, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 leading-relaxed">{detail}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Key Features */}
+          {project.keyFeatures && (
+            <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
+              <h2 className="text-2xl font-bold text-white mb-6">Key Features:</h2>
+              <ul className="space-y-4">
+                {project.keyFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 leading-relaxed">{feature}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Embedded Google Slides */}
           {project.slidesEmbedId && (
