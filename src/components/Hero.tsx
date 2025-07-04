@@ -117,7 +117,7 @@ const Hero: React.FC = () => {
             >
               <MousePointer size={16} className="text-emerald-400 group-hover:text-emerald-300 transition-colors" />
               <span className="text-emerald-400 group-hover:text-emerald-300 font-medium transition-colors">
-                Try my Interactive Résumé! (work in progress)
+                Try my Interactive Resume!
               </span>
             </button>
           </div>
