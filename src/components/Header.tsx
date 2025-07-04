@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
       }
     `}>
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between h-12">
           {/* Desktop Brand */}
           <div className="hidden md:flex items-center space-x-2">
             <User className="text-emerald-400" size={24} />
@@ -63,21 +63,24 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
           </div>
 
           {/* Mobile Timeline + Menu Button */}
-          <div className="md:hidden flex items-center justify-between w-full">
-            {/* Mobile Timeline */}
-            <div className="flex-1 mr-4">
+          <div className="md:hidden flex items-center justify-between w-full h-12">
+            {/* Mobile Timeline - Fixed height container */}
+            <div className="flex-1 mr-4 h-12 flex items-center">
               <div 
                 ref={timelineRef}
-                className="overflow-x-auto scrollbar-hide"
-                style={{ direction: 'rtl' }}
+                className="overflow-x-auto scrollbar-hide w-full"
+                style={{ 
+                  scrollBehavior: 'smooth',
+                  overflowY: 'hidden' // Prevent vertical scrolling
+                }}
               >
-                <div className="flex space-x-2 min-w-max" style={{ direction: 'ltr' }}>
+                <div className="flex space-x-2 min-w-max h-12 items-center">
                   {timelineData.map((entry) => (
                     <button
                       key={entry.id}
                       onClick={() => setSelectedEntry(entry)}
                       className={`
-                        flex-shrink-0 px-3 py-2 rounded-lg border-2 transition-all duration-300 min-w-[120px] text-center
+                        flex-shrink-0 px-3 py-2 rounded-lg border-2 transition-all duration-300 min-w-[120px] text-center h-10
                         ${selectedEntry.id === entry.id 
                           ? getTypeColorClasses(entry.type, true)
                           : getTypeColorClasses(entry.type, false)
@@ -102,9 +105,9 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Fixed height */}
             <button
-              className="p-2 text-gray-300 hover:text-emerald-400 transition-colors flex-shrink-0"
+              className="p-2 text-gray-300 hover:text-emerald-400 transition-colors flex-shrink-0 h-12 w-12 flex items-center justify-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
