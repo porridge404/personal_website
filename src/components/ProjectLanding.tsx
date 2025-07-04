@@ -185,7 +185,7 @@ const ProjectLanding: React.FC = () => {
               <h3 className="text-xl font-bold text-white mb-6">Presentation Preview:</h3>
               <div className="aspect-video bg-slate-700 rounded-lg overflow-hidden">
                 <iframe
-                  src={'https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"'}
+                  src={`https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/pubembed?`}
                   className="w-full h-full"
                   allowFullScreen
                   title={project.title}
