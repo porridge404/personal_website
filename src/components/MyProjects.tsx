@@ -43,38 +43,42 @@ const MyProjects: React.FC = () => {
                   {project.description}
                 </p>
 
-                <div className="flex items-center justify-between text-gray-500 text-sm mb-6">
-                  <div className="flex items-center">
-                    <span>{project.lastModified}</span>
+                {/* Date and Links Section */}
+                <div className="flex items-center justify-between mb-6 p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                  <div className="text-gray-300 font-medium">
+                    {project.lastModified}
                   </div>
                   
                   {/* External Links */}
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-3">
                     {project.colabUrl && (
                       <button
                         onClick={(e) => handleExternalLink(e, project.colabUrl!)}
-                        className="p-2 text-gray-400 hover:text-orange-700 transition-colors rounded-lg hover:bg-slate-700"
-                        title="Open Project in Google Colab"
+                        className="flex items-center space-x-2 px-3 py-2 bg-orange-600 hover:bg-orange-500 text-white text-sm rounded-lg transition-colors"
+                        title="Open in Google Colab"
                       >
-                        <Code size={16} />
+                        <Code size={14} />
+                        <span>Colab</span>
                       </button>
                     )}
                     {project.slidesUrl && (
                       <button
                         onClick={(e) => handleExternalLink(e, project.slidesUrl!)}
-                        className="p-2 text-gray-400 hover:text-yellow-700 transition-colors rounded-lg hover:bg-slate-700"
-                        title="Open Presentation in Google Slides"
+                        className="flex items-center space-x-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-500 text-white text-sm rounded-lg transition-colors"
+                        title="Open in Google Slides"
                       >
-                        <FileText size={16} />
+                        <FileText size={14} />
+                        <span>Slides</span>
                       </button>
                     )}
                     {project.githubUrl && (
                       <button
                         onClick={(e) => handleExternalLink(e, project.githubUrl!)}
-                        className="p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-slate-700"
+                        className="flex items-center space-x-2 px-3 py-2 bg-gray-600 hover:bg-gray-500 text-white text-sm rounded-lg transition-colors"
                         title="View on GitHub"
                       >
-                        <Github size={16} />
+                        <Github size={14} />
+                        <span>GitHub</span>
                       </button>
                     )}
                   </div>
