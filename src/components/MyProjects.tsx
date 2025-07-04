@@ -1,49 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, ExternalLink, Github } from 'lucide-react';
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  lastModified: string;
-  type: 'colab' | 'slides' | 'github';
-  category: string;
-  projectUrl: string;
-  githubUrl?: string;
-  slidesEmbedId?: string;
-}
+import { projects } from '../data/projects';
 
 const MyProjects: React.FC = () => {
   const navigate = useNavigate();
-
-  // Updated projects data with your two specific projects
-  const projects: Project[] = [
-    {
-      id: 'signal-processing-ml',
-      title: 'Signal Processing and Machine Learning Demo',
-      description: 'Comprehensive demonstration of EEG signal processing techniques combined with supervised machine learning for brain-computer interface applications. Features real-time signal filtering, feature extraction, and classification algorithms.',
-      tags: ['Signal Processing', 'Machine Learning', 'EEG', 'Python', 'Scikit-learn', 'Brain-Computer Interface'],
-      lastModified: '2024-01-20',
-      type: 'colab',
-      category: 'machine-learning',
-      projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-      githubUrl: 'https://github.com/porridge404/eeg-signal-processing',
-      slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901'
-    },
-    {
-      id: 'flow-cytometry-panel',
-      title: 'Multicolor Flow Cytometry Panel Design',
-      description: 'Detailed methodology and optimization process for designing a 32-color flow cytometry panel for CAR-T cell characterization. Includes antibody selection, compensation strategies, and data analysis workflows.',
-      tags: ['Flow Cytometry', 'Cell Therapy', 'CAR-T', 'Immunology', 'Panel Design', 'Data Analysis'],
-      lastModified: '2024-01-15',
-      type: 'slides',
-      category: 'biotechnology',
-      projectUrl: 'https://docs.google.com/presentation/d/1Def456GhiJkl789MnoPqr012StuVwx345YzaB678/edit',
-      slidesEmbedId: '1Def456GhiJkl789MnoPqr012StuVwx345YzaB678'
-    }
-  ];
 
   const handleProjectClick = (projectId: string) => {
     navigate(`/project/${projectId}`);
