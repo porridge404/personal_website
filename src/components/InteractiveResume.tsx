@@ -82,7 +82,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       ],
       achievements: [
         'Winner of the National "Hobby Shop of the Year 2024" awarded by TCGPlayer',
-        'Winner of "Best of Peninsula 2024: Best Place to Take Your Kid" Reader's Choice awarded by Mercury News'
+        'Winner of "Best of Peninsula 2024: Best Place to Take Your Kid" Reader\'s Choice awarded by Mercury News'
       ],
       skills: ['Event Hosting', 'Customer Service', 'Inventory Management', 'Teamwork', 'Shopify'],
       logoUrl: '/custom-logos/career-search.svg' // Example custom logo
