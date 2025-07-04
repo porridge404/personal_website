@@ -68,51 +68,6 @@ const Publications: React.FC = () => {
     }
   ];
 
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case 'journal':
-        return <FileText size={16} />;
-      case 'conference':
-        return <Users size={16} />;
-      case 'preprint':
-        return <FileText size={16} />;
-      case 'poster':
-        return <FileText size={16} />;
-      default:
-        return <FileText size={16} />;
-    }
-  };
-
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'journal':
-        return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
-      case 'conference':
-        return 'bg-blue-500/10 text-blue-400 border-blue-500/30';
-      case 'preprint':
-        return 'bg-purple-500/10 text-purple-400 border-purple-500/30';
-      case 'poster':
-        return 'bg-orange-500/10 text-orange-400 border-orange-500/30';
-      default:
-        return 'bg-gray-500/10 text-gray-400 border-gray-500/30';
-    }
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'published':
-        return 'bg-green-500/10 text-green-400 border-green-500/30';
-      case 'in-press':
-        return 'bg-blue-500/10 text-blue-400 border-blue-500/30';
-      case 'submitted':
-        return 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30';
-      case 'in-preparation':
-        return 'bg-gray-500/10 text-gray-400 border-gray-500/30';
-      default:
-        return 'bg-gray-500/10 text-gray-400 border-gray-500/30';
-    }
-  };
-
   const formatAuthors = (authors: string[]) => {
     if (authors.length <= 3) {
       return authors.join(', ');
@@ -127,9 +82,6 @@ const Publications: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Publications
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Research contributions in bioengineering, machine learning, and cell therapy
-          </p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-8">
@@ -141,22 +93,6 @@ const Publications: React.FC = () => {
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <div className={`p-2 rounded-lg border ${getTypeColor(publication.type)}`}>
-                      {getTypeIcon(publication.type)}
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <span className={`px-2 py-1 text-xs rounded-full border ${getTypeColor(publication.type)}`}>
-                        {publication.type.charAt(0).toUpperCase() + publication.type.slice(1)}
-                      </span>
-                      {publication.status && (
-                        <span className={`px-2 py-1 text-xs rounded-full border ${getStatusColor(publication.status)}`}>
-                          {publication.status.charAt(0).toUpperCase() + publication.status.slice(1)}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  
                   <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
                     {publication.title}
                   </h3>

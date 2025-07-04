@@ -4,8 +4,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import InteractiveResume from './components/InteractiveResume';
-import Publications from './components/Publications';
 import MyProjects from './components/MyProjects';
+import Publications from './components/Publications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectLanding from './components/ProjectLanding';
@@ -27,8 +27,8 @@ function App() {
                 <InteractiveResume 
                   setIsInteractiveResumeActive={setIsInteractiveResumeActive}
                 />
-                <Publications />
                 <MyProjects />
+                <Publications />
                 <Contact />
               </main>
               <Footer />

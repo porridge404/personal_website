@@ -88,6 +88,17 @@ const ProjectLanding: React.FC = () => {
 
   const project = projectId ? projects[projectId] : null;
 
+  const handleBackToProjects = () => {
+    navigate('/', { replace: true });
+    // Small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const element = document.querySelector('#my-projects');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   if (!project) {
     return (
       <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
@@ -111,11 +122,11 @@ const ProjectLanding: React.FC = () => {
       <header className="bg-slate-800 border-b border-slate-700">
         <div className="container mx-auto px-6 py-4">
           <button
-            onClick={() => navigate('/')}
+            onClick={handleBackToProjects}
             className="flex items-center space-x-2 text-gray-400 hover:text-emerald-400 transition-colors"
           >
             <ArrowLeft size={20} />
-            <span>Back to Portfolio</span>
+            <span>Back to Projects</span>
           </button>
         </div>
       </header>
@@ -131,6 +142,18 @@ const ProjectLanding: React.FC = () => {
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               {project.description}
             </p>
+          </div>
+
+          {/* Project Tags */}
+          <div className="flex flex-wrap gap-2 justify-center mb-8">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 bg-slate-700 text-gray-300 text-sm rounded-full border border-slate-600"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
 
           {/* Project Goals */}
@@ -188,18 +211,6 @@ const ProjectLanding: React.FC = () => {
               </p>
             </div>
           )}
-
-          {/* Project Tags */}
-          <div className="mt-8 flex flex-wrap gap-2 justify-center">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-slate-700 text-gray-300 text-sm rounded-full border border-slate-600"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </main>
     </div>
