@@ -20,15 +20,17 @@ export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
     title: 'Sleep Data Machine Learning Demo',
-    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
+    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals.',
     goals: [
-      'Apply machine learning to biological datasets to extract key features',
-      'Demonstrate ability to communicate key info efficiently',
-      'Proactively outline potential next steps',
-      'Independtly source and process labeled sleep data'
+      'Demonstrate capability to apply machine learning to biological datasets',
+      'Implement data preprocessing and feature engineering techniques',
+      'Compare performance of different classification algorithms',
+      'Apply supervised machine learning algorithms for sleep stage detection',
+      'Achieve high accuracy in sleep pattern classification',
+      'Provide educational framework for understanding ML in healthcare applications'
     ],
-    projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-    colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    projectUrl: '',
+    colabUrl: 'https://colab.research.google.com/drive/1RBQoqKxoNutcxip2nh_-MWLqXgEDJiZC?usp=sharing',
     slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
     type: 'colab',
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
@@ -62,14 +64,3 @@ export const projects: Project[] = [
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
     ],
-    projectUrl: 'https://example.com/flow-cytometry-panel',
-    type: 'slides',
-    tags: ['Flow Cytometry', 'CAR-T Cells', 'Immunology', 'Protocol Development'],
-    lastModified: '2025-01-15',
-    category: 'biotechnology'
-  }
-];
-
-export function getProjectById(projectId: string): Project | undefined {
-  return projects.find(project => project.id === projectId);
-}
