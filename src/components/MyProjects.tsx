@@ -18,12 +18,21 @@ const MyProjects: React.FC = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
+
   return (
-    <section id="my-projects" className="py-20 bg-slate-900">
+    <section id="projects" className="py-20 bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            My Projects
+            Projects
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Showcasing technical expertise in signal processing, machine learning, and biotechnology
@@ -38,20 +47,22 @@ const MyProjects: React.FC = () => {
               className="group bg-slate-800 border border-slate-700 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg hover:shadow-emerald-500/10"
             >
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
-                  {project.title}
-                </h3>
+                {/* Title and Date Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors flex-1 pr-4">
+                    {project.title}
+                  </h3>
+                  <div className="text-sm text-gray-300 whitespace-nowrap">
+                    {formatDate(project.lastModified)}
+                  </div>
+                </div>
                 
                 <p className="text-gray-400 mb-6 text-base leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Date and Links Section */}
+                {/* Links and Tags Section */}
                 <div className="flex items-center justify-between mb-6 p-4 bg-slate-700/50 rounded-lg border border-slate-600">
-                  <div className="text-gray-300 font-medium">
-                    {project.lastModified}
-                  </div>
-                  
                   {/* External Links */}
                   <div className="flex items-center space-x-3">
                     {project.colabUrl && (

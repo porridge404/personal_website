@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ hideOnInteractiveResume = false }) => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Interactive Resume', href: '#interactive-resume' },
-    { name: 'My Projects', href: '#my-projects' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Publications', href: '#publications' },
     { name: 'Connect', href: '#connect' },
   ];
