@@ -1,18 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, User } from 'lucide-react';
-import { TimelineEntry } from '../data/timelineData';
-import { IconRenderer, getTypeColor, getTypeColorClasses } from '../utils/timelineUtils';
 
 interface HeaderProps {
-  timelineData: TimelineEntry[];
-  selectedEntry: TimelineEntry;
-  setSelectedEntry: (entry: TimelineEntry) => void;
+  hideOnInteractiveResume?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelectedEntry }) => {
+const Header: React.FC<HeaderProps> = ({ hideOnInteractiveResume = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,13 +16,6 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Scroll timeline to the right (most recent) on mount and when timelineData changes
-  useEffect(() => {
-    if (timelineRef.current) {
-      timelineRef.current.scrollLeft = timelineRef.current.scrollWidth;
-    }
-  }, [timelineData]);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -49,69 +37,20 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
   return (
     <header className={`
       fixed w-full top-0 z-50 transition-all duration-300
+      ${hideOnInteractiveResume 
+        ? 'opacity-0 pointer-events-none -translate-y-full md:opacity-100 md:pointer-events-auto md:translate-y-0' 
+        : 'opacity-100 pointer-events-auto translate-y-0'
+      }
       ${isScrolled 
         ? 'bg-slate-900/95 backdrop-blur-md border-b border-emerald-500/20' 
         : 'bg-transparent'
       }
     `}>
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between h-12">
-          {/* Desktop Brand */}
-          <div className="hidden md:flex items-center space-x-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
             <User className="text-emerald-400" size={24} />
             <span className="text-xl font-bold text-white">Stuart Cansdale</span>
-          </div>
-
-          {/* Mobile Timeline + Menu Button */}
-          <div className="md:hidden flex items-center justify-between w-full h-12">
-            {/* Mobile Timeline - Fixed height container */}
-            <div className="flex-1 mr-4 h-12 flex items-center">
-              <div 
-                ref={timelineRef}
-                className="overflow-x-auto scrollbar-hide w-full"
-                style={{ 
-                  scrollBehavior: 'smooth',
-                  overflowY: 'hidden' // Prevent vertical scrolling
-                }}
-              >
-                <div className="flex space-x-2 min-w-max h-12 items-center">
-                  {timelineData.map((entry) => (
-                    <button
-                      key={entry.id}
-                      onClick={() => setSelectedEntry(entry)}
-                      className={`
-                        flex-shrink-0 px-3 py-2 rounded-lg border-2 transition-all duration-300 min-w-[120px] text-center h-10
-                        ${selectedEntry.id === entry.id 
-                          ? getTypeColorClasses(entry.type, true)
-                          : getTypeColorClasses(entry.type, false)
-                        }
-                        hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500/50
-                      `}
-                    >
-                      <div className="flex items-center justify-center space-x-1 mb-1">
-                        <div className={`w-3 h-3 rounded-full ${getTypeColor(entry.type)} flex items-center justify-center text-white flex-shrink-0`}>
-                          <IconRenderer entry={entry} />
-                        </div>
-                      </div>
-                      <div className="text-xs font-semibold truncate mb-1">
-                        {entry.period}
-                      </div>
-                      <div className="text-xs opacity-75 truncate">
-                        {entry.organization}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button - Fixed height */}
-            <button
-              className="p-2 text-gray-300 hover:text-emerald-400 transition-colors flex-shrink-0 h-12 w-12 flex items-center justify-center"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
 
           {/* Desktop Navigation */}
@@ -127,16 +66,24 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
               </button>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-gray-300 hover:text-emerald-400 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 absolute right-6 w-auto max-w-xs bg-slate-800 border border-emerald-500/20 backdrop-blur-md rounded-lg">
+          <div className="md:hidden mt-4 py-4 bg-slate-800 border border-emerald-500/20 backdrop-blur-md rounded-lg">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-right px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-slate-700/50 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-slate-700/50 transition-all duration-200"
               >
                 {item.name}
               </button>
@@ -144,16 +91,6 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
           </div>
         )}
       </nav>
-
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </header>
   );
 };

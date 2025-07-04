@@ -9,11 +9,9 @@ import Publications from './components/Publications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectLanding from './components/ProjectLanding';
-import { timelineData } from './data/timelineData';
-import type { TimelineEntry } from './data/timelineData';
 
 function App() {
-  const [selectedEntry, setSelectedEntry] = useState<TimelineEntry>(timelineData[0]);
+  const [isInteractiveResumeActive, setIsInteractiveResumeActive] = useState(false);
 
   return (
     <Router>
@@ -22,18 +20,12 @@ function App() {
           <Route path="/project/:projectId" element={<ProjectLanding />} />
           <Route path="/" element={
             <>
-              <Header 
-                timelineData={timelineData}
-                selectedEntry={selectedEntry}
-                setSelectedEntry={setSelectedEntry}
-              />
+              <Header hideOnInteractiveResume={isInteractiveResumeActive} />
               <main>
                 <Hero />
                 <About />
                 <InteractiveResume 
-                  timelineData={timelineData}
-                  selectedEntry={selectedEntry}
-                  setSelectedEntry={setSelectedEntry}
+                  setIsInteractiveResumeActive={setIsInteractiveResumeActive}
                 />
                 <MyProjects />
                 <Publications />
