@@ -60,23 +60,35 @@ const Publications: React.FC = () => {
       url: 'https://doi.org/10.1016/j.jaci.2022.12.377'
     },
     {
-      id: 'ml-sleep-analysis-2024',
-      authors: ['Cansdale, S.', 'Rodriguez, A.'],
-      title: 'Machine learning approaches for sleep stage classification using wearable device data',
-      journal: 'Sleep Medicine Reviews',
-      year: 2024,
-      volume: '73',
-      doi: '10.1016/j.smrv.2024.01.567',
-      url: 'https://doi.org/10.1016/j.smrv.2024.01.567'
-    },
+  id: 'basophil-activation-test-bat-2022',
+  authors: [
+    'Ha, J. W.',
+    'Castano, N.',
+    'Cansdale, S.',
+    'Vel, M.',
+    'Tang, S.',
+    'Tsai, M.',
+    'Nadeau, K.',
+    'Galli, S.'
+  ],
+  title: 'Development of basophil activation test (BAT)-based point-of-care diagnostic tool for allergies',
+  journal: 'Journal of Allergy and Clinical Immunology',
+  year: 2022,
+  volume: '149',
+  issue: '(2), AB48',
+  doi: '10.1016/j.jaci.2021.12.188',
+  url: 'https://doi.org/10.1016/j.jaci.2021.12.188'
+    }
     {
-      id: 'undergrad-paper',
-      authors: ['Cansdale, S.', 'Park, K.', 'Lee, J.'],
-      title: 'Microfluidic device design for single-cell analysis in cancer research',
-      journal: 'Proceedings of the Annual Bioengineering Conference',
-      year: 2019,
-      volume: '2019',
-      url: 'https://doi.org/10.1109/conference.2019.example'
+  id: 'brainwave-classification-eeg-neurofeedback-2020',
+  authors: ['Baculi, B.', 'Cansdale, S.'],
+  title: 'Brainwave Classification for EEG-based Neurofeedback',
+  journal: 'Bioengineering Senior Theses',
+  year: 2020,
+  volume: '',
+  issue: '',
+  doi: '',
+  url: 'https://scholarcommons.scu.edu/bioe_senior/91/'
     }
   ];
 
