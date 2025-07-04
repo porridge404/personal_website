@@ -9,6 +9,7 @@ export interface Project {
   githubUrl?: string;
   type: 'colab' | 'slides' | 'github';
   slidesEmbedId?: string;
+  slidesEmbedUrl?: string; // New field for direct embed URLs
   tags: string[];
   lastModified: string;
   category: string;
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     slidesUrl: 'https://docs.google.com/presentation/d/1t1CxvhPpHPQ6Dp25kdu4_3YR-TXibxWacmTBspbPm8k/edit?usp=sharing',
     type: 'colab',
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
+    slidesEmbedUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/embed?start=false&loop=false&delayms=3000',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
     lastModified: '2025-05-20',
     category: 'machine-learning'
@@ -66,7 +68,8 @@ export const debugProjects = () => {
       projectUrl: project.projectUrl || 'Not set',
       colabUrl: project.colabUrl || 'Not set',
       slidesUrl: project.slidesUrl || 'Not set',
-      githubUrl: project.githubUrl || 'Not set'
+      githubUrl: project.githubUrl || 'Not set',
+      slidesEmbedUrl: project.slidesEmbedUrl || 'Not set'
     });
     console.log('Type:', project.type);
     console.log('Tags:', project.tags);
@@ -74,6 +77,9 @@ export const debugProjects = () => {
     console.log('Category:', project.category);
     if (project.slidesEmbedId) {
       console.log('Slides Embed ID:', project.slidesEmbedId);
+    }
+    if (project.slidesEmbedUrl) {
+      console.log('Slides Embed URL:', project.slidesEmbedUrl);
     }
     if (project.technicalDetails) {
       console.log('Technical Details:', project.technicalDetails);

@@ -181,14 +181,14 @@ const ProjectLanding: React.FC = () => {
             </div>
           )}
 
-          {/* Embedded Google Slides */}
-          {project.slidesEmbedId && (
+          {/* Embedded Google Slides - Updated to use both methods */}
+          {(project.slidesEmbedUrl || project.slidesEmbedId) && (
             <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
               <h3 className="text-xl font-bold text-white mb-6">Presentation Preview:</h3>
               <div className="aspect-video bg-slate-700 rounded-lg overflow-hidden">
                 <iframe 
-                  src={`https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/embed?start=false&loop=false&delayms=3000`} 
-                  className="w-full h-full"
+                  src={project.slidesEmbedUrl || `https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/embed?start=false&loop=false&delayms=3000`}
+                  className="w-full h-full border-0"
                   allowFullScreen
                   title={project.title}
                 />
