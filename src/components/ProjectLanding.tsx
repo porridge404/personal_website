@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Github, FileText, Code } from 'lucide-react';
+import { ArrowLeft, Github, FileText, Code } from 'lucide-react';
 import { getProjectById } from '../data/projects';
 
 const ProjectLanding: React.FC = () => {
@@ -122,17 +122,6 @@ const ProjectLanding: React.FC = () => {
                   <span>View on GitHub</span>
                 </a>
               )}
-              {!project.colabUrl && !project.slidesUrl && (
-                <a
-                  href={project.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <ExternalLink size={20} />
-                  <span>View Project</span>
-                </a>
-              )}
             </div>
           </div>
 
@@ -189,18 +178,9 @@ const ProjectLanding: React.FC = () => {
               </div>
               <p className="text-gray-400 text-sm mt-4">
                 Use the controls above to navigate through the presentation, or{' '}
-                {project.slidesUrl ? (
+                {project.slidesUrl && (
                   <a
                     href={project.slidesUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
-                  >
-                    open in Google Slides
-                  </a>
-                ) : (
-                  <a
-                    href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-400 hover:text-emerald-300 transition-colors"

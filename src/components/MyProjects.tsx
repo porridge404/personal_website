@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, ExternalLink, Github, FileText, Code } from 'lucide-react';
+import { ExternalLink, Github, FileText, Code } from 'lucide-react';
 import { projects } from '../data/projects';
 
 const MyProjects: React.FC = () => {
@@ -45,8 +45,7 @@ const MyProjects: React.FC = () => {
 
                 <div className="flex items-center justify-between text-gray-500 text-sm mb-6">
                   <div className="flex items-center">
-                    <Calendar size={14} className="mr-2" />
-                    <span>Updated {new Date(project.lastModified).toLocaleDateString()}</span>
+                    <span>{project.lastModified}</span>
                   </div>
                   
                   {/* External Links */}
@@ -78,13 +77,6 @@ const MyProjects: React.FC = () => {
                         <Github size={16} />
                       </button>
                     )}
-                    <button
-                      onClick={(e) => handleExternalLink(e, project.projectUrl)}
-                      className="p-2 text-gray-400 hover:text-emerald-400 transition-colors rounded-lg hover:bg-slate-700"
-                      title="View Project Details"
-                    >
-                      <ExternalLink size={16} />
-                    </button>
                   </div>
                 </div>
 
