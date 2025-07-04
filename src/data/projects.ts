@@ -32,11 +32,10 @@ export const projects: Project[] = [
     projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
-    // githubUrl: '', // No GitHub URL for this project
     type: 'colab',
-    slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
+    slidesEmbedId: 2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT,
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
-    lastModified: '2025-01-20',
+    lastModified: '2025-05-20',
     category: 'machine-learning'
   },
   {
@@ -65,23 +64,3 @@ export const projects: Project[] = [
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
     ],
-    projectUrl: 'https://docs.google.com/presentation/d/1Def456GhiJkl789MnoPqr012StuVwx345YzaB678/edit',
-    slidesUrl: 'https://docs.google.com/presentation/d/1Def456GhiJkl789MnoPqr012StuVwx345YzaB678/edit',
-    githubUrl: 'https://github.com/porridge404/flow-cytometry-panel-design',
-    type: 'slides',
-    slidesEmbedId: '1Def456GhiJkl789MnoPqr012StuVwx345YzaB678',
-    tags: ['Flow Cytometry', 'Cell Therapy', 'CAR-T', 'Immunology', 'Panel Design', 'Data Analysis'],
-    lastModified: '2024-01-15',
-    category: 'biotechnology'
-  }
-];
-
-// Helper function to get project by ID
-export const getProjectById = (id: string): Project | undefined => {
-  return projects.find(project => project.id === id);
-};
-
-// Helper function to get projects by category
-export const getProjectsByCategory = (category: string): Project[] => {
-  return projects.filter(project => project.category === category);
-};
