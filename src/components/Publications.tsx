@@ -6,8 +6,7 @@ interface Publication {
   title: string;
   journal: string;
   year: number;
-  month: string;
-  pages?: string;
+  issue?: string;
   doi?: string;
   url: string; // Made required since all will have placeholder links
 }
@@ -20,8 +19,7 @@ const Publications: React.FC = () => {
       title: 'Impact of air pollution exposure on cytokines and histone modification profiles at single-cell levels during pregnancy.',
       journal: 'Science Advances',
       year: 2024,
-      month: 'June',
-      pages: '123-145',
+      issue: '10(25)',
       doi: '10.1088/1741-2552/ab1234',
       url: 'https://placeholder-link-1.com'
     },
@@ -31,8 +29,7 @@ const Publications: React.FC = () => {
       title: 'Multi-parameter flow cytometry analysis of CAR-T cell products: A comprehensive characterization approach',
       journal: 'Cytotherapy',
       year: 2023,
-      month: 'March',
-      pages: '567-582',
+      issue: '29(4)',
       doi: '10.1016/j.jcyt.2023.01.234',
       url: 'https://placeholder-link-2.com'
     },
@@ -42,8 +39,7 @@ const Publications: React.FC = () => {
       title: 'Machine learning approaches for sleep stage classification using wearable device data',
       journal: 'Sleep Medicine Reviews',
       year: 2024,
-      month: 'January',
-      pages: '89-104',
+      issue: '73',
       doi: '10.1016/j.smrv.2024.01.567',
       url: 'https://placeholder-link-3.com'
     },
@@ -53,14 +49,13 @@ const Publications: React.FC = () => {
       title: 'Microfluidic device design for single-cell analysis in cancer research',
       journal: 'Proceedings of the Annual Bioengineering Conference',
       year: 2019,
-      month: 'September',
-      pages: '234-241',
+      issue: '2019',
       url: 'https://placeholder-link-4.com'
     }
   ];
 
   const formatAPA = (publication: Publication) => {
-    // Format authors according to APA style
+    // Format authors according to APA style with highlighting for Cansdale, S.
     let authorsFormatted = '';
     if (publication.authors.length === 1) {
       authorsFormatted = publication.authors[0];
@@ -83,20 +78,48 @@ const Publications: React.FC = () => {
     // Format journal name (italicized)
     const journal = publication.journal;
     
-    // Format pages
-    const pages = publication.pages ? `, ${publication.pages}` : '';
+    // Format issue
+    const issue = publication.issue ? `, ${publication.issue}` : '';
     
     return {
       authors: authorsFormatted,
       year: publication.year,
       title: title,
       journal: journal,
-      pages: pages
+      issue: issue
     };
   };
 
-  const formatDateReadable = (month: string, year: number) => {
-    return `${month} ${year}`;
+  const renderAuthorsWithHighlight = (authorsString: string) => {
+    // Split by commas and process each author
+    const parts = authorsString.split(', ');
+    const result: React.ReactNode[] = [];
+    
+    parts.forEach((part, index) => {
+      // Check if this part contains "Cansdale, S."
+      if (part.includes('Cansdale, S.')) {
+        // Replace "Cansdale, S." with highlighted version
+        const highlighted = part.replace(
+          'Cansdale, S.',
+          '<span class="text-emerald-400 font-semibold">Cansdale, S.</span>'
+        );
+        result.push(
+          <span 
+            key={index} 
+            dangerouslySetInnerHTML={{ __html: highlighted }}
+          />
+        );
+      } else {
+        result.push(<span key={index}>{part}</span>);
+      }
+      
+      // Add comma separator except for last item
+      if (index < parts.length - 1) {
+        result.push(<span key={`comma-${index}`}>, </span>);
+      }
+    });
+    
+    return result;
   };
 
   const handlePublicationClick = (url: string) => {
@@ -128,7 +151,7 @@ const Publications: React.FC = () => {
                     {publication.title.replace(/\.$/, '')} {/* Remove period for display title */}
                   </h3>
                   <div className="text-sm text-gray-300 whitespace-nowrap">
-                    {formatDateReadable(publication.month, publication.year)}
+                    {publication.year}
                   </div>
                 </div>
 
@@ -136,7 +159,9 @@ const Publications: React.FC = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <p className="text-gray-300 leading-relaxed text-base">
-                      <span className="font-medium">{apa.authors}</span> ({apa.year}). {apa.title} <em>{apa.journal}</em>{apa.pages}.
+                      <span className="font-medium">
+                        {renderAuthorsWithHighlight(apa.authors)}
+                      </span> ({apa.year}). {apa.title} <em>{apa.journal}</em>{apa.issue}.
                     </p>
                   </div>
 
