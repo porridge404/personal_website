@@ -293,7 +293,7 @@ During this time, I reconnected with out-of-state and international family, purs
         {/* Horizontal Timeline - Mobile Only */}
         <div className="lg:hidden mb-8">
           <div className={`
-            sticky z-40 bg-slate-800 border-b border-slate-700 pb-4 mb-8 transition-all duration-300
+            sticky z-50 bg-slate-800 border-b border-slate-700 pb-4 mb-8 transition-all duration-300
             ${isTimelineSticky ? 'top-0' : 'top-16'}
           `}>
             <div className="overflow-x-auto scrollbar-hide">
