@@ -21,7 +21,7 @@ const Publications: React.FC = () => {
       journal: 'Science Advances',
       year: 2024,
       volume: '10',
-      issue: '48, eadp5227',
+      issue: '(48), eadp5227',
       doi: '10.1126/sciadv.adp5227',
       url: 'https://doi.org/10.1126/sciadv.adp5227'
     },
