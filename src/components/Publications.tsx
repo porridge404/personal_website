@@ -29,7 +29,7 @@ const Publications: React.FC = () => {
       title: 'Multi-parameter flow cytometry analysis of CAR-T cell products: A comprehensive characterization approach',
       journal: 'Cytotherapy',
       year: 2023,
-      issue: '29(4)',
+      issue: '10(48), eadp5227.',
       doi: '10.1016/j.jcyt.2023.01.234',
       url: 'https://placeholder-link-2.com'
     },
