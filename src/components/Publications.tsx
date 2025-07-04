@@ -16,7 +16,31 @@ const Publications: React.FC = () => {
   const publications: Publication[] = [
     {
       id: 'eeg-bci-2020',
-      authors: ['Jung, Y. S.', 'Aguilera, J.', 'Kaushik, A.', 'Ha, J. W.', 'Cansdale, S.', 'Nadeau, K.', 'et al.'],
+      authors: [
+  'Jung, Y. S.',
+  'Aguilera, J.',
+  'Kaushik, A.',
+  'Ha, J. W.',
+  'Cansdale, S.',
+  'Yang, E.',
+  'Ahmed, R.',
+  'Lurmann, F.',
+  'Lutzker, L.',
+  'Hammond, S. K.',
+  'Balmes, J.',
+  'Noth, E.',
+  'Burt, T. D.',
+  'Aghaeepour, N.',
+  'Waldrop, A. R.',
+  'Khatri, P.',
+  'Utz, P. J.',
+  'Rosenburg-Hasson, Y.',
+  'DeKruyff, R.',
+  'Maecker, H. T.',
+  'Johnson, M. M.',
+  'Nadeau, K. C.'
+]
+
       title: 'Impact of air pollution exposure on cytokines and histone modification profiles at single-cell levels during pregnancy.',
       journal: 'Science Advances',
       year: 2024,
