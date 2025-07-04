@@ -180,35 +180,6 @@ const ProjectLanding: React.FC = () => {
               </ul>
             </div>
           )}
-
-          {/* Embedded Google Slides - Updated to use both methods */}
-          {(project.slidesEmbedUrl || project.slidesEmbedId) && (
-            <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
-              <h3 className="text-xl font-bold text-white mb-6">Presentation Preview:</h3>
-              <div className="aspect-video bg-slate-700 rounded-lg overflow-hidden">
-                <iframe 
-                  src={project.slidesEmbedUrl || `https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/embed?start=false&loop=false&delayms=3000`}
-                  className="w-full h-full border-0"
-                  allowFullScreen
-                  title={project.title}
-                />
-              </div>
-              <p className="text-gray-400 text-sm mt-4">
-                Use the controls above to navigate through the presentation, or{' '}
-                {project.slidesUrl && (
-                  <a
-                    href={project.slidesUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
-                  >
-                    open in Google Slides
-                  </a>
-                )}
-                {' '}for full functionality.
-              </p>
-            </div>
-          )}
         </div>
       </main>
     </div>

@@ -8,8 +8,6 @@ export interface Project {
   slidesUrl?: string;
   githubUrl?: string;
   type: 'colab' | 'slides' | 'github';
-  slidesEmbedId?: string;
-  slidesEmbedUrl?: string; // New field for direct embed URLs
   tags: string[];
   lastModified: string;
   category: string;
@@ -21,7 +19,7 @@ export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
     title: 'Sleep Data Machine Learning Demo',
-    description: 'This is a project I put together for a sleep AI company (Somnology) interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
+    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals. I downloaded hypnogram data online with labeled REM cycles and applied machine learning in order to extract the important features of REM cycles. I think prepared a slidedeck to present insights.',
     goals: [
       'Apply machine learning to biological datasets to extract key features',
       'Demonstrate ability to communicate key info efficiently',
@@ -29,10 +27,8 @@ export const projects: Project[] = [
       'Independtly source and process labeled sleep data'
     ],
     colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-    slidesUrl: 'https://docs.google.com/presentation/d/1t1CxvhPpHPQ6Dp25kdu4_3YR-TXibxWacmTBspbPm8k/edit?usp=sharing',
+    slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
     type: 'colab',
-    slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
-    slidesEmbedUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pubembed?start=false&loop=false&delayms=3000',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
     lastModified: '2025-05-20',
     category: 'machine-learning'
@@ -68,19 +64,12 @@ export const debugProjects = () => {
       projectUrl: project.projectUrl || 'Not set',
       colabUrl: project.colabUrl || 'Not set',
       slidesUrl: project.slidesUrl || 'Not set',
-      githubUrl: project.githubUrl || 'Not set',
-      slidesEmbedUrl: project.slidesEmbedUrl || 'Not set'
+      githubUrl: project.githubUrl || 'Not set'
     });
     console.log('Type:', project.type);
     console.log('Tags:', project.tags);
     console.log('Last Modified:', project.lastModified);
     console.log('Category:', project.category);
-    if (project.slidesEmbedId) {
-      console.log('Slides Embed ID:', project.slidesEmbedId);
-    }
-    if (project.slidesEmbedUrl) {
-      console.log('Slides Embed URL:', project.slidesEmbedUrl);
-    }
     if (project.technicalDetails) {
       console.log('Technical Details:', project.technicalDetails);
     }
