@@ -52,3 +52,4 @@ export const projects: Project[] = [
     lastModified: '2025-05-20',
     category: 'machine-learning'
   }
+]
