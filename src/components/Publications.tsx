@@ -60,35 +60,35 @@ const Publications: React.FC = () => {
       url: 'https://doi.org/10.1016/j.jaci.2022.12.377'
     },
     {
-  id: 'basophil-activation-test-bat-2022',
-  authors: [
-    'Ha, J. W.',
-    'Castano, N.',
-    'Cansdale, S.',
-    'Vel, M.',
-    'Tang, S.',
-    'Tsai, M.',
-    'Nadeau, K.',
-    'Galli, S.'
-  ],
-  title: 'Development of basophil activation test (BAT)-based point-of-care diagnostic tool for allergies',
-  journal: 'Journal of Allergy and Clinical Immunology',
-  year: 2022,
-  volume: '149',
-  issue: '(2), AB48',
-  doi: '10.1016/j.jaci.2021.12.188',
-  url: 'https://doi.org/10.1016/j.jaci.2021.12.188'
-    }
+      id: 'basophil-activation-test-bat-2022',
+      authors: [
+        'Ha, J. W.',
+        'Castano, N.',
+        'Cansdale, S.',
+        'Vel, M.',
+        'Tang, S.',
+        'Tsai, M.',
+        'Nadeau, K.',
+        'Galli, S.'
+      ],
+      title: 'Development of basophil activation test (BAT)-based point-of-care diagnostic tool for allergies',
+      journal: 'Journal of Allergy and Clinical Immunology',
+      year: 2022,
+      volume: '149',
+      issue: '(2), AB48',
+      doi: '10.1016/j.jaci.2021.12.188',
+      url: 'https://doi.org/10.1016/j.jaci.2021.12.188'
+    },
     {
-  id: 'brainwave-classification-eeg-neurofeedback-2020',
-  authors: ['Baculi, B.', 'Cansdale, S.'],
-  title: 'Brainwave Classification for EEG-based Neurofeedback',
-  journal: 'Bioengineering Senior Theses',
-  year: 2020,
-  volume: '',
-  issue: '',
-  doi: '',
-  url: 'https://scholarcommons.scu.edu/bioe_senior/91/'
+      id: 'brainwave-classification-eeg-neurofeedback-2020',
+      authors: ['Baculi, B.', 'Cansdale, S.'],
+      title: 'Brainwave Classification for EEG-based Neurofeedback',
+      journal: 'Bioengineering Senior Theses',
+      year: 2020,
+      volume: '',
+      issue: '',
+      doi: '',
+      url: 'https://scholarcommons.scu.edu/bioe_senior/91/'
     }
   ];
 
