@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, Download, FileText, File, MousePointer } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  // Scroll to Hero on mobile devices when component mounts
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768; // md breakpoint
+    
+    if (isMobile) {
+      // Small delay to ensure the component is fully rendered
+      setTimeout(() => {
+        const heroElement = document.querySelector('#home');
+        if (heroElement) {
+          heroElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   const handleDownload = (fileType: 'pdf' | 'docx') => {
     const fileName = fileType === 'pdf' 
       ? 'Stuart_Cansdale_Resume.pdf' 
