@@ -87,12 +87,3 @@ export const debugProjects = () => {
   console.groupEnd();
   return projects;
 };
-
-// Helper function to get project by ID
-export const getProjectById = (id: string): Project | undefined => {
-  return projects.find(project => project.id === id);
-};
-
-export { getProjectById }
-
-export { debugProjects }

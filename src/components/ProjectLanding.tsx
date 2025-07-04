@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Github, FileText, Code } from 'lucide-react';
-import { getProjectById } from '../data/projects';
+import { ArrowLeft, Github, FileText, Code, ExternalLink } from 'lucide-react';
+import { projects } from '../data/projects';
 
 const ProjectLanding: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -15,7 +15,7 @@ const ProjectLanding: React.FC = () => {
     }, 100);
   }, []);
 
-  const project = projectId ? getProjectById(projectId) : null;
+  const project = projectId ? projects.find(p => p.id === projectId) : null;
 
   const handleBackToProjects = () => {
     navigate('/');
