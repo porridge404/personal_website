@@ -230,12 +230,12 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email *
+                    Contact Info *
                   </label>
                   <input
                     type="email"
                     id="email"
-                    name="Contact Info"
+                    name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
