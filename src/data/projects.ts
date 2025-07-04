@@ -46,7 +46,7 @@ export const projects: Project[] = [
       'Demonstrate my technical skills in flow cytometry',
       'Outline how I use my skills to approach experiment design',
       'Summarize the pipelines and goals of my previous role at Allogene Therapeutics'
-    ]
+    ],
     slidesUrl: 'https://docs.google.com/presentation/d/1wTmXt0QeTmE5qFHDgGxjA8CN4l6qejSsrMO6V3Mlbkk/edit?usp=sharing',
     tags: ['Multi-color Flow Cytometry', 'Spectral Flow', 'Cytek Aurora', 'Product Characterization', 'CAR-T', '"Off-the-shelf" Drug Products'],
     lastModified: '2025-05-20',
