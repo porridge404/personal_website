@@ -16,6 +16,10 @@ export interface Project {
   keyFeatures?: string[];
 }
 
+export function getProjectById(projectId: string): Project | undefined {
+  return projects.find(project => project.id === projectId);
+}
+
 export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
@@ -71,7 +75,3 @@ export const projects: Project[] = [
     category: 'biotechnology'
   }
 ];
-
-export function getProjectById(projectId: string): Project | undefined {
-  return projects.find(project => project.id === projectId);
-}
