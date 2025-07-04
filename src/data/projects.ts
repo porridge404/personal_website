@@ -29,8 +29,7 @@ export const projects: Project[] = [
       'Achieve high accuracy in sleep pattern classification',
       'Provide educational framework for understanding ML in healthcare applications'
     ],
-    projectUrl: '',
-    colabUrl: 'https://colab.research.google.com/drive/1RBQoqKxoNutcxip2nh_-MWLqXgEDJiZC?usp=sharing',
+    colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
     type: 'colab',
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
@@ -50,6 +49,7 @@ export const projects: Project[] = [
       'Create standardized protocols for consistent data generation',
       'Enable detailed characterization of CAR-T cell subsets and activation states'
     ],
+    slidesUrl: 'https://docs.google.com/presentation/d/1wTmXt0QeTmE5qFHDgGxjA8CN4l6qejSsrMO6V3Mlbkk/edit?usp=sharing'
     technicalDetails: [
       'Cytek Aurora spectral flow cytometer with 32-color capability',
       'Comprehensive antibody titration and optimization protocols',
@@ -64,14 +64,3 @@ export const projects: Project[] = [
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
     ],
-    projectUrl: '',
-    type: 'slides',
-    tags: ['Flow Cytometry', 'CAR-T Cells', 'Immunology', 'Cell Analysis'],
-    lastModified: '2025-01-15',
-    category: 'biotechnology'
-  }
-];
-
-export function getProjectById(projectId: string): Project | undefined {
-  return projects.find(project => project.id === projectId);
-}
