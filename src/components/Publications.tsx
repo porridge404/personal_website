@@ -86,16 +86,12 @@ const Publications: React.FC = () => {
     // Format pages
     const pages = publication.pages ? `, ${publication.pages}` : '';
     
-    // Format DOI
-    const doi = publication.doi ? ` https://doi.org/${publication.doi}` : '';
-    
     return {
       authors: authorsFormatted,
       year: publication.year,
       title: title,
       journal: journal,
-      pages: pages,
-      doi: doi
+      pages: pages
     };
   };
 
@@ -140,7 +136,7 @@ const Publications: React.FC = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <p className="text-gray-300 leading-relaxed text-base">
-                      <span className="font-medium">{apa.authors}</span> ({apa.year}). {apa.title} <em>{apa.journal}</em>{apa.pages}.{apa.doi}
+                      <span className="font-medium">{apa.authors}</span> ({apa.year}). {apa.title} <em>{apa.journal}</em>{apa.pages}.
                     </p>
                   </div>
 
