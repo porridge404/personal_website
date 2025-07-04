@@ -17,10 +17,10 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
-    title: 'Signal Processing and Machine Learning Demo',
-    description: 'Comprehensive demonstration of EEG signal processing techniques combined with supervised machine learning for brain-computer interface applications. Features real-time signal filtering, feature extraction, and classification algorithms.',
+    title: 'Sleep Data Machine Learning Demo',
+    description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals.',
     goals: [
-      'Demonstrate real-time EEG signal acquisition and preprocessing techniques',
+      'Demonstrate capability to use ',
       'Implement advanced filtering methods for noise reduction and artifact removal',
       'Extract meaningful features from neural signals for classification',
       'Apply supervised machine learning algorithms for motor imagery detection',
@@ -44,8 +44,8 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/porridge404/eeg-signal-processing',
     type: 'colab',
     slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901',
-    tags: ['Signal Processing', 'Machine Learning', 'EEG', 'Python', 'Scikit-learn', 'Brain-Computer Interface'],
-    lastModified: '2024-01-20',
+    tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
+    lastModified: '2025-05-20',
     category: 'machine-learning'
   },
   {
