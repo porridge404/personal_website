@@ -41,7 +41,6 @@ export const projects: Project[] = [
       'Performance metrics and statistical analysis of results'
     ],
     projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-    githubUrl: 'https://github.com/porridge404/eeg-signal-processing',
     type: 'colab',
     slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
