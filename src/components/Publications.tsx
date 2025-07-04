@@ -15,7 +15,7 @@ interface Publication {
 const Publications: React.FC = () => {
   const publications: Publication[] = [
     {
-      id: 'eeg-bci-2020',
+      id: 'air-pollution-pregnancy-2024',
       authors: [
         'Jung, Y. S.',
         'Aguilera, J.',
@@ -49,7 +49,7 @@ const Publications: React.FC = () => {
       url: 'https://doi.org/10.1126/sciadv.adp5227'
     },
     {
-      id: 'car-t-characterization-2023',
+      id: 'air-pollution-pregnancy-2023',
       authors: ['Ha, J. W.', 'Aguilera, J.', 'Jung, Y. S.', 'Cansdale, S.', 'Lurmann, F.', 'Lutzker, L.', 'Hammond, K.', 'Balmes, J.', 'Noth, E.', 'Eisen, E.', 'Aghaeepour, N.', 'Shaw, G.', 'Waldrop, A.', 'Khatri, P.', 'Utz, P. J.', 'Rosenburg-Hasson, Y.', 'Maecker, H.', 'Burt, T.', 'Nadeau, K.', 'Prunicki, M.'],
       title: 'The impacts of ambient air pollution exposure during pregnancy on maternal and neonatal inflammatory biomarkers',
       journal: 'Journal of Allergy and Clinical Immunology',
