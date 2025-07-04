@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, FileText, Code } from 'lucide-react';
 import { getProjectById } from '../data/projects';
 
 const ProjectLanding: React.FC = () => {
@@ -89,17 +89,28 @@ const ProjectLanding: React.FC = () => {
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
             <h3 className="text-xl font-bold text-white mb-4">Project Links:</h3>
             <div className="flex flex-wrap gap-4">
-              <a
-                href={project.projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                <ExternalLink size={20} />
-                <span>
-                  {project.type === 'colab' ? 'Open in Google Colab' : 'Open in Google Slides'}
-                </span>
-              </a>
+              {project.colabUrl && (
+                <a
+                  href={project.colabUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <Code size={20} />
+                  <span>Open in Google Colab</span>
+                </a>
+              )}
+              {project.slidesUrl && (
+                <a
+                  href={project.slidesUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <FileText size={20} />
+                  <span>Open in Google Slides</span>
+                </a>
+              )}
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
@@ -109,6 +120,17 @@ const ProjectLanding: React.FC = () => {
                 >
                   <Github size={20} />
                   <span>View on GitHub</span>
+                </a>
+              )}
+              {!project.colabUrl && !project.slidesUrl && (
+                <a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <ExternalLink size={20} />
+                  <span>View Project</span>
                 </a>
               )}
             </div>
@@ -171,14 +193,25 @@ const ProjectLanding: React.FC = () => {
               </div>
               <p className="text-gray-400 text-sm mt-4">
                 Use the controls above to navigate through the presentation, or{' '}
-                <a
-                  href={project.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  open in Google Slides
-                </a>
+                {project.slidesUrl ? (
+                  <a
+                    href={project.slidesUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                  >
+                    open in Google Slides
+                  </a>
+                ) : (
+                  <a
+                    href={project.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                  >
+                    open in Google Slides
+                  </a>
+                )}
                 {' '}for full functionality.
               </p>
             </div>

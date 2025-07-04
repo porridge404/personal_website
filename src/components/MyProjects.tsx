@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, ExternalLink, Github } from 'lucide-react';
+import { Calendar, ExternalLink, Github, FileText, Code } from 'lucide-react';
 import { projects } from '../data/projects';
 
 const MyProjects: React.FC = () => {
@@ -50,7 +50,25 @@ const MyProjects: React.FC = () => {
                   </div>
                   
                   {/* External Links */}
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2">
+                    {project.colabUrl && (
+                      <button
+                        onClick={(e) => handleExternalLink(e, project.colabUrl!)}
+                        className="p-2 text-gray-400 hover:text-orange-400 transition-colors rounded-lg hover:bg-slate-700"
+                        title="Open in Google Colab"
+                      >
+                        <Code size={16} />
+                      </button>
+                    )}
+                    {project.slidesUrl && (
+                      <button
+                        onClick={(e) => handleExternalLink(e, project.slidesUrl!)}
+                        className="p-2 text-gray-400 hover:text-blue-400 transition-colors rounded-lg hover:bg-slate-700"
+                        title="Open in Google Slides"
+                      >
+                        <FileText size={16} />
+                      </button>
+                    )}
                     {project.githubUrl && (
                       <button
                         onClick={(e) => handleExternalLink(e, project.githubUrl!)}
@@ -63,7 +81,7 @@ const MyProjects: React.FC = () => {
                     <button
                       onClick={(e) => handleExternalLink(e, project.projectUrl)}
                       className="p-2 text-gray-400 hover:text-emerald-400 transition-colors rounded-lg hover:bg-slate-700"
-                      title={project.type === 'colab' ? 'Open in Google Colab' : 'Open in Google Slides'}
+                      title="View Project Details"
                     >
                       <ExternalLink size={16} />
                     </button>

@@ -4,6 +4,8 @@ export interface Project {
   description: string;
   goals: string[];
   projectUrl: string;
+  colabUrl?: string;
+  slidesUrl?: string;
   githubUrl?: string;
   type: 'colab' | 'slides' | 'github';
   slidesEmbedId?: string;
@@ -20,18 +22,21 @@ export const projects: Project[] = [
     title: 'Sleep Data Machine Learning Demo',
     description: 'This is a project I put together for a sleep AI company interview to showcase machine learning and presentation fundamentals.',
     goals: [
-      'Demonstrate capability to use ',
-      'Implement advanced filtering methods for noise reduction and artifact removal',
-      'Extract meaningful features from neural signals for classification',
-      'Apply supervised machine learning algorithms for motor imagery detection',
-      'Achieve high accuracy in brain-computer interface control applications',
-      'Provide educational framework for understanding neural signal processing'
+      'Demonstrate capability to apply machine learning to biological datasets',
+      'Implement data preprocessing and feature engineering techniques',
+      'Compare performance of different classification algorithms',
+      'Apply supervised machine learning algorithms for sleep stage detection',
+      'Achieve high accuracy in sleep pattern classification',
+      'Provide educational framework for understanding ML in healthcare applications'
     ],
     projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    colabUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
+    // githubUrl: '', // No GitHub URL for this project
     type: 'colab',
     slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
-    lastModified: '2025-05-20',
+    lastModified: '2025-01-20',
     category: 'machine-learning'
   },
   {
@@ -61,6 +66,8 @@ export const projects: Project[] = [
       'Validation results across multiple manufacturing runs'
     ],
     projectUrl: 'https://docs.google.com/presentation/d/1Def456GhiJkl789MnoPqr012StuVwx345YzaB678/edit',
+    slidesUrl: 'https://docs.google.com/presentation/d/1Def456GhiJkl789MnoPqr012StuVwx345YzaB678/edit',
+    githubUrl: 'https://github.com/porridge404/flow-cytometry-panel-design',
     type: 'slides',
     slidesEmbedId: '1Def456GhiJkl789MnoPqr012StuVwx345YzaB678',
     tags: ['Flow Cytometry', 'Cell Therapy', 'CAR-T', 'Immunology', 'Panel Design', 'Data Analysis'],
