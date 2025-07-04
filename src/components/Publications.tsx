@@ -55,7 +55,7 @@ const Publications: React.FC = () => {
   ];
 
   const formatAPA = (publication: Publication) => {
-    // Format authors according to APA style with highlighting for Cansdale, S.
+    // Format authors according to APA style
     let authorsFormatted = '';
     if (publication.authors.length === 1) {
       authorsFormatted = publication.authors[0];
@@ -91,35 +91,34 @@ const Publications: React.FC = () => {
   };
 
   const renderAuthorsWithHighlight = (authorsString: string) => {
-    // Split by commas and process each author
-    const parts = authorsString.split(', ');
+    // Split the string and look for "Cansdale, S."
+    const parts = authorsString.split('Cansdale, S.');
+    
+    if (parts.length === 1) {
+      // No "Cansdale, S." found, return as is
+      return <span>{authorsString}</span>;
+    }
+    
+    // "Cansdale, S." was found, render with highlighting
     const result: React.ReactNode[] = [];
     
     parts.forEach((part, index) => {
-      // Check if this part contains "Cansdale, S."
-      if (part.includes('Cansdale, S.')) {
-        // Replace "Cansdale, S." with highlighted version
-        const highlighted = part.replace(
-          'Cansdale, S.',
-          '<span class="text-emerald-400 font-semibold">Cansdale, S.</span>'
-        );
-        result.push(
-          <span 
-            key={index} 
-            dangerouslySetInnerHTML={{ __html: highlighted }}
-          />
-        );
-      } else {
-        result.push(<span key={index}>{part}</span>);
+      // Add the text part
+      if (part) {
+        result.push(<span key={`part-${index}`}>{part}</span>);
       }
       
-      // Add comma separator except for last item
+      // Add highlighted "Cansdale, S." between parts (except after the last part)
       if (index < parts.length - 1) {
-        result.push(<span key={`comma-${index}`}>, </span>);
+        result.push(
+          <span key={`highlight-${index}`} className="text-emerald-400 font-semibold">
+            Cansdale, S.
+          </span>
+        );
       }
     });
     
-    return result;
+    return <>{result}</>;
   };
 
   const handlePublicationClick = (url: string) => {
