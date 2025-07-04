@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ hideOnInteractiveResume = false }) => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Interactive Résumé', href: '#interactive-resume' },
+    { name: 'Interactive Resume', href: '#interactive-resume' },
     { name: 'My Projects', href: '#my-projects' },
     { name: 'Publications', href: '#publications' },
     { name: 'Connect', href: '#connect' },
