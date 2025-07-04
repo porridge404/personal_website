@@ -29,7 +29,7 @@ export const projects: Project[] = [
     ],
     projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     type: 'colab',
-    slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901',
+    slidesEmbedId: '2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
     lastModified: '2025-05-20',
     category: 'machine-learning'
