@@ -18,9 +18,12 @@ const ProjectLanding: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
 
-  // Scroll to top when component mounts
+  // Scroll to top when component mounts with a small delay to prevent iframe interference
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Small delay to ensure the component renders before scrolling
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
   }, []);
 
   // Project data - you can modify these URLs and embed IDs in the code
