@@ -27,7 +27,7 @@ export const projects: Project[] = [
       'Independtly source and process labeled sleep data'
     ],
     colabUrl: 'https://colab.research.google.com/drive/1RBQoqKxoNutcxip2nh_-MWLqXgEDJiZC?usp=sharing',
-    slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
+    slidesUrl: 'https://docs.google.com/presentation/d/1t1CxvhPpHPQ6Dp25kdu4_3YR-TXibxWacmTBspbPm8k/edit?usp=sharing',
     type: 'colab',
     tags: ['Machine Learning', 'Python', 'Random Forest', 'Logistic Regression', 'Scikit-learn'],
     lastModified: '2025-05-20',
