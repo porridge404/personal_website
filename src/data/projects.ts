@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   description: string;
   goals: string[];
-  projectUrl: string;
+  projectUrl?: string; // Made optional
   colabUrl?: string;
   slidesUrl?: string;
   githubUrl?: string;
@@ -33,7 +33,6 @@ export const projects: Project[] = [
       'Achieve high accuracy in sleep pattern classification',
       'Provide educational framework for understanding ML in healthcare applications'
     ],
-    projectUrl: '',
     colabUrl: 'https://colab.research.google.com/drive/1RBQoqKxoNutcxip2nh_-MWLqXgEDJiZC?usp=sharing',
     slidesUrl: 'https://docs.google.com/presentation/d/e/2PACX-1vSdQb_nG-0_b2aXIlR2InlQj7Nbd3QsAX4gTaAVH5tsS1fzgqDUPggurF1CT3A0pFx2-t2PO35eEuYT/pub',
     type: 'colab',
@@ -68,7 +67,6 @@ export const projects: Project[] = [
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
     ],
-    projectUrl: '',
     type: 'slides',
     tags: ['Flow Cytometry', 'CAR-T Cells', 'Immunology', 'Cell Analysis', 'Biotechnology'],
     lastModified: '2024-12-15',
