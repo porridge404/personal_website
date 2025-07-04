@@ -40,13 +40,16 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Mobile Header Buffer */}
+      <div className="md:hidden absolute top-0 left-0 right-0 h-20 bg-transparent pointer-events-none"></div>
+      
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]"></div>
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto mt-16 md:mt-0">
         <div className="animate-fade-in">
           {/* Added top spacing before the introduction */}
           <div className="mb-8"></div>

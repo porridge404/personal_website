@@ -69,9 +69,10 @@ const Header: React.FC<HeaderProps> = ({ timelineData, selectedEntry, setSelecte
               <div 
                 ref={timelineRef}
                 className="overflow-x-auto scrollbar-hide"
+                style={{ direction: 'rtl' }}
               >
-                <div className="flex space-x-2 min-w-max">
-                  {[...timelineData].reverse().map((entry) => (
+                <div className="flex space-x-2 min-w-max" style={{ direction: 'ltr' }}>
+                  {timelineData.map((entry) => (
                     <button
                       key={entry.id}
                       onClick={() => setSelectedEntry(entry)}
