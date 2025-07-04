@@ -62,3 +62,10 @@ export const projects: Project[] = [
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
     ],
+    projectUrl: 'https://example.com/flow-cytometry-panel',
+    type: 'slides',
+    tags: ['Flow Cytometry', 'CAR-T Cells', 'Immunology', 'Protocol Development'],
+    lastModified: '2025-01-15',
+    category: 'biotechnology'
+  }
+];
