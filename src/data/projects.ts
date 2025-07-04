@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: 'Multicolor Flow Cytometry Panel Design',
     description: 'Presentation I gave for an interview talking about the work I contributed to at Allogene Therapeutics without breaking NDA. I provided an overview on "off-the-shelf" CAR-T and detailed the methodology of the 32-color flow cytometry panel I designed to screen starting material for donor differences.',
     goals: [
-      'Demonstrate my technical skills in flow cytometry'
+      'Demonstrate my technical skills in flow cytometry',
       'Outline how I use my skills to approach experiment design',
       'Summarize the pipelines and goals of my previous role at Allogene Therapeutics'
     ]
