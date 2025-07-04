@@ -16,6 +16,11 @@ export interface Project {
   keyFeatures?: string[];
 }
 
+// Function to get a project by its ID
+export const getProjectById = (projectId: string): Project | undefined => {
+  return projects.find(project => project.id === projectId);
+};
+
 export const projects: Project[] = [
   {
     id: 'signal-processing-ml',
