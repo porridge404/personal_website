@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
@@ -17,6 +17,11 @@ interface Project {
 const ProjectLanding: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Project data - you can modify these URLs and embed IDs in the code
   const projects: Record<string, Project> = {
@@ -89,7 +94,7 @@ const ProjectLanding: React.FC = () => {
   const project = projectId ? projects[projectId] : null;
 
   const handleBackToProjects = () => {
-    navigate('/', { replace: true });
+    navigate('/');
     // Small delay to ensure navigation completes before scrolling
     setTimeout(() => {
       const element = document.querySelector('#my-projects');
@@ -139,7 +144,7 @@ const ProjectLanding: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {project.title}
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-white max-w-2xl mx-auto">
               {project.description}
             </p>
           </div>
