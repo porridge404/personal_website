@@ -16,10 +16,10 @@ const Publications: React.FC = () => {
   const publications: Publication[] = [
     {
       id: 'eeg-bci-2020',
-      authors: ['Cansdale, Stuart', 'Jane Smith', 'Michael Johnson'],
-      title: 'Real-time EEG Signal Processing for Brain-Computer Interface Applications',
-      journal: 'Journal of Neural Engineering',
-      year: 2020,
+      authors: ['Jung, Y. S.', 'Aguilera, J.', 'Kaushik, A.', 'Ha, J. W.', 'Cansdale, S.', 'Nadeau, K.', 'et al.'],
+      title: 'Impact of air pollution exposure on cytokines and histone modification profiles at single-cell levels during pregnancy.',
+      journal: 'Science Advances',
+      year: 2024,
       month: 'June',
       pages: '123-145',
       doi: '10.1088/1741-2552/ab1234',
@@ -48,7 +48,7 @@ const Publications: React.FC = () => {
       url: 'https://placeholder-link-3.com'
     },
     {
-      id: 'bioengineering-conference-2019',
+      id: 'undergrad-paper',
       authors: ['Cansdale, Stuart', 'Kevin Park', 'Jennifer Lee'],
       title: 'Microfluidic Device Design for Single-Cell Analysis in Cancer Research',
       journal: 'Proceedings of the Annual Bioengineering Conference',
