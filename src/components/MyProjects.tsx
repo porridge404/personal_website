@@ -55,7 +55,7 @@ const MyProjects: React.FC = () => {
                       <button
                         onClick={(e) => handleExternalLink(e, project.colabUrl!)}
                         className="p-2 text-gray-400 hover:text-orange-400 transition-colors rounded-lg hover:bg-slate-700"
-                        title="Open in Google Colab"
+                        title="Open Project in Google Colab"
                       >
                         <Code size={16} />
                       </button>
@@ -63,8 +63,8 @@ const MyProjects: React.FC = () => {
                     {project.slidesUrl && (
                       <button
                         onClick={(e) => handleExternalLink(e, project.slidesUrl!)}
-                        className="p-2 text-gray-400 hover:text-blue-400 transition-colors rounded-lg hover:bg-slate-700"
-                        title="Open in Google Slides"
+                        className="p-2 text-gray-400 hover:text-yellow-400 transition-colors rounded-lg hover:bg-slate-700"
+                        title="Open Presentation in Google Slides"
                       >
                         <FileText size={16} />
                       </button>

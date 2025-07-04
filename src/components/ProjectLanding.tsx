@@ -97,7 +97,7 @@ const ProjectLanding: React.FC = () => {
                   className="inline-flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   <Code size={20} />
-                  <span>Open in Google Colab</span>
+                  <span>Open Project in Google Colab</span>
                 </a>
               )}
               {project.slidesUrl && (
@@ -105,10 +105,10 @@ const ProjectLanding: React.FC = () => {
                   href={project.slidesUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  className="inline-flex items-center space-x-2 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   <FileText size={20} />
-                  <span>Open in Google Slides</span>
+                  <span>Open Presentation in Google Slides</span>
                 </a>
               )}
               {project.githubUrl && (
