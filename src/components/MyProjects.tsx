@@ -1,10 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ExternalLink, Github, FileText, Code } from 'lucide-react';
-import { projects } from '../data/projects';
+import { projects, debugProjects } from '../data/projects';
 
 const MyProjects: React.FC = () => {
   const navigate = useNavigate();
+
+  // Debug function for easy inspection
+  console.log('Projects data:', debugProjects());
 
   const handleProjectClick = (projectId: string) => {
     navigate(`/project/${projectId}`);

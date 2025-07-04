@@ -20,6 +20,12 @@ export function getProjectById(projectId: string): Project | undefined {
   return projects.find(project => project.id === projectId);
 }
 
+// Debug function for easy inspection
+export function debugProjects() {
+  console.log('Projects data:', projects);
+  return projects;
+}
+
 export const projects: Project[] = [
   {
     id: 'signal-processing-ml',

@@ -85,45 +85,58 @@ const ProjectLanding: React.FC = () => {
             ))}
           </div>
 
-          {/* Project Links */}
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
-            <h3 className="text-xl font-bold text-white mb-4">Project Links:</h3>
-            <div className="flex flex-wrap gap-4">
-              {project.colabUrl && (
-                <a
-                  href={project.colabUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-orange-800 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <Code size={20} />
-                  <span>Open Project in Google Colab</span>
-                </a>
-              )}
-              {project.slidesUrl && (
-                <a
-                  href={project.slidesUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-yellow-800 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <FileText size={20} />
-                  <span>Open Presentation in Google Slides</span>
-                </a>
-              )}
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-slate-700 border border-slate-600 hover:border-slate-500 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <Github size={20} />
-                  <span>View on GitHub</span>
-                </a>
-              )}
+          {/* Project Links - Only show if there are links */}
+          {(project.colabUrl || project.slidesUrl || project.githubUrl || project.projectUrl) && (
+            <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
+              <h3 className="text-xl font-bold text-white mb-4">Project Links:</h3>
+              <div className="flex flex-wrap gap-4">
+                {project.colabUrl && (
+                  <a
+                    href={project.colabUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-orange-800 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  >
+                    <Code size={20} />
+                    <span>Open Project in Google Colab</span>
+                  </a>
+                )}
+                {project.slidesUrl && (
+                  <a
+                    href={project.slidesUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-yellow-800 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  >
+                    <FileText size={20} />
+                    <span>Open Presentation in Google Slides</span>
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-slate-700 border border-slate-600 hover:border-slate-500 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  >
+                    <Github size={20} />
+                    <span>View on GitHub</span>
+                  </a>
+                )}
+                {project.projectUrl && (
+                  <a
+                    href={project.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-emerald-800 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  >
+                    <ExternalLink size={20} />
+                    <span>Open Project</span>
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Project Goals */}
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-8">
@@ -173,8 +186,12 @@ const ProjectLanding: React.FC = () => {
             <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
               <h3 className="text-xl font-bold text-white mb-6">Presentation Preview:</h3>
               <div className="aspect-video bg-slate-700 rounded-lg overflow-hidden">
-                <iframe src="https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-                </iframe>
+                <iframe 
+                  src={`https://docs.google.com/presentation/d/e/${project.slidesEmbedId}/embed?start=false&loop=false&delayms=3000`} 
+                  className="w-full h-full"
+                  allowFullScreen
+                  title={project.title}
+                />
               </div>
               <p className="text-gray-400 text-sm mt-4">
                 Use the controls above to navigate through the presentation, or{' '}
