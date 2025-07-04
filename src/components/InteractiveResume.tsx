@@ -73,11 +73,7 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Palo Alto, CA',
       employmentType: 'Part-time',
       type: 'work',
-      description: `After my break I used my event hosting skills
-as a Retail Associate at my local Mom and Pop game store while
-searching for new opportunities in tech and applying to graduate school.
-
-Unfortunately many graduate programs were defunded at the start of 2025 so I was not able to join a program`,
+      description: 'After my break, I used my event hosting skills as a Retail Associate at my local Mom and Pop game store while searching for new opportunities in tech and applying to graduate school. Unfortunately many graduate programs were defunded at the start of 2025 so I was not able to join a program',
       responsibilities: [
         'Hosting various Trading Card Game events',
         'Managing inventory and restocking retail space',
