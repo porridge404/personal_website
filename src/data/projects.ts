@@ -27,19 +27,6 @@ export const projects: Project[] = [
       'Achieve high accuracy in brain-computer interface control applications',
       'Provide educational framework for understanding neural signal processing'
     ],
-    technicalDetails: [
-      'Real-time signal processing using Python and NumPy',
-      'Bandpass filtering and Common Spatial Pattern (CSP) feature extraction',
-      'Support Vector Machine (SVM) and Random Forest classification',
-      'Cross-validation and hyperparameter optimization',
-      'Integration with OpenBCI hardware for live data acquisition'
-    ],
-    keyFeatures: [
-      'Interactive Jupyter notebook with step-by-step explanations',
-      'Visualization of signal processing stages and classification results',
-      'Modular code structure for easy adaptation to different datasets',
-      'Performance metrics and statistical analysis of results'
-    ],
     projectUrl: 'https://colab.research.google.com/drive/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
     type: 'colab',
     slidesEmbedId: '1Xyz789AbcDef012GhiJkl345MnoPqr678StuVwx901',
