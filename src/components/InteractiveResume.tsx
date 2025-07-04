@@ -81,8 +81,8 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
         'Training new associates'
       ],
       achievements: [
-        'Winner of the National “Hobby Shop of the Year 2024” awarded by TCGPlayer',
-        'Winner of “Best of Peninsula 2024: Best Place to Take Your Kid” Reader’s Choice awarded by Mercury News'
+        'Winner of the National "Hobby Shop of the Year 2024" awarded by TCGPlayer',
+        'Winner of "Best of Peninsula 2024: Best Place to Take Your Kid" Reader's Choice awarded by Mercury News'
       ],
       skills: ['Event Hosting', 'Customer Service', 'Inventory Management', 'Teamwork', 'Shopify'],
       logoUrl: '/custom-logos/career-search.svg' // Example custom logo
@@ -95,7 +95,9 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
       location: 'Palo Alto, CA',
       employmentType: 'Full-time',
       type: 'work',
-      description: "Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic.\n\nDuring this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a DJ and MC for weddings and corporate events. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.",
+      description: `Following industry-wide layoffs, I used the opportunity to take a break originally planned for after graduation. Unfortunately I wasn't able to take that break due to graduating during the height of the COVID-19 pandemic.
+
+During this time, I reconnected with out-of-state and international family, pursued my passion for music production, and worked as a DJ and MC for weddings and corporate events. This intentional pause allowed me to recharge creatively and return with fresh perspective and renewed focus for the next phase of my career.`,
       responsibilities: [],
       achievements: [],
       skills: ['Event Hosting and Public Speaking', 'Teamwork and Coordination with Weddings Planners and Event Staff', 'Audio Equipment setup, operation, and troubleshooting'],
@@ -333,10 +335,10 @@ const InteractiveResume: React.FC<InteractiveResumeProps> = ({ setIsInteractiveR
             <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1">
               <div className="relative max-h-[600px] overflow-y-auto pl-4 pr-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
                 {/* Vertical Line - Centered on the 12px (w-3 h-3) icons */}
-                <div className="absolute left-[22px] top-0 bottom-0 w-0.5 bg-slate-600"></div>
+                <div className="absolute left-[22px] top-0 w-0.5 bg-slate-600" style={{ height: 'calc(100% + 32px)' }}></div>
                 
                 {/* Timeline Entries */}
-                <div className="space-y-8">
+                <div className="space-y-8 pb-16">
                   {timelineData.map((entry, index) => (
                     <div
                       key={entry.id}
