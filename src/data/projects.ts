@@ -47,7 +47,7 @@ export const projects: Project[] = [
     slidesUrl: 'https://docs.google.com/presentation/d/1wTmXt0QeTmE5qFHDgGxjA8CN4l6qejSsrMO6V3Mlbkk/edit?usp=sharing',
     type: 'slides',
     tags: ['Multi-color Flow Cytometry', 'Spectral Flow', 'Cytek Aurora', 'Product Characterization', 'CAR-T', '"Off-the-shelf" Drug Products'],
-    lastModified: '2025-05-20',
+    lastModified: '2025-04-15',
     category: 'biotechnology'
   }
 ];
