@@ -64,3 +64,10 @@ export const projects: Project[] = [
       'Data analysis workflows and interpretation guidelines',
       'Validation results across multiple manufacturing runs'
     ],
+    projectUrl: '',
+    type: 'slides',
+    tags: ['Flow Cytometry', 'CAR-T Cells', 'Immunology', 'Cell Analysis', 'Biotechnology'],
+    lastModified: '2024-12-15',
+    category: 'biotechnology'
+  }
+];
