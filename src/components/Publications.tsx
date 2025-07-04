@@ -6,6 +6,7 @@ interface Publication {
   title: string;
   journal: string;
   year: number;
+  month: string;
   pages?: string;
   doi?: string;
   url?: string;
@@ -19,6 +20,7 @@ const Publications: React.FC = () => {
       title: 'Real-time EEG Signal Processing for Brain-Computer Interface Applications',
       journal: 'Journal of Neural Engineering',
       year: 2020,
+      month: 'June',
       pages: '123-145',
       doi: '10.1088/1741-2552/ab1234',
       url: 'https://iopscience.iop.org/article/10.1088/1741-2552/ab1234'
@@ -29,6 +31,7 @@ const Publications: React.FC = () => {
       title: 'Multi-parameter Flow Cytometry Analysis of CAR-T Cell Products: A Comprehensive Characterization Approach',
       journal: 'Cytotherapy',
       year: 2023,
+      month: 'March',
       pages: '567-582',
       doi: '10.1016/j.jcyt.2023.01.234',
       url: 'https://www.sciencedirect.com/science/article/pii/S1465324923001234'
@@ -39,6 +42,7 @@ const Publications: React.FC = () => {
       title: 'Machine Learning Approaches for Sleep Stage Classification Using Wearable Device Data',
       journal: 'Sleep Medicine Reviews',
       year: 2024,
+      month: 'January',
       pages: '89-104',
       doi: '10.1016/j.smrv.2024.01.567',
       url: 'https://www.sciencedirect.com/science/article/pii/S1087079224001567'
@@ -49,6 +53,7 @@ const Publications: React.FC = () => {
       title: 'Microfluidic Device Design for Single-Cell Analysis in Cancer Research',
       journal: 'Proceedings of the Annual Bioengineering Conference',
       year: 2019,
+      month: 'September',
       pages: '234-241',
       url: 'https://conference.bioengineering.org/proceedings/2019/cansdale-microfluidics'
     }
@@ -77,19 +82,32 @@ const Publications: React.FC = () => {
           {publications.map((publication) => (
             <div
               key={publication.id}
-              className="bg-slate-700 border border-slate-600 rounded-lg p-6"
+              className="bg-slate-700 border border-slate-600 rounded-lg overflow-hidden"
             >
-              <div className="mb-4">
-                <p className="text-gray-300 leading-relaxed text-base">
-                  {formatMLA(publication)}
-                </p>
+              {/* Title Header */}
+              <div className="flex items-center justify-between p-4 bg-slate-600 border-b border-slate-500">
+                <h3 className="text-lg font-semibold text-white truncate pr-4">
+                  {publication.title}
+                </h3>
+                <div className="text-sm text-gray-300 whitespace-nowrap">
+                  {publication.month} {publication.year}
+                </div>
               </div>
 
-              {publication.doi && (
-                <div className="text-sm text-gray-400">
-                  DOI: {publication.doi}
+              {/* Citation Content */}
+              <div className="p-6">
+                <div className="mb-4">
+                  <p className="text-gray-300 leading-relaxed text-base">
+                    {formatMLA(publication)}
+                  </p>
                 </div>
-              )}
+
+                {publication.doi && (
+                  <div className="text-sm text-gray-400">
+                    DOI: {publication.doi}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
